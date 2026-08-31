@@ -4,7 +4,7 @@
   const $ = id => document.getElementById(id);
 
   const state = AEVF.defaults();
-  let sortKey = 'phi', sortDir = -1, filter = '', openRow = null;
+  let sortKey = 'domain', sortDir = 1, filter = '', domainFilter = '', openRow = null;
 
   const fmtUSD = v => {
     if (v >= 1000) return '$' + Math.round(v).toLocaleString('en-US');
@@ -65,6 +65,55 @@
   };
 
   $('search').oninput = e => { filter = e.target.value.toLowerCase(); openRow = null; renderTable(window.__results); };
+
+  // industry filter chips
+  const DOMAINS = [...new Set(D.tasks.map(t => t.domain))];
+  const chipBox = $('chips');
+  const chipDefs = [['', 'All industries']].concat(DOMAINS.map(d => [d, d]));
+  chipBox.innerHTML = chipDefs.map(([v, label]) => {
+    const n = v ? D.tasks.filter(t => t.domain === v).length : D.tasks.length;
+    return `<button data-d="${v}" class="${v === '' ? 'on' : ''}">${label}<span class="n">${n}</span></button>`;
+  }).join('');
+  chipBox.querySelectorAll('button').forEach(b => {
+    b.onclick = () => {
+      domainFilter = b.dataset.d;
+      chipBox.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
+      openRow = null;
+      renderTable(window.__results);
+    };
+  });
+
+  // plain-English explanations, shown on hover over column headers and stat tiles
+  const HELP = {
+    name: 'One discrete, buyable output. Click a row for the full task card, cost breakdown, and sources.',
+    V: 'V · what buyers pay a human or firm for this outcome today. Sourced and cited per task. This is the bar the AI has to beat.',
+    fcso: 'C / R · the all-in cost for the AI to deliver one ACCEPTED output: tokens, tools, human review, overhead, and expected error cost, with failed attempts priced in. The task is inside the frontier when this is below the market price.',
+    tcevo: 'Token cost per economically viable output · inference spend alone, per accepted output. The token-efficiency number: once a task clears viability, volume should flow to whichever model minimizes this.',
+    phi: 'Viability ratio · expected value per dollar of production cost (R x V, divided by C). Above 1 = inside the frontier. A 10 means one dollar of AI cost supports ten dollars of expected value.',
+    ccr: 'Cost compression · how many times cheaper the AI is than the human: market price divided by all-in AI cost per success. 40x is a different production function, not a productivity gain.',
+    R: 'Reliability · the probability a professional accepts the output, anchored to published evidence, not benchmark scores. Failures make every success cost more, which is why costs are divided by R.',
+    confidence: 'Confidence grade · how well sourced this row is. A = observed prices and strong evidence; B = mostly observed; C = derived or thin evidence; D = speculative.'
+  };
+  const TILE_HELP = {
+    'stat-share': 'The headline. Share of the basket (weighted by task value, or equally) where the AI is both cheaper than the human all-in AND clears the task’s minimum reliability floor. The cost-only share is shown beneath it.',
+    'stat-count': 'Raw counts: tasks where AI cost per accepted output is below the human price / tasks that also meet their reliability floor.',
+    'stat-phi': 'Median viability ratio across all 50 tasks: expected dollars of value supported by one dollar of AI production cost.',
+    'stat-ccr': 'Median cost compression: how many times cheaper the AI process is than the human market price, all-in.'
+  };
+  document.querySelectorAll('thead th').forEach(th => {
+    const help = HELP[th.dataset.k];
+    if (help) {
+      th.setAttribute('title', help);
+      th.addEventListener('mousemove', e => showTip(`<div style="max-width:260px">${help}</div>`, e.clientX, e.clientY));
+      th.addEventListener('mouseleave', hideTip);
+    }
+  });
+  Object.entries(TILE_HELP).forEach(([id, help]) => {
+    const tile = $(id).closest('.tile');
+    tile.setAttribute('title', help);
+    tile.addEventListener('mousemove', e => showTip(`<div style="max-width:260px">${help}</div>`, e.clientX, e.clientY));
+    tile.addEventListener('mouseleave', hideTip);
+  });
 
   document.querySelectorAll('thead th').forEach(th => {
     th.onclick = () => {
@@ -191,8 +240,14 @@
 
   function renderTable(results) {
     const rows = D.tasks.map((t, i) => ({ t, r: results[i] }))
-      .filter(({ t }) => !filter || (t.name + ' ' + t.domain).toLowerCase().includes(filter));
+      .filter(({ t }) => (!domainFilter || t.domain === domainFilter) &&
+        (!filter || (t.name + ' ' + t.domain).toLowerCase().includes(filter)));
     rows.sort((a, b) => {
+      // default view: grouped by industry, best Phi first within each group
+      if (sortKey === 'domain') {
+        const d = a.t.domain.localeCompare(b.t.domain) * sortDir;
+        return d !== 0 ? d : b.r.phi - a.r.phi;
+      }
       let va, vb;
       if (sortKey === 'name') { va = a.t.name; vb = b.t.name; }
       else if (sortKey === 'confidence') { va = a.t.confidence; vb = b.t.confidence; }
