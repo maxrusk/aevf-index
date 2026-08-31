@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEVF Index · Theseus</title>
+  <meta name="description" content="The AI Economic Viability Frontier: a live index of 50 economically meaningful tasks, measuring when AI production cost falls below willingness to pay.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --background: #fbfbf9;
+      --foreground: #111111;
+      --muted: #6f6f6a;
+      --hairline: #e6e5e0;
+      --accent: #1e3a5f;
+      --viable: #3b6ea5;
+      --nonviable: #c07a38;
+      --serif: 'Spectral', Georgia, serif;
+      --sans: 'Geist', -apple-system, system-ui, sans-serif;
+      --mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { color-scheme: light; }
+    body {
+      background: var(--background);
+      color: var(--foreground);
+      font-family: var(--serif);
+      font-size: 17px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    ::selection { background: var(--accent); color: #fff; }
+    a { color: inherit; text-decoration: underline; text-decoration-thickness: from-font; text-underline-offset: 4px; }
+    a:hover { opacity: 0.7; }
+    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+    .narrow { max-width: 720px; }
+
+    header.site { padding: 48px 0 0; }
+    .brandline { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
+    .wordmark { font-family: var(--sans); font-weight: 500; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; }
+    .brandline nav { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: flex; gap: 24px; }
+    .brandline nav a { text-decoration: none; color: inherit; }
+
+    .kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
+    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 5vw, 52px); line-height: 1.12; margin: 18px 0 20px; letter-spacing: -0.01em; }
+    .lede { font-size: 19px; color: #333; max-width: 640px; }
+    .lede em { font-style: italic; }
+
+    .notice {
+      margin: 36px 0 0; padding: 14px 18px; border: 1px solid var(--hairline);
+      font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--muted); background: #f6f5f1;
+    }
+    .notice strong { color: var(--foreground); font-weight: 600; }
+
+    .section-label {
+      font-family: var(--sans); font-weight: 500; font-size: 12px; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--muted); padding: 56px 0 18px;
+    }
+
+    /* stat tiles */
+    .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+    .tile { background: var(--background); padding: 22px 22px 18px; }
+    .tile .t-label { font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .tile .t-value { font-family: var(--mono); font-size: 34px; font-weight: 500; margin-top: 8px; font-variant-numeric: tabular-nums; }
+    .tile .t-sub { font-family: var(--sans); font-size: 12.5px; color: var(--muted); margin-top: 4px; }
+
+    /* assumptions */
+    .panel { border: 1px solid var(--hairline); padding: 24px; margin-top: 8px; }
+    .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px 32px; }
+    .ctrl label { display: block; font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
+    .ctrl select {
+      width: 100%; font-family: var(--mono); font-size: 13px; padding: 8px 10px;
+      border: 1px solid var(--hairline); background: #fff; color: var(--foreground); border-radius: 0;
+    }
+    .seg { display: flex; border: 1px solid var(--hairline); }
+    .seg button {
+      flex: 1; font-family: var(--sans); font-size: 12.5px; padding: 8px 4px; background: #fff;
+      border: none; border-right: 1px solid var(--hairline); cursor: pointer; color: var(--muted);
+    }
+    .seg button:last-child { border-right: none; }
+    .seg button.on { background: var(--accent); color: #fff; }
+    .ctrl input[type=range] { width: 100%; accent-color: var(--accent); }
+    .ctrl .val { font-family: var(--mono); font-size: 12px; color: var(--foreground); }
+    .panel .reset { margin-top: 18px; font-family: var(--sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: none; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 0; }
+    .panel .reset:hover { color: var(--foreground); }
+
+    /* chart */
+    .chart-box { border: 1px solid var(--hairline); padding: 20px 12px 8px; margin-top: 8px; overflow-x: auto; }
+    .chart-caption { font-family: var(--sans); font-size: 13px; color: var(--muted); padding: 10px 10px 14px; line-height: 1.55; }
+    .legend { display: flex; gap: 22px; font-family: var(--sans); font-size: 12.5px; color: var(--muted); padding: 4px 10px 6px; flex-wrap: wrap; }
+    .legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 7px; vertical-align: baseline; }
+    #tooltip {
+      position: fixed; pointer-events: none; z-index: 50; display: none;
+      background: #fff; border: 1px solid var(--hairline); box-shadow: 0 2px 12px rgba(17,17,17,0.08);
+      padding: 10px 13px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5; max-width: 280px;
+    }
+    #tooltip .tt-name { font-weight: 600; margin-bottom: 3px; }
+    #tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); }
+    #tooltip .tt-row b { font-family: var(--mono); font-weight: 500; color: var(--foreground); }
+
+    /* table */
+    .table-tools { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
+    .table-tools input[type=search] {
+      font-family: var(--sans); font-size: 13.5px; padding: 8px 12px; border: 1px solid var(--hairline);
+      background: #fff; width: 260px; max-width: 100%; border-radius: 0;
+    }
+    .table-tools .count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--hairline); }
+    table { border-collapse: collapse; width: 100%; min-width: 900px; }
+    thead th {
+      font-family: var(--sans); font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
+      color: var(--muted); text-align: right; padding: 12px 14px; border-bottom: 1px solid var(--hairline);
+      cursor: pointer; user-select: none; white-space: nowrap; background: #f6f5f1; position: sticky; top: 0;
+    }
+    thead th.left { text-align: left; }
+    thead th .arrow { font-family: var(--mono); }
+    tbody td { padding: 11px 14px; border-bottom: 1px solid var(--hairline); font-size: 14.5px; text-align: right; white-space: nowrap; }
+    tbody td.left { text-align: left; white-space: normal; }
+    tbody tr.row { cursor: pointer; }
+    tbody tr.row:hover { background: #f6f5f1; }
+    td .num { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; }
+    .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; }
+    .dot.v { background: var(--viable); }
+    .dot.n { background: var(--nonviable); }
+    .task-name { font-weight: 500; }
+    .task-domain { font-family: var(--sans); font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; }
+    .grade { font-family: var(--mono); font-size: 12px; border: 1px solid var(--hairline); padding: 1px 7px; color: var(--muted); }
+    .floorflag { font-family: var(--sans); font-size: 10.5px; color: var(--nonviable); letter-spacing: 0.04em; }
+
+    tr.detail td { background: #f6f5f1; text-align: left; white-space: normal; padding: 22px 26px; }
+    .detail-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; }
+    @media (max-width: 800px) { .detail-grid { grid-template-columns: 1fr; } }
+    .detail h4 { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 10px; }
+    .cost-rows { font-family: var(--mono); font-size: 12.5px; }
+    .cost-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+    .cost-row .cl { width: 150px; color: var(--muted); font-family: var(--sans); font-size: 12px; }
+    .cost-row .bar { height: 8px; background: var(--accent); opacity: 0.75; border-radius: 4px 4px 4px 4px; min-width: 2px; }
+    .cost-row .cv { font-variant-numeric: tabular-nums; }
+    .detail .meta { font-family: var(--sans); font-size: 13px; color: #333; line-height: 1.65; }
+    .detail .meta b { font-weight: 600; }
+    .detail .srcs { margin-top: 14px; font-family: var(--sans); font-size: 12.5px; color: var(--muted); line-height: 1.7; }
+    .detail .srcs a { color: var(--accent); }
+    .detail .statline { font-family: var(--mono); font-size: 12.5px; margin-top: 14px; line-height: 1.9; }
+
+    /* equations */
+    .eqs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
+    .eq { background: var(--background); padding: 22px; }
+    .eq .formula { font-family: var(--mono); font-size: 15px; margin-bottom: 8px; }
+    .eq .expl { font-family: var(--sans); font-size: 13px; color: var(--muted); line-height: 1.55; }
+    .worked { margin-top: 20px; font-family: var(--sans); font-size: 14px; color: #333; line-height: 1.7; border-left: 2px solid var(--accent); padding-left: 18px; }
+    .worked .num { font-family: var(--mono); font-size: 13px; }
+
+    .prose { max-width: 720px; font-size: 16.5px; color: #222; }
+    .prose p { margin-bottom: 16px; }
+    .prose .num { font-family: var(--mono); font-size: 14px; }
+
+    footer { margin-top: 90px; border-top: 1px solid var(--hairline); padding: 32px 0 56px; }
+    footer .frow { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
+    footer a { text-decoration: none; border-bottom: 1px solid var(--hairline); }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap brandline">
+      <a class="wordmark" href="https://theseusholdings.xyz">Theseus</a>
+      <nav>
+        <a href="#frontier">Frontier</a>
+        <a href="#tasks">Tasks</a>
+        <a href="#equations">Equations</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="https://github.com/maxrusk/aevf-index">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div style="padding-top:64px">
+      <p class="kicker">AEVF Index · v0.1 · <span id="hdr-date"></span></p>
+      <h1>The AI Economic Viability Frontier</h1>
+      <p class="lede">
+        Fifty economically meaningful tasks, each priced two ways: what buyers pay a person
+        or firm to do it, and what it costs an AI system to produce an accepted outcome,
+        all-in. A task crosses the frontier when expected value exceeds full production cost,
+        <em>R&thinsp;·&thinsp;V &gt; C</em>. Every number below recomputes live as you change the assumptions.
+      </p>
+      <div class="notice">
+        <strong>Read this first.</strong> Market prices are sourced and cited per task. Model token
+        prices were read from live provider pricing pages. Everything else, token counts, review time,
+        risk cost, and the reliability priors, is a labeled modeled estimate anchored to published
+        evidence, not a measured trial. Confidence grades A through D mark how much each row should be
+        trusted. One more bias to hold in mind: these 50 tasks were selected because they are
+        plausible AI candidates, so the share of <em>this basket</em> inside the frontier will always
+        run far ahead of the share of the economy. Details in the <a href="methodology.html">methodology</a>.
+      </div>
+    </div>
+
+    <p class="section-label" id="assumptions">Assumptions · adjust and everything recomputes</p>
+    <div class="panel">
+      <div class="controls">
+        <div class="ctrl">
+          <label for="model">Model (live API pricing)</label>
+          <select id="model"></select>
+        </div>
+        <div class="ctrl">
+          <label>Reliability scenario</label>
+          <div class="seg" id="seg-r">
+            <button data-v="low">Conservative</button>
+            <button data-v="base" class="on">Base</button>
+            <button data-v="high">Optimistic</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label>Willingness to pay</label>
+          <div class="seg" id="seg-p">
+            <button data-v="low">Low</button>
+            <button data-v="base" class="on">Base</button>
+            <button data-v="high">High</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label for="cache">Prompt cache hit rate · <span class="val" id="cache-val">50%</span></label>
+          <input type="range" id="cache" min="0" max="90" step="5" value="50">
+        </div>
+        <div class="ctrl">
+          <label for="review">Human review cost · <span class="val" id="review-val">1.0x</span></label>
+          <input type="range" id="review" min="0" max="200" step="10" value="100">
+        </div>
+        <div class="ctrl">
+          <label for="risk">Error and liability cost · <span class="val" id="risk-val">1.0x</span></label>
+          <input type="range" id="risk" min="0" max="300" step="25" value="100">
+        </div>
+        <div class="ctrl">
+          <label>Index weighting</label>
+          <div class="seg" id="seg-w">
+            <button data-v="value" class="on">By task value</button>
+            <button data-v="equal">Equal weight</button>
+          </div>
+        </div>
+      </div>
+      <button class="reset" id="reset">Reset to defaults</button>
+    </div>
+
+    <p class="section-label" id="frontier">The frontier right now</p>
+    <div class="tiles">
+      <div class="tile">
+        <div class="t-label">Frontier share</div>
+        <div class="t-value" id="stat-share">–</div>
+        <div class="t-sub" id="stat-share-sub">clears cost and reliability floor</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Tasks inside</div>
+        <div class="t-value" id="stat-count">–</div>
+        <div class="t-sub" id="stat-count-sub">of 50; meeting their reliability floor too</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Median viability ratio &Phi;</div>
+        <div class="t-value" id="stat-phi">–</div>
+        <div class="t-sub">expected value per dollar of AI production cost</div>
+      </div>
+      <div class="tile">
+        <div class="t-label">Median cost compression</div>
+        <div class="t-value" id="stat-ccr">–</div>
+        <div class="t-sub">human market price vs all-in AI cost</div>
+      </div>
+    </div>
+
+    <div class="chart-box">
+      <div class="legend">
+        <span><span class="swatch" style="background:var(--viable)"></span>Inside the frontier (&Phi; &gt; 1)</span>
+        <span><span class="swatch" style="background:var(--nonviable)"></span>Outside, or review-dominated</span>
+        <span style="margin-left:auto">Point size follows task value · hover any point</span>
+      </div>
+      <div id="chart"></div>
+      <p class="chart-caption">
+        Each point is one task under the current assumptions. Horizontal position is the probability an
+        AI-produced output is accepted; vertical position is all-in cost per successful output as a share
+        of what the market pays, on a log scale. The line at 100% is the frontier itself: below it, producing
+        the outcome costs less than buyers pay for it.
+      </p>
+    </div>
+
+    <p class="section-label" id="tasks">All fifty tasks</p>
+    <div class="table-tools">
+      <input type="search" id="search" placeholder="Filter by task or domain...">
+      <span class="count" id="tbl-count"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th class="left" data-k="name">Task</th>
+            <th data-k="V">Market price</th>
+            <th data-k="fcso">AI cost / success</th>
+            <th data-k="tcevo">TCEVO</th>
+            <th data-k="phi">&Phi;</th>
+            <th data-k="ccr">Compression</th>
+            <th data-k="R">R</th>
+            <th data-k="confidence">Grade</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+
+    <p class="section-label" id="equations">The equations</p>
+    <div class="eqs">
+      <div class="eq">
+        <div class="formula">TCEVO = C<sub>inference</sub> / R</div>
+        <div class="expl">Token cost per economically viable output: expected inference spend to get one accepted result.</div>
+      </div>
+      <div class="eq">
+        <div class="formula">FCSO = C<sub>total</sub> / R</div>
+        <div class="expl">Full cost per successful output: inference, tools, human review, capital overhead, and expected error cost, divided by reliability.</div>
+      </div>
+      <div class="eq">
+        <div class="formula">EV = R·V &minus; C</div>
+        <div class="expl">Expected surplus per attempt at willingness to pay V.</div>
+      </div>
+      <div class="eq">
+        <div class="formula">&Phi; = R·V / C</div>
+        <div class="expl">The viability ratio. Above 1, the task is inside the frontier; the index tracks how much of the task universe clears it.</div>
+      </div>
+      <div class="eq">
+        <div class="formula">CCR = P<sub>human</sub> / C<sub>AI</sub></div>
+        <div class="expl">Cost compression: how many times cheaper the AI-native production process is than the human market price.</div>
+      </div>
+    </div>
+    <div class="worked" id="worked"></div>
+
+    <p class="section-label">Why this index exists</p>
+    <div class="prose">
+      <p>
+        Benchmarks measure whether models are impressive. This index tries to measure something
+        narrower and more consequential: for which real tasks the expected cost of an acceptable
+        AI-produced outcome has fallen below what the market pays for it, and how fast that set is growing.
+        Between March 2023 and August 2026, flagship output tokens went from
+        <span class="num">$60</span> per million (GPT-4 at launch) to <span class="num">$10&ndash;$50</span>
+        (current flagships), with cached input and small models another order of magnitude below. Token
+        prices are not the story, though. In most rows of this table the binding cost is no longer
+        inference; it is human review, and the binding constraint is reliability.
+      </p>
+      <p>
+        The thesis this instrument is built to test: the largest economic effects arrive not when AI helps
+        an incumbent do the same work slightly faster, but when production is redesigned around abundant
+        machine cognition and the outcome is sold directly. Where the table shows 10x to 100x compression,
+        that is where AI-native institutions get built. Full framing in the
+        <a href="methodology.html">methodology</a>.
+      </p>
+    </div>
+  </main>
+
+  <div id="tooltip"></div>
+
+  <footer>
+    <div class="wrap frow">
+      <span>A <a href="https://theseusholdings.xyz">Theseus Holdings</a> research instrument</span>
+      <span>Data retrieved <span id="ft-retrieved"></span> · <a href="https://github.com/maxrusk/aevf-index">source and dataset on GitHub</a></span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="compute.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Methodology · AEVF Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root { --background:#fbfbf9; --foreground:#111111; --muted:#6f6f6a; --hairline:#e6e5e0; --accent:#1e3a5f;
+      --serif:'Spectral',Georgia,serif; --sans:'Geist',-apple-system,system-ui,sans-serif; --mono:'Geist Mono',ui-monospace,monospace; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    html { color-scheme: light; }
+    body { background:var(--background); color:var(--foreground); font-family:var(--serif); font-size:17px; line-height:1.65; -webkit-font-smoothing:antialiased; }
+    ::selection { background:var(--accent); color:#fff; }
+    a { color:inherit; text-decoration:underline; text-decoration-thickness:from-font; text-underline-offset:4px; }
+    a:hover { opacity:.7; }
+    .wrap { max-width:720px; margin:0 auto; padding:0 24px; }
+    header.site { padding:48px 0 0; }
+    .brandline { display:flex; justify-content:space-between; align-items:baseline; gap:16px; flex-wrap:wrap; }
+    .wordmark { font-family:var(--sans); font-weight:500; font-size:15px; letter-spacing:.18em; text-transform:uppercase; text-decoration:none; }
+    .brandline nav { font-family:var(--sans); font-size:12px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); display:flex; gap:24px; }
+    .brandline nav a { text-decoration:none; }
+    .kicker { font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--muted); }
+    h1 { font-weight:400; font-size:clamp(30px,4.5vw,42px); line-height:1.15; margin:16px 0 40px; }
+    h2 { font-family:var(--sans); font-weight:500; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:var(--muted); margin:52px 0 16px; }
+    p { margin-bottom:16px; color:#222; }
+    ul, ol { margin:0 0 16px 22px; color:#222; }
+    li { margin-bottom:8px; }
+    .mono, code { font-family:var(--mono); font-size:.85em; }
+    .eqline { font-family:var(--mono); font-size:15px; margin:14px 0 14px 0; padding:12px 16px; border-left:2px solid var(--accent); background:#f6f5f1; }
+    table { border-collapse:collapse; width:100%; margin:12px 0 20px; font-family:var(--sans); font-size:13.5px; }
+    th { text-align:left; font-size:11px; letter-spacing:.09em; text-transform:uppercase; color:var(--muted); padding:8px 12px 8px 0; border-bottom:1px solid var(--hairline); }
+    td { padding:9px 12px 9px 0; border-bottom:1px solid var(--hairline); vertical-align:top; }
+    footer { margin-top:90px; border-top:1px solid var(--hairline); padding:32px 0 56px; }
+    footer .frow { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; font-family:var(--sans); font-size:12.5px; color:var(--muted); }
+    footer a { text-decoration:none; border-bottom:1px solid var(--hairline); }
+  </style>
+</head>
+<body>
+  <header class="site">
+    <div class="wrap brandline">
+      <a class="wordmark" href="https://theseusholdings.xyz">Theseus</a>
+      <nav><a href="index.html">Index</a><a href="https://github.com/maxrusk/aevf-index">GitHub</a></nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div style="padding-top:64px">
+      <p class="kicker">AEVF Index · Methodology · v0.1 · August 2026</p>
+      <h1>How this index is built, and exactly how much to trust it</h1>
+    </div>
+
+    <h2>The question</h2>
+    <p>
+      For which economically valuable tasks has AI pushed the expected cost of producing an acceptable
+      outcome below what the market pays for that outcome, and how quickly is that set expanding?
+      A task <span class="mono">i</span> is inside the AI Economic Viability Frontier when
+    </p>
+    <div class="eqline">R&thinsp;·&thinsp;V &gt; C</div>
+    <p>
+      where <span class="mono">V</span> is willingness to pay for a successful outcome,
+      <span class="mono">R</span> is the probability the AI-native process produces an acceptable one, and
+      <span class="mono">C</span> is the total expected production cost: inference, tools and APIs, human
+      review, capital overhead, and expected error or liability cost. The primitive metric is TCEVO,
+      token cost per economically viable output, <span class="mono">C_inference / R</span>; the all-in
+      analog is FCSO, <span class="mono">C_total / R</span>; the headline per-task statistic is the
+      viability ratio <span class="mono">&Phi; = R·V / C</span>.
+    </p>
+    <p>
+      The reason to measure production cost against willingness to pay, rather than tracking benchmark
+      scores or token prices, is that neither of those crosses an economic threshold. A million tokens of
+      a weak model can be worth less than fifty thousand from a strong one, and a 7-point benchmark gain
+      matters less than a single task crossing from &Phi; &lt; 1 to &Phi; &gt; 1. The crossing is the event.
+    </p>
+
+    <h2>What is observed and what is modeled</h2>
+    <p>Every number in the index belongs to one of four classes, and the dataset labels each:</p>
+    <table>
+      <tr><th>Class</th><th>Applies to</th><th>Basis</th></tr>
+      <tr><td><b>Observed</b></td><td>Market prices for most tasks; all model token prices</td><td>Live vendor pricing pages, marketplace averages (e.g. ContractsCounsel flat fees), benchmark studies (CAQH Index, Ardent Partners, MetricNet), each cited with URL and retrieval date 2026-08-31</td></tr>
+      <tr><td><b>Derived</b></td><td>Prices where no per-unit market exists (code review, credit memos, variance analysis)</td><td>Wage data times task time, with both inputs sourced and the derivation stated</td></tr>
+      <tr><td><b>Anchored estimate</b></td><td>Reliability priors R</td><td>Published evidence: production support resolution rates, SWE-bench Verified and Pro, GDPval, Stanford legal hallucination study, CAQH, AccountingBench, WMT; discounted 15 to 30 points from headline benchmark numbers, see below</td></tr>
+      <tr><td><b>Modeled assumption</b></td><td>Token counts, retry rates, review minutes, tool costs, risk costs</td><td>Author judgment about a competent single-agent scaffold, stated per task and adjustable in the interface</td></tr>
+    </table>
+    <p>
+      Nothing in v0.1 is a measured trial. The research specification this index implements calls for 20
+      to 100 graded trials per task with blind expert grading and confidence intervals; that is Phase II.
+      Until then, the correct reading of any single row is "a sourced, disciplined estimate," and the
+      correct reading of the aggregate is directional.
+    </p>
+
+    <h2>Reliability priors</h2>
+    <p>
+      R means the probability that a professional would accept the output, not a benchmark score. Three
+      gaps separate the two, and the priors discount for all three: benchmarks hand the model a fully
+      specified task while real work fails at scoping; win-or-tie against one human draft is weaker than
+      sign-off under liability; and contamination inflates top scores, most cleanly measured by the roughly
+      35-point gap between SWE-bench Verified and the contamination-resistant SWE-bench Pro. Where
+      production data exists it dominates: the support prior tracks Intercom Fin's published 76% average
+      resolution rate and its case-study range of 42 to 50%, not tau-bench. Each task carries a low, base,
+      and high R, and a minimum reliability floor; the index reports both the share of tasks that clear
+      cost alone and the share that also clear their floor. The second number is the honest one.
+    </p>
+
+    <h2>Costs</h2>
+    <ul>
+      <li><b>Inference:</b> per-task input and output token estimates, times a retry multiplier, priced at live per-Mtok rates for the selected model, with a prompt-cache hit-rate assumption (default 50%) applied to input.</li>
+      <li><b>Tools:</b> search, enrichment APIs, OCR, code execution, per task.</li>
+      <li><b>Human review:</b> minutes of role-appropriate review (attorney $180/hr, CPA $120, engineer $110, analyst $85, and so on) at a global multiplier the reader controls. In most rows this, not inference, is the dominant cost. That is finding one.</li>
+      <li><b>Capital:</b> 10% of direct cost for orchestration, storage, compliance overhead.</li>
+      <li><b>Risk:</b> an expected-value error cost per task, scaled by risk class, adjustable 0x to 3x.</li>
+    </ul>
+
+    <h2>Known biases, stated plainly</h2>
+    <ol>
+      <li><b>Basket selection.</b> The 50 tasks were chosen because they are discrete, gradable, and plausibly AI-producible. The frontier share of this basket therefore runs far ahead of the economy's. Do not quote the headline number without this caveat.</li>
+      <li><b>Historical-price anchoring.</b> V uses current human-market prices. Where AI supply is already compressing prices (SEO articles, translation, deposition summaries), V overstates durable willingness to pay and &Phi; overstates the opportunity. The spec's own warning applies: price is not value.</li>
+      <li><b>No demand response.</b> The index says nothing yet about how much more of a task gets consumed when its price collapses, which is where much of the real economic impact lives.</li>
+      <li><b>Regulatory viability is not modeled.</b> A tax return needs a preparer's signature; a legal opinion needs a bar member. Several rows are technically and economically viable but legally gated, noted per task.</li>
+      <li><b>Correlated failure.</b> Treating R as independent per attempt understates risk in workflows where errors compound silently, bookkeeping being the documented case.</li>
+    </ol>
+
+    <h2>Confidence grades</h2>
+    <table>
+      <tr><th>Grade</th><th>Meaning</th></tr>
+      <tr><td><b>A</b></td><td>Observed market price, strong published reliability evidence, near-deterministic verification (e.g. data extraction, tier-1 support, SEO articles, translation)</td></tr>
+      <tr><td><b>B</b></td><td>Observed or well-anchored price, reasonable reliability evidence, some modeled inputs</td></tr>
+      <tr><td><b>C</b></td><td>Derived price or thin reliability evidence; directional only</td></tr>
+      <tr><td><b>D</b></td><td>Speculative; excluded from headline claims</td></tr>
+    </table>
+
+    <h2>The AI-native institutions test</h2>
+    <p>
+      This instrument exists to test a specific thesis: that AI's economic impact concentrates where
+      production is rebuilt around abundant machine cognition rather than where incumbents buy copilots.
+      The index's cost stack is an AI-native stack; an incumbent adopting the same model inside its
+      existing workflow keeps most of its labor, coordination, and overhead, so its cost line barely moves.
+      Where the table shows 10x to 100x compression against the human market price, the gap is not a
+      productivity improvement, it is a different production function, and it is the opening through which
+      an AI-native firm underprices an industry while keeping software margins. Tasks with high &Phi;, high
+      autonomy scores, and deterministic verification are the places to look first.
+    </p>
+
+    <h2>Roadmap</h2>
+    <ol>
+      <li><b>Phase II, measurement:</b> run the 10-task pilot from the spec with frozen acceptance criteria, 20+ trials per task, blind grading, and confidence intervals; replace the anchored priors with measured R.</li>
+      <li><b>Phase III, coverage:</b> expand toward a representative basket and add labor-compensation and transaction-volume weightings alongside value weighting.</li>
+      <li><b>Phase IV, time series:</b> re-run quarterly; the frontier-expansion chart, share over time, is the artifact this project exists to produce.</li>
+    </ol>
+
+    <h2>Reproducibility</h2>
+    <p>
+      The full dataset (task cards, sourced prices with URLs and retrieval dates, model pricing, reliability
+      evidence) and the compute engine are in the
+      <a href="https://github.com/maxrusk/aevf-index">GitHub repository</a>. The site is static; every
+      figure on the index page is recomputed in the browser from the published data, so there is no place
+      for a number to hide.
+    </p>
+  </main>
+
+  <footer>
+    <div class="wrap frow">
+      <span>A <a href="https://theseusholdings.xyz">Theseus Holdings</a> research instrument</span>
+      <span><a href="index.html">Back to the index</a></span>
+    </div>
+  </footer>
+</body>
+</html>

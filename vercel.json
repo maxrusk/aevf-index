@@ -1,0 +1,5 @@
+{
+  "buildCommand": "node scripts/build_data.mjs",
+  "outputDirectory": "site",
+  "cleanUrls": true
+}
