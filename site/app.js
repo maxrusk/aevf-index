@@ -97,7 +97,7 @@
   const TILE_HELP = {
     'stat-share': 'The headline. Share of the basket (weighted by task value, or equally) where the AI is both cheaper than the human all-in AND clears the task’s minimum reliability floor. The cost-only share is shown beneath it.',
     'stat-count': 'Raw counts: tasks where AI cost per accepted output is below the human price / tasks that also meet their reliability floor.',
-    'stat-phi': 'Median viability ratio across all 50 tasks: expected dollars of value supported by one dollar of AI production cost.',
+    'stat-phi': 'Median viability ratio across every tracked task: expected dollars of value supported by one dollar of AI production cost.',
     'stat-ccr': 'Median cost compression: how many times cheaper the AI process is than the human market price, all-in.'
   };
   document.querySelectorAll('thead th').forEach(th => {
@@ -315,5 +315,6 @@
 
   $('hdr-date').textContent = D.built;
   $('ft-retrieved').textContent = D.retrieved;
+  document.querySelectorAll('.n-tasks').forEach(n => { n.textContent = D.tasks.length; });
   render();
 })();

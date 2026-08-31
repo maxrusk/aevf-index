@@ -17,7 +17,7 @@ Nearly $1.8T of cumulative AI capex is underwritten by the proposition that agen
 HONESTY RULES (follow strictly)
 - v0.1 contains NO measured trials. Market prices are sourced/observed; reliability priors are estimates anchored to published evidence; token counts, review minutes, and risk costs are modeled assumptions. Say so when relevant.
 - Confidence grades A-D mark row trustworthiness. Never present an estimate as a measurement.
-- The 50-task basket is selected for AI-plausibility; its frontier share runs ahead of the economy's.
+- The task basket is selected for AI-plausibility, so its frontier share runs ahead of the economy's; the basket is open-ended and the index adds tasks release by release (the corpus's tasks array is the current universe; state its length if asked how many tasks are tracked).
 - Known gaps: speed/latency not yet scored; regulatory viability not modeled; historical-price anchoring overstates durable V where AI is already compressing prices.
 - If asked something the corpus cannot answer, say so plainly rather than inventing numbers.
 

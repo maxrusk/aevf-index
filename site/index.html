@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AEVF Index · Theseus</title>
-  <meta name="description" content="The AI Economic Viability Frontier: a live index of 50 economically meaningful tasks, measuring when AI production cost falls below willingness to pay.">
+  <meta name="description" content="The AI Economic Viability Frontier: a live, expanding index of real economic tasks, measuring when AI production cost falls below willingness to pay.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -228,16 +228,18 @@
           measurement: a more directionally precise account of AI progress, marked at the point where
           capability becomes economically viable production.</strong>
         </p>
-        <p class="intro-note">Fifty real tasks below, <em>C&thinsp;/&thinsp;R &lt; V</em>; every number recomputes live as you change the assumptions.</p>
+        <p class="intro-note">The task universe below currently holds <span class="n-tasks">50</span> tasks and expands release by release, <em>C&thinsp;/&thinsp;R &lt; V</em>; every number recomputes live as you change the assumptions.</p>
       </div>
       <div class="notice">
         <strong>Read this first.</strong> Market prices are sourced and cited per task. Model token
         prices were read from live provider pricing pages. Everything else, token counts, review time,
         risk cost, and the reliability priors, is a labeled modeled estimate anchored to published
         evidence, not a measured trial. Confidence grades A through D mark how much each row should be
-        trusted. One more bias to hold in mind: these 50 tasks were selected because they are
+        trusted. One more bias to hold in mind: the tasks in the basket were selected because they are
         plausible AI candidates, so the share of <em>this basket</em> inside the frontier will always
-        run far ahead of the share of the economy. Details in the <a href="methodology.html">methodology</a>.
+        run far ahead of the share of the economy. The basket is not fixed: the index adds tasks
+        release by release, and every figure on this page recomputes over whatever the universe
+        holds. Details in the <a href="methodology.html">methodology</a>.
       </div>
     </div>
 
@@ -297,7 +299,7 @@
       <div class="tile">
         <div class="t-label">Tasks inside</div>
         <div class="t-value" id="stat-count">–</div>
-        <div class="t-sub" id="stat-count-sub">of 50; meeting their reliability floor too</div>
+        <div class="t-sub" id="stat-count-sub">inside on cost / also meeting their reliability floor</div>
       </div>
       <div class="tile">
         <div class="t-label">Median viability ratio &Phi;</div>
@@ -326,7 +328,7 @@
       </p>
     </div>
 
-    <p class="section-label" id="tasks">All fifty tasks</p>
+    <p class="section-label" id="tasks">The task universe · <span class="n-tasks">50</span> tasks, expanding</p>
     <div class="chips" id="chips"></div>
     <div class="table-tools">
       <input type="search" id="search" placeholder="Search tasks...">
@@ -379,8 +381,8 @@
     <div class="ask-cta">
       <a href="ask.html">Open the index analyst &rarr;</a>
       <p>
-        A chat analyst grounded in the full corpus: all 50 task cards, sourced prices, reliability
-        evidence, model pricing, and the methodology. Bound by the same honesty rules as this page.
+        A chat analyst grounded in the full corpus: every task card in the index, sourced prices,
+        reliability evidence, model pricing, and the methodology. Bound by the same honesty rules as this page.
       </p>
     </div>
 

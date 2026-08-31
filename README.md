@@ -1,6 +1,6 @@
 # AEVF Index
 
-**The AI Economic Viability Frontier**: a live index of 50 economically meaningful tasks, each priced two ways, what buyers pay a human or firm to produce the outcome, and what it costs an AI system to produce an accepted outcome all-in. A task is inside the frontier when
+**The AI Economic Viability Frontier**: a live, expanding index of real economic tasks, each priced two ways, what buyers pay a human or firm to produce the outcome, and what it costs an AI system to produce an accepted outcome all-in. The task universe grows release by release (v0.1 shipped with 50 tasks); every aggregate recomputes over whatever the universe holds. A task is inside the frontier when
 
 ```
 R · V > C
@@ -29,13 +29,13 @@ The index headline is the **frontier share**: the value-weighted share of the ba
 - **Anchored estimates**: reliability priors, anchored to published evidence (production support resolution rates, SWE-bench Verified/Pro, GDPval, Stanford legal hallucination study, AccountingBench, WMT) and discounted 15-30 points from headline benchmark numbers.
 - **Modeled assumptions**: token counts, retry rates, review minutes, tool and risk costs.
 
-Nothing in v0.1 is a measured trial. Phase II replaces the priors with 20+ graded trials per task. The 50-task basket is selected for AI-plausibility, so its frontier share runs far ahead of the economy's. Full caveats in [the methodology](https://aevf-index.vercel.app/methodology.html).
+Nothing in v0.1 is a measured trial. Phase II replaces the priors with 20+ graded trials per task. The basket is selected for AI-plausibility, so its frontier share runs far ahead of the economy's; it is also open-ended, with new tasks added release by release. Full caveats in [the methodology](https://aevf-index.vercel.app/methodology.html).
 
 ## Repository layout
 
 ```
 data/
-  tasks_base.json            50 task cards: modeled cost assumptions, reliability priors, scores
+  tasks_base.json            task cards: modeled cost assumptions, reliability priors, scores
   partials/*.json            sourced market prices per domain (with citations)
   model_pricing.json         live API pricing, observed 2026-08-31
   reliability_evidence.json  published evidence rows + prior mapping
