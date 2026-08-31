@@ -13,8 +13,8 @@ window.AEVF_DATA = {
    "tier": "flagship",
    "status": "observed",
    "source": {
-    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
-    "title": "Anthropic Pricing (docs)",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -28,8 +28,8 @@ window.AEVF_DATA = {
    "tier": "flagship",
    "status": "observed",
    "source": {
-    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
-    "title": "Anthropic Pricing (docs)",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -43,8 +43,8 @@ window.AEVF_DATA = {
    "tier": "mid",
    "status": "observed",
    "source": {
-    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
-    "title": "Anthropic Pricing (docs)",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -58,8 +58,8 @@ window.AEVF_DATA = {
    "tier": "small",
    "status": "observed",
    "source": {
-    "url": "https://platform.claude.com/docs/en/about-claude/pricing",
-    "title": "Anthropic Pricing (docs)",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -67,14 +67,14 @@ window.AEVF_DATA = {
    "id": "gpt-5.6-sol",
    "provider": "OpenAI",
    "name": "GPT-5.6 Sol",
-   "input_per_mtok": 4,
-   "output_per_mtok": 20,
-   "cache_read_per_mtok": 0.4,
+   "input_per_mtok": 2,
+   "output_per_mtok": 10,
+   "cache_read_per_mtok": 0.2,
    "tier": "flagship",
    "status": "observed",
    "source": {
-    "url": "https://developers.openai.com/api/docs/pricing",
-    "title": "OpenAI API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -88,8 +88,8 @@ window.AEVF_DATA = {
    "tier": "mid",
    "status": "observed",
    "source": {
-    "url": "https://developers.openai.com/api/docs/pricing",
-    "title": "OpenAI API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -103,8 +103,8 @@ window.AEVF_DATA = {
    "tier": "small",
    "status": "observed",
    "source": {
-    "url": "https://developers.openai.com/api/docs/pricing",
-    "title": "OpenAI API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -118,8 +118,8 @@ window.AEVF_DATA = {
    "tier": "flagship",
    "status": "observed",
    "source": {
-    "url": "https://ai.google.dev/gemini-api/docs/pricing",
-    "title": "Gemini API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -133,8 +133,8 @@ window.AEVF_DATA = {
    "tier": "mid",
    "status": "observed",
    "source": {
-    "url": "https://ai.google.dev/gemini-api/docs/pricing",
-    "title": "Gemini API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -148,8 +148,8 @@ window.AEVF_DATA = {
    "tier": "small",
    "status": "observed",
    "source": {
-    "url": "https://ai.google.dev/gemini-api/docs/pricing",
-    "title": "Gemini API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -157,14 +157,14 @@ window.AEVF_DATA = {
    "id": "deepseek-v4-pro",
    "provider": "DeepSeek",
    "name": "DeepSeek V4 Pro",
-   "input_per_mtok": 1.32,
-   "output_per_mtok": 3.96,
-   "cache_read_per_mtok": 0.044,
+   "input_per_mtok": 0.66,
+   "output_per_mtok": 1.98,
+   "cache_read_per_mtok": 0.022,
    "tier": "mid",
    "status": "observed",
    "source": {
-    "url": "https://api-docs.deepseek.com/quick_start/pricing",
-    "title": "DeepSeek API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   },
@@ -172,14 +172,14 @@ window.AEVF_DATA = {
    "id": "deepseek-v4-flash",
    "provider": "DeepSeek",
    "name": "DeepSeek V4 Flash",
-   "input_per_mtok": 0.44,
-   "output_per_mtok": 1.32,
-   "cache_read_per_mtok": 0.014,
+   "input_per_mtok": 0.065,
+   "output_per_mtok": 0.18,
+   "cache_read_per_mtok": 0.016,
    "tier": "small",
    "status": "observed",
    "source": {
-    "url": "https://api-docs.deepseek.com/quick_start/pricing",
-    "title": "DeepSeek API Pricing",
+    "url": "https://openrouter.ai/api/v1/models",
+    "title": "OpenRouter models API (live feed; initial anchors read from provider pricing pages 2026-08-31)",
     "retrieved": "2026-08-31"
    }
   }
@@ -230,7 +230,7 @@ window.AEVF_DATA = {
    }
   }
  ],
- "pricing_note": "All current prices observed directly on live provider pricing pages on the retrieval date. DeepSeek figures are peak (standard) rates; off-peak (most hours) is 50% lower. GPT-5.6 Sol price is promotional through at least 2026-11-21; Gemini 3.7 Flash promotional through 2026-12-31.",
+ "pricing_note": "Prices tracked live via the OpenRouter models API (last refresh 2026-08-31); initial anchors observed on provider pricing pages 2026-08-31. DeepSeek off-peak and provider batch tiers run ~50% below list.",
  "evidence": [
   {
    "domain": "general",
