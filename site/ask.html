@@ -59,8 +59,57 @@
       max-width: 82%; white-space: pre-wrap; border-radius: 14px 14px 3px 14px;
     }
     .msg.assistant { align-items: flex-start; }
-    .msg.assistant .bubble { max-width: 100%; white-space: pre-wrap; }
+    .msg.assistant .bubble { max-width: 100%; width: 100%; }
     .msg.assistant .bubble.err { color: #8a3b2a; font-family: var(--sans); font-size: 14px; }
+    .bubble p { margin: 0 0 12px; }
+    .bubble p:last-child { margin-bottom: 0; }
+    .bubble code { font-family: var(--mono); font-size: 0.85em; background: #f1f0ea; border: 1px solid var(--hairline); padding: 1px 5px; border-radius: 4px; }
+
+    /* rendered cards */
+    .card {
+      border: 1px solid var(--hairline); background: #fff; border-radius: 12px;
+      margin: 14px 0; overflow: hidden; box-shadow: 0 1px 6px rgba(17,17,17,0.04);
+    }
+    .card-title {
+      font-family: var(--sans); font-size: 12px; font-weight: 500; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--muted); padding: 13px 18px 11px; border-bottom: 1px solid var(--hairline);
+      background: #fafaf7;
+    }
+    .card-note { font-family: var(--sans); font-size: 12px; color: var(--muted); padding: 10px 18px 13px; border-top: 1px solid var(--hairline); }
+    .card .twrap { overflow-x: auto; }
+    .card table { border-collapse: collapse; width: 100%; }
+    .card th {
+      font-family: var(--sans); font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-align: left; padding: 10px 18px; border-bottom: 1px solid var(--hairline);
+      cursor: pointer; user-select: none; white-space: nowrap;
+    }
+    .card th:hover { color: var(--foreground); }
+    .card th.num, .card td.num { text-align: right; }
+    .card td { font-size: 14px; padding: 9px 18px; border-bottom: 1px solid #f0efe9; }
+    .card td.num { font-family: var(--mono); font-size: 12.5px; font-variant-numeric: tabular-nums; }
+    .card tbody tr { transition: background 0.12s; }
+    .card tbody tr:hover { background: #f6f5f1; }
+    .card tbody tr:last-child td { border-bottom: none; }
+
+    /* bar chart */
+    .bars { padding: 14px 18px 16px; }
+    .bar-row { display: grid; grid-template-columns: minmax(110px, 200px) 1fr 70px; gap: 12px; align-items: center; padding: 5px 0; border-radius: 6px; }
+    .bar-row:hover { background: #f6f5f1; }
+    .bar-row .bl { font-family: var(--sans); font-size: 12.5px; color: #333; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .bar-row .btrack { height: 14px; display: flex; align-items: center; }
+    .bar-row .bar { height: 12px; border-radius: 4px; background: #3b6ea5; min-width: 3px; transition: background 0.12s, transform 0.12s; }
+    .bar-row:hover .bar { background: var(--accent); }
+    .bar-row .bv { font-family: var(--mono); font-size: 12px; text-align: right; font-variant-numeric: tabular-nums; }
+    .chart-unit { font-family: var(--sans); font-size: 11.5px; color: var(--muted); padding: 12px 18px 0; }
+    .svgwrap { padding: 10px 12px 6px; overflow-x: auto; }
+    .svgwrap circle { transition: r 0.12s; cursor: default; }
+    .svgwrap circle:hover { r: 8; }
+    #ctip {
+      position: fixed; display: none; z-index: 60; pointer-events: none;
+      background: #fff; border: 1px solid var(--hairline); box-shadow: 0 2px 12px rgba(17,17,17,0.1);
+      font-family: var(--sans); font-size: 12px; padding: 7px 11px; border-radius: 8px; line-height: 1.5;
+    }
+    #ctip b { font-family: var(--mono); font-weight: 500; }
 
     .dots { display: inline-flex; gap: 5px; padding: 6px 0; }
     .dots i { width: 6px; height: 6px; border-radius: 50%; background: var(--muted); animation: b 1.2s infinite; }
@@ -137,6 +186,172 @@
       function el(html) { const d = document.createElement('div'); d.innerHTML = html; return d.firstElementChild; }
       function scroll() { main.scrollTop = main.scrollHeight; }
 
+      // ---------- rich answer rendering ----------
+      const esc = s => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      const NUMRE = /^\s*[-+]?[$]?[\d,]+(\.\d+)?[%x]?\s*$/;
+
+      function proseHTML(t) {
+        return esc(t).trim().split(/\n{2,}/).filter(p => p.trim()).map(p =>
+          '<p>' + p
+            .replace(/\*\*(.+?)\*\*/g, '<b>$1</b>')
+            .replace(/`([^`\n]+)`/g, '<code>$1</code>')
+            .replace(/^#{1,4}\s*(.+)$/gm, '<b>$1</b>')
+            .replace(/\n/g, '<br>') + '</p>'
+        ).join('');
+      }
+
+      // split answer into prose / table / chart segments
+      function segments(text) {
+        const segs = []; let last = 0; let m;
+        const re = /```(\w*)\s*\n([\s\S]*?)```/g;
+        while ((m = re.exec(text))) {
+          if (m.index > last) segs.push({ t: 'prose', c: text.slice(last, m.index) });
+          const kind = (m[1] || '').toLowerCase(), body = m[2];
+          if (kind === 'table' || kind === 'chart') {
+            try { segs.push({ t: kind, c: JSON.parse(body) }); }
+            catch { segs.push({ t: 'prose', c: body }); }
+          } else segs.push({ t: 'prose', c: body });
+          last = re.lastIndex;
+        }
+        if (last < text.length) segs.push({ t: 'prose', c: text.slice(last) });
+        // fallback: lift raw markdown tables out of prose
+        const out = [];
+        for (const s of segs) {
+          if (s.t !== 'prose') { out.push(s); continue; }
+          const lines = s.c.split('\n'); let buf = [], tbl = [];
+          const flushBuf = () => { const c = buf.join('\n'); if (c.trim()) out.push({ t: 'prose', c }); buf = []; };
+          const flushTbl = () => {
+            if (tbl.length >= 2 && /^[\s|:-]+$/.test(tbl[1])) {
+              flushBuf();
+              const cells = ln => ln.replace(/^\|/, '').replace(/\|$/, '').split('|').map(c => c.trim().replace(/`/g, ''));
+              out.push({ t: 'table', c: { columns: cells(tbl[0]), rows: tbl.slice(2).map(cells) } });
+            } else buf.push(...tbl);
+            tbl = [];
+          };
+          for (const ln of lines) {
+            if (/^\s*\|.*\|\s*$/.test(ln)) tbl.push(ln.trim()); else { flushTbl(); buf.push(ln); }
+          }
+          flushTbl(); flushBuf();
+        }
+        return out;
+      }
+
+      function tableCard(spec) {
+        const cols = (spec.columns || []).map(c => typeof c === 'string' ? { label: c } : c);
+        let rows = (spec.rows || []).map(r => Array.isArray(r) ? r.map(v => v == null ? '' : String(v)) : cols.map(c => String(r[c.key ?? c.label] ?? '')));
+        const numeric = cols.map((c, i) => rows.length > 0 && rows.every(r => NUMRE.test(r[i] || '')));
+        const card = el('<div class="card">' + (spec.title ? '<div class="card-title"></div>' : '') +
+          '<div class="twrap"><table><thead><tr></tr></thead><tbody></tbody></table></div>' +
+          (spec.note ? '<div class="card-note"></div>' : '') + '</div>');
+        if (spec.title) card.querySelector('.card-title').textContent = spec.title;
+        if (spec.note) card.querySelector('.card-note').textContent = spec.note;
+        const trh = card.querySelector('thead tr'), tb = card.querySelector('tbody');
+        let sortI = -1, dir = 1;
+        function paint() {
+          tb.innerHTML = '';
+          rows.forEach(r => {
+            const tr = document.createElement('tr');
+            r.forEach((v, i) => {
+              const td = document.createElement('td');
+              if (numeric[i]) td.className = 'num';
+              td.textContent = v;
+              tr.appendChild(td);
+            });
+            tb.appendChild(tr);
+          });
+        }
+        cols.forEach((c, i) => {
+          const th = document.createElement('th');
+          if (numeric[i]) th.className = 'num';
+          th.textContent = c.label ?? c.key ?? '';
+          th.title = 'Click to sort';
+          th.onclick = () => {
+            dir = sortI === i ? -dir : (numeric[i] ? -1 : 1); sortI = i;
+            rows = rows.slice().sort((a, b) => {
+              if (numeric[i]) return (parseFloat(String(a[i]).replace(/[$,%x]/g, '')) - parseFloat(String(b[i]).replace(/[$,%x]/g, ''))) * dir;
+              return String(a[i]).localeCompare(String(b[i])) * dir;
+            });
+            paint();
+          };
+          trh.appendChild(th);
+        });
+        paint();
+        return card;
+      }
+
+      let ctip = document.getElementById('ctip');
+      if (!ctip) { ctip = el('<div id="ctip"></div>'); document.body.appendChild(ctip); }
+      function tipOn(node, html) {
+        node.addEventListener('mousemove', e => {
+          ctip.innerHTML = html; ctip.style.display = 'block';
+          ctip.style.left = Math.min(e.clientX + 12, window.innerWidth - 180) + 'px';
+          ctip.style.top = (e.clientY - 40) + 'px';
+        });
+        node.addEventListener('mouseleave', () => { ctip.style.display = 'none'; });
+      }
+      const fmtV = v => Math.abs(v) >= 100 ? Math.round(v).toLocaleString() : Math.abs(v) >= 1 ? +v.toFixed(1) : +v.toFixed(2);
+
+      function chartCard(spec) {
+        const card = el('<div class="card">' + (spec.title ? '<div class="card-title"></div>' : '') + '</div>');
+        if (spec.title) card.querySelector('.card-title').textContent = spec.title;
+        if (spec.unit) { const u = el('<div class="chart-unit"></div>'); u.textContent = spec.unit; card.appendChild(u); }
+        if (spec.type === 'bar' && Array.isArray(spec.items)) {
+          const wrap = el('<div class="bars"></div>');
+          const max = Math.max(...spec.items.map(i => Math.abs(+i.value || 0)), 1e-9);
+          spec.items.forEach(it => {
+            const row = el('<div class="bar-row"><span class="bl"></span><span class="btrack"><span class="bar"></span></span><span class="bv"></span></div>');
+            row.querySelector('.bl').textContent = it.label;
+            row.querySelector('.bar').style.width = (Math.abs(+it.value || 0) / max * 100) + '%';
+            row.querySelector('.bv').textContent = fmtV(+it.value || 0);
+            tipOn(row, esc(String(it.label)) + '<br><b>' + fmtV(+it.value || 0) + (spec.unit ? ' ' + esc(spec.unit) : '') + '</b>');
+            wrap.appendChild(row);
+          });
+          card.appendChild(wrap);
+        } else if ((spec.type === 'scatter' || spec.type === 'line') && Array.isArray(spec.points)) {
+          const W = 680, H = 300, mL = 54, mB = 40, mT = 14, mR = 18;
+          const xs = spec.points.map(p => +p.x), ys = spec.points.map(p => +p.y);
+          const x0 = Math.min(...xs), x1 = Math.max(...xs), y0 = Math.min(...ys), y1 = Math.max(...ys);
+          const X = v => mL + ((v - x0) / ((x1 - x0) || 1)) * (W - mL - mR);
+          const Y = v => mT + (1 - (v - y0) / ((y1 - y0) || 1)) * (H - mT - mB);
+          let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:480px;display:block" font-family="Geist,sans-serif">`;
+          for (let i = 0; i <= 4; i++) {
+            const yv = y0 + (y1 - y0) * i / 4, y = Y(yv);
+            s += `<line x1="${mL}" x2="${W - mR}" y1="${y}" y2="${y}" stroke="#e6e5e0"/><text x="${mL - 8}" y="${y + 4}" text-anchor="end" font-size="10" fill="#6f6f6a">${fmtV(yv)}</text>`;
+          }
+          for (let i = 0; i <= 4; i++) {
+            const xv = x0 + (x1 - x0) * i / 4, x = X(xv);
+            s += `<text x="${x}" y="${H - mB + 16}" text-anchor="middle" font-size="10" fill="#6f6f6a">${fmtV(xv)}</text>`;
+          }
+          if (spec.xlabel) s += `<text x="${(mL + W - mR) / 2}" y="${H - 6}" text-anchor="middle" font-size="10.5" fill="#6f6f6a">${esc(spec.xlabel)}</text>`;
+          if (spec.ylabel) s += `<text transform="rotate(-90 12 ${(mT + H - mB) / 2})" x="12" y="${(mT + H - mB) / 2}" text-anchor="middle" font-size="10.5" fill="#6f6f6a">${esc(spec.ylabel)}</text>`;
+          if (spec.type === 'line') s += `<polyline fill="none" stroke="#3b6ea5" stroke-width="2" points="${spec.points.map(p => X(+p.x) + ',' + Y(+p.y)).join(' ')}"/>`;
+          spec.points.forEach((p, i) => { s += `<circle data-i="${i}" cx="${X(+p.x)}" cy="${Y(+p.y)}" r="6" fill="#3b6ea5" fill-opacity="0.85" stroke="#fff" stroke-width="1.5"/>`; });
+          s += '</svg>';
+          const wrap = el('<div class="svgwrap"></div>');
+          wrap.innerHTML = s;
+          wrap.querySelectorAll('circle').forEach(c => {
+            const p = spec.points[+c.dataset.i];
+            tipOn(c, (p.label ? esc(String(p.label)) + '<br>' : '') + '<b>' + fmtV(+p.x) + ', ' + fmtV(+p.y) + '</b>');
+          });
+          card.appendChild(wrap);
+        } else {
+          const pre = el('<div class="bars"></div>');
+          pre.textContent = JSON.stringify(spec);
+          card.appendChild(pre);
+        }
+        if (spec.note) { const n = el('<div class="card-note"></div>'); n.textContent = spec.note; card.appendChild(n); }
+        return card;
+      }
+
+      function renderAnswer(bubble, text) {
+        bubble.innerHTML = '';
+        segments(text).forEach(s => {
+          if (s.t === 'prose') { const d = document.createElement('div'); d.innerHTML = proseHTML(s.c); while (d.firstChild) bubble.appendChild(d.firstChild); }
+          else if (s.t === 'table') bubble.appendChild(tableCard(s.c));
+          else if (s.t === 'chart') bubble.appendChild(chartCard(s.c));
+        });
+      }
+
       function addUser(text) {
         const m = el('<div class="msg user"><span class="who">You</span><div class="bubble"></div></div>');
         m.querySelector('.bubble').textContent = text;
@@ -163,7 +378,7 @@
           });
           const d = await r.json();
           if (d.answer) {
-            bubble.textContent = d.answer;
+            renderAnswer(bubble, d.answer);
             history.push({ role: 'assistant', content: d.answer });
           } else {
             bubble.className = 'bubble err';
