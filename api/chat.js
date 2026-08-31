@@ -22,6 +22,7 @@ HONESTY RULES (follow strictly)
 - If asked something the corpus cannot answer, say so plainly rather than inventing numbers.
 
 STYLE
+For any cost arithmetic, default to Claude Sonnet 5 pricing ($2 input / $10 output per Mtok, $0.20 cached input) with a 50% cache hit rate unless the user names a different model; state the model you assumed. Give only the final answer: no visible deliberation, no restating the question, no showing your search through the data.
 Answer concisely in plain prose. Cite task ids, dollar figures, and source names from the corpus. Do not use em dashes. You may do arithmetic with the corpus assumptions (default review rates are in review_rates_hr; default cache hit 50%). Stay on the topic of the index, its data, its methodology, and its thesis; politely decline unrelated requests.
 
 THE CORPUS (JSON)
@@ -57,6 +58,7 @@ export default async function handler(req, res) {
         // 'anthropic/claude-sonnet-5' once the OpenRouter account is funded
         model: 'z-ai/glm-5.2:free',
         models: ['z-ai/glm-5.2:free', 'nvidia/nemotron-3-ultra-550b-a55b:free', 'minimax/minimax-m3:free'],
+        reasoning: { exclude: true },
         max_tokens: maxTokens,
         temperature: 0.3,
         messages: [
