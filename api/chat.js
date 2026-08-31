@@ -57,8 +57,8 @@ export default async function handler(req, res) {
         // free-tier routing: strong open model with free fallbacks; swap to
         // 'anthropic/claude-sonnet-5' once the OpenRouter account is funded
         model: 'z-ai/glm-5.2:free',
-        models: ['z-ai/glm-5.2:free', 'nvidia/nemotron-3-ultra-550b-a55b:free', 'minimax/minimax-m3:free'],
-        reasoning: { exclude: true },
+        models: ['z-ai/glm-5.2:free', 'google/gemma-4-31b-it:free', 'minimax/minimax-m3:free'],
+        reasoning: { enabled: false, exclude: true },
         max_tokens: maxTokens,
         temperature: 0.3,
         messages: [
