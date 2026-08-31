@@ -55,6 +55,22 @@ writeFileSync(join(root, 'site', 'data.js'),
 // attempt; att = retry multiplier; tool/risk = USD per attempt; rev = [minutes, role];
 // a/s = autonomy/substitutability 0-5; cf = confidence grade; src = source names.
 const trunc = (s, n) => (s || '').length > n ? s.slice(0, n - 1) + '…' : (s || '');
+// Base-case metrics precomputed at Claude Sonnet 5 pricing, 50% cache hit, base R
+// and base price, so the chat analyst reads instead of re-deriving 50 cost chains.
+const SONNET = pricing.models.find(m => m.id === 'claude-sonnet-5');
+const RATES = base.defaults.review_rates_hr;
+function baseMetrics(t) {
+  const cInf = t.attempts_avg * ((t.input_tokens / 1e6) * (0.5 * SONNET.input_per_mtok + 0.5 * SONNET.cache_read_per_mtok) + (t.output_tokens / 1e6) * SONNET.output_per_mtok);
+  const cHuman = (t.review_minutes / 60) * (RATES[t.review_role] || 85);
+  const cTotal = (cInf + t.tool_cost + cHuman) * 1.1 + t.risk_cost;
+  return {
+    C: +cTotal.toFixed(2),
+    tcevo: +(cInf / t.r_base).toFixed(2),
+    fcso: +(cTotal / t.r_base).toFixed(2),
+    phi: +((t.r_base * t.price_base) / cTotal).toFixed(1),
+    ccr: +(t.price_base / cTotal).toFixed(1)
+  };
+}
 const corpus = {
   built: payload.built,
   models: pricing.models.map(m => ({ id: m.id, name: m.name, in: m.input_per_mtok, out: m.output_per_mtok, cache: m.cache_read_per_mtok })),
@@ -69,6 +85,7 @@ const corpus = {
     tok: [t.input_tokens, t.output_tokens], att: t.attempts_avg,
     tool: t.tool_cost, rev: [t.review_minutes, t.review_role], risk: t.risk_cost,
     a: t.autonomy, s: t.substitutability, cf: t.confidence,
+    m: baseMetrics(t),
     risk_class: t.risk_class, verification: t.verification, human_minutes: t.human_minutes,
     basis: trunc(t.price_basis, 140), note: trunc((t.notes + ' ' + (t.price_notes || '')).trim(), 220),
     src: (t.sources || []).slice(0, 3).map(s => trunc(`${s.publisher || ''}: ${s.title}`, 70))
