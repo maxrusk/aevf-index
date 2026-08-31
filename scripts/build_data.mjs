@@ -49,25 +49,27 @@ writeFileSync(join(root, 'site', 'data.js'),
   'window.AEVF_DATA = ' + JSON.stringify(payload, null, 1) + ';\n');
 
 // Compact corpus for the Ask-the-index endpoint (api/chat.js).
+// Kept tight so the system prompt stays under free-tier OpenRouter prompt limits;
+// field guide (see api/chat.js system prompt): p = [price_low, base, high] USD;
+// r = [r_low, base, high]; fl = min reliability floor; tok = [input, output] per
+// attempt; att = retry multiplier; tool/risk = USD per attempt; rev = [minutes, role];
+// a/s = autonomy/substitutability 0-5; cf = confidence grade; src = source names.
+const trunc = (s, n) => (s || '').length > n ? s.slice(0, n - 1) + '…' : (s || '');
 const corpus = {
   built: payload.built,
-  pricing_note: payload.pricing_note,
-  models: pricing.models.map(m => ({ id: m.id, name: m.name, provider: m.provider, input_per_mtok: m.input_per_mtok, output_per_mtok: m.output_per_mtok, cache_read_per_mtok: m.cache_read_per_mtok, tier: m.tier })),
-  historical_prices: pricing.historical.map(h => ({ model: h.model, date: h.date, input_per_mtok: h.input_per_mtok, output_per_mtok: h.output_per_mtok })),
-  reliability_evidence: (evidence.evidence ?? []).map(e => ({ domain: e.domain, metric: e.metric, value: e.value, measures: e.measures, caveat: e.caveat, source: e.source?.title })),
-  reliability_note: evidence.priors_note ?? '',
+  models: pricing.models.map(m => ({ id: m.id, name: m.name, in: m.input_per_mtok, out: m.output_per_mtok, cache: m.cache_read_per_mtok })),
+  historical_prices: pricing.historical.map(h => `${h.model} (${h.date}): $${h.input_per_mtok}/$${h.output_per_mtok} per Mtok`),
+  reliability_evidence: (evidence.evidence ?? []).map(e => `${e.domain} · ${trunc(e.metric, 90)} · ${trunc(e.value, 140)} (${trunc(e.source?.title, 50)})`),
   review_rates_hr: base.defaults.review_rates_hr,
   tasks: tasks.map(t => ({
-    id: t.task_id, name: t.name, domain: t.domain, unit: t.unit, output: t.economic_output,
-    price_low: t.price_low, price_base: t.price_base, price_high: t.price_high,
-    price_basis: t.price_basis, price_status: t.price_status, human_minutes: t.human_minutes,
-    r_low: t.r_low, r_base: t.r_base, r_high: t.r_high, min_reliability: t.min_reliability,
-    input_tokens: t.input_tokens, output_tokens: t.output_tokens, attempts_avg: t.attempts_avg,
-    tool_cost: t.tool_cost, review_minutes: t.review_minutes, review_role: t.review_role,
-    risk_cost: t.risk_cost, risk_class: t.risk_class, verification: t.verification,
-    autonomy: t.autonomy, substitutability: t.substitutability, confidence: t.confidence,
-    notes: (t.notes + ' ' + (t.price_notes || '')).trim(),
-    sources: (t.sources || []).map(s => `${s.publisher || ''}: ${s.title}`)
+    id: t.task_id, name: t.name, dom: t.domain, unit: t.unit,
+    p: [t.price_low, t.price_base, t.price_high],
+    r: [t.r_low, t.r_base, t.r_high], fl: t.min_reliability,
+    tok: [t.input_tokens, t.output_tokens], att: t.attempts_avg,
+    tool: t.tool_cost, rev: [t.review_minutes, t.review_role], risk: t.risk_cost,
+    a: t.autonomy, s: t.substitutability, cf: t.confidence,
+    basis: trunc(t.price_basis, 80), note: trunc(t.notes, 100),
+    src: (t.sources || []).slice(0, 2).map(s => trunc(s.publisher || s.title, 30))
   }))
 };
 writeFileSync(join(root, 'api', '_corpus.js'),

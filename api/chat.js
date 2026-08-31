@@ -25,6 +25,7 @@ STYLE
 Answer concisely in plain prose. Cite task ids, dollar figures, and source names from the corpus. Do not use em dashes. You may do arithmetic with the corpus assumptions (default review rates are in review_rates_hr; default cache hit 50%). Stay on the topic of the index, its data, its methodology, and its thesis; politely decline unrelated requests.
 
 THE CORPUS (JSON)
+Field guide for tasks: p = [price_low, price_base, price_high] USD per unit; r = [r_low, r_base, r_high]; fl = minimum reliability floor; tok = [input_tokens, output_tokens] per attempt; att = retry multiplier; tool and risk are USD per attempt; rev = [review minutes, reviewer role] (hourly rates in review_rates_hr); a = autonomy 0-5; s = substitutability 0-5; cf = confidence grade; src = source names. Cost per attempt C = att x (tokens priced at the chosen model's per-Mtok rates, 50% cache hit on input by default) + tool + rev cost + 10% capital overhead + risk. Then Phi = r x price / C, FCSO = C / r, TCEVO = inference cost / r, CCR = price / C.
 `;
 
 const SYSTEM_FULL = SYSTEM + CORPUS;
@@ -67,6 +68,7 @@ export default async function handler(req, res) {
     }
     const data = await r.json();
     const answer = data.choices?.[0]?.message?.content ?? '';
+    if (!answer) return res.status(502).json({ error: 'empty answer from upstream (likely out of OpenRouter credits)' });
     return res.status(200).json({ answer, model: data.model });
   } catch (e) {
     return res.status(500).json({ error: String(e).slice(0, 300) });
