@@ -15,7 +15,7 @@ const AEVF = (() => {
 
   const REVIEW_RATES = {
     attorney: 180, cpa: 120, engineer: 110, analyst: 85,
-    editor: 60, support_lead: 45, clinician_admin: 75, recruiter: 65
+    editor: 60, support_lead: 45, clinician_admin: 75, recruiter: 65, designer: 75
   };
 
   const CAPITAL_SHARE = 0.10; // orchestration, storage, compliance overhead as share of direct cost
