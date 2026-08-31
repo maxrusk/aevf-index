@@ -31,7 +31,7 @@ When relative magnitude is the point (rankings, compression, cost breakdowns), p
 {"type":"bar","title":"Cost compression leaders","unit":"x cheaper than the human price","items":[{"label":"expense-audit","value":153.1},{"label":"email-sequence","value":142.3}]}
 \`\`\`
 Also supported: {"type":"scatter","title":"...","xlabel":"R","ylabel":"Phi","points":[{"label":"nda-review","x":0.85,"y":6.2}]}.
-Rules: the JSON must be valid (double quotes, no trailing commas, numbers unquoted); keep prose outside the blocks; never draw tables with pipe characters or ASCII art in prose.
+Rules: the JSON must be valid (double quotes, no trailing commas, numbers unquoted); keep prose outside the blocks; never draw tables with pipe characters or ASCII art in prose. Keep table blocks to at most 12 rows and chart blocks to at most 10 items unless the user explicitly asks for the full list; when you truncate, say so in the note field. Always close every block; keep the whole answer comfortably within the output budget.
 
 STYLE
 For any cost arithmetic, default to Claude Sonnet 5 pricing ($2 input / $10 output per Mtok, $0.20 cached input) with a 50% cache hit rate unless the user names a different model; state the model you assumed. Give only the final answer: no visible deliberation, no restating the question, no showing your search through the data.
@@ -84,7 +84,7 @@ export default async function handler(req, res) {
         ]
       })
     });
-    let r = await call(1024);
+    let r = await call(2000);
     if (r.status === 402) {
       // low-credit account: retry with whatever output budget remains
       const detail = await r.text();

@@ -200,20 +200,59 @@
         ).join('');
       }
 
+      // tolerant JSON: repairs blocks cut off mid-stream by output limits
+      function balance(f) {
+        const stack = []; let str = false, escp = false;
+        for (const ch of f) {
+          if (escp) { escp = false; continue; }
+          if (ch === '\\') { if (str) escp = true; continue; }
+          if (ch === '"') { str = !str; continue; }
+          if (str) continue;
+          if (ch === '{' || ch === '[') stack.push(ch);
+          else if (ch === '}') { if (stack.pop() !== '{') return null; }
+          else if (ch === ']') { if (stack.pop() !== '[') return null; }
+        }
+        if (str) return null;
+        let out = f.replace(/,\s*$/, '');
+        while (stack.length) out += stack.pop() === '{' ? '}' : ']';
+        return out;
+      }
+      function parseLoose(s) {
+        try { return JSON.parse(s); } catch {}
+        let tries = 0;
+        for (let cut = s.length; cut > 0 && tries < 60; cut--) {
+          const ch = s[cut - 1];
+          if (ch === ']' || ch === '}') {
+            tries++;
+            const bal = balance(s.slice(0, cut));
+            if (bal) { try { return JSON.parse(bal); } catch {} }
+          }
+        }
+        return null;
+      }
+
       // split answer into prose / table / chart segments
       function segments(text) {
         const segs = []; let last = 0; let m;
         const re = /```(\w*)\s*\n([\s\S]*?)```/g;
+        const pushBlock = (kind, body) => {
+          if (kind === 'table' || kind === 'chart') {
+            const spec = parseLoose(body);
+            if (spec) { segs.push({ t: kind, c: spec }); return; }
+          }
+          segs.push({ t: 'prose', c: body });
+        };
         while ((m = re.exec(text))) {
           if (m.index > last) segs.push({ t: 'prose', c: text.slice(last, m.index) });
-          const kind = (m[1] || '').toLowerCase(), body = m[2];
-          if (kind === 'table' || kind === 'chart') {
-            try { segs.push({ t: kind, c: JSON.parse(body) }); }
-            catch { segs.push({ t: 'prose', c: body }); }
-          } else segs.push({ t: 'prose', c: body });
+          pushBlock((m[1] || '').toLowerCase(), m[2]);
           last = re.lastIndex;
         }
-        if (last < text.length) segs.push({ t: 'prose', c: text.slice(last) });
+        const tail = text.slice(last);
+        const um = tail.match(/```(\w*)\s*\n([\s\S]*)$/);
+        if (um) {
+          if (um.index > 0) segs.push({ t: 'prose', c: tail.slice(0, um.index) });
+          pushBlock((um[1] || '').toLowerCase(), um[2]);
+        } else if (tail) segs.push({ t: 'prose', c: tail });
         // fallback: lift raw markdown tables out of prose
         const out = [];
         for (const s of segs) {
