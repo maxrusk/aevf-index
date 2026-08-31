@@ -338,8 +338,12 @@
         ta.value = URL_; document.body.appendChild(ta); ta.select();
         document.execCommand('copy'); ta.remove();
       }
-      btn.textContent = 'Copied'; btn.classList.add('done');
-      setTimeout(() => { btn.textContent = 'Copy link'; btn.classList.remove('done'); }, 1800);
+      btn.classList.add('done');
+      $('icon-copy').hidden = true; $('icon-check').hidden = false;
+      setTimeout(() => {
+        btn.classList.remove('done');
+        $('icon-copy').hidden = false; $('icon-check').hidden = true;
+      }, 1800);
     };
   })();
 })();
