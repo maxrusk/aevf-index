@@ -166,6 +166,28 @@
     .worked { margin-top: 20px; font-family: var(--sans); font-size: 14px; color: #333; line-height: 1.7; border-left: 2px solid var(--accent); padding-left: 18px; }
     .worked .num { font-family: var(--mono); font-size: 13px; }
 
+    /* ask the index */
+    .ask-box { border: 1px solid var(--hairline); padding: 22px; max-width: 780px; }
+    #chat-log { display: flex; flex-direction: column; gap: 14px; margin-bottom: 6px; }
+    #chat-log:not(:empty) { margin-bottom: 18px; }
+    .msg { font-size: 15.5px; line-height: 1.6; max-width: 92%; white-space: pre-wrap; }
+    .msg .who { font-family: var(--mono); font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); display: block; margin-bottom: 4px; }
+    .msg.user { align-self: flex-end; background: #f6f5f1; border: 1px solid var(--hairline); padding: 10px 14px; }
+    .msg.assistant { align-self: flex-start; }
+    .msg.pending { color: var(--muted); font-style: italic; }
+    #ask-form { display: flex; gap: 10px; }
+    #ask-form input {
+      flex: 1; font-family: var(--sans); font-size: 14.5px; padding: 11px 14px;
+      border: 1px solid var(--hairline); background: #fff; border-radius: 0; color: var(--foreground);
+    }
+    #ask-form input:focus { outline: none; border-color: var(--accent); }
+    #ask-form button {
+      font-family: var(--sans); font-size: 12.5px; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 11px 22px; background: var(--accent); color: #fff; border: none; cursor: pointer;
+    }
+    #ask-form button:disabled { opacity: 0.5; cursor: default; }
+    .ask-note { font-family: var(--sans); font-size: 12.5px; color: var(--muted); margin-top: 14px; line-height: 1.55; }
+
     .prose { max-width: 720px; font-size: 16.5px; color: #222; }
     .prose p { margin-bottom: 16px; }
     .prose .num { font-family: var(--mono); font-size: 14px; }
@@ -182,6 +204,7 @@
       <nav>
         <a href="#frontier">Frontier</a>
         <a href="#tasks">Tasks</a>
+        <a href="#ask">Ask</a>
         <a href="#thesis">Thesis</a>
         <a href="methodology.html">Methodology</a>
         <a href="https://github.com/maxrusk/aevf-index">GitHub</a>
@@ -364,6 +387,20 @@
       </div>
     </div>
     <div class="worked" id="worked"></div>
+
+    <p class="section-label" id="ask">Ask the index</p>
+    <div class="ask-box">
+      <div id="chat-log"></div>
+      <form id="ask-form" autocomplete="off">
+        <input id="ask-input" type="text" maxlength="2000" placeholder="e.g. Why is medical coding still outside the frontier under conservative assumptions?">
+        <button type="submit">Ask</button>
+      </form>
+      <p class="ask-note">
+        Answers are generated over the full index corpus: all 50 task cards, sourced prices, reliability
+        evidence, model pricing, and the methodology. The analyst is bound by the same honesty rules as
+        the page: estimates stay labeled as estimates.
+      </p>
+    </div>
 
     <p class="section-label" id="thesis">The thesis · why this index exists</p>
     <div class="prose">

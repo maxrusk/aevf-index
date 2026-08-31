@@ -1,0 +1,9 @@
+{
+  "name": "aevf-index",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build_data.mjs",
+    "update-prices": "node scripts/update_prices.mjs"
+  }
+}
