@@ -44,7 +44,7 @@ export default async function handler(req, res) {
   }
 
   try {
-    const r = await fetch('https://openrouter.ai/api/v1/chat/completions', {
+    const call = maxTokens => fetch('https://openrouter.ai/api/v1/chat/completions', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${key}`,
@@ -54,7 +54,7 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({
         model: 'anthropic/claude-sonnet-5',
-        max_tokens: 1024,
+        max_tokens: maxTokens,
         temperature: 0.3,
         messages: [
           { role: 'system', content: SYSTEM_FULL },
@@ -62,6 +62,15 @@ export default async function handler(req, res) {
         ]
       })
     });
+    let r = await call(1024);
+    if (r.status === 402) {
+      // low-credit account: retry with whatever output budget remains
+      const detail = await r.text();
+      const m = detail.match(/can only afford (\d+)/);
+      const afford = m ? parseInt(m[1], 10) - 30 : 0;
+      if (afford < 120) return res.status(502).json({ error: 'The OpenRouter account is out of credits. Add credits at openrouter.ai/settings/credits.' });
+      r = await call(afford);
+    }
     if (!r.ok) {
       const detail = await r.text();
       return res.status(502).json({ error: 'upstream error', status: r.status, detail: detail.slice(0, 300) });
