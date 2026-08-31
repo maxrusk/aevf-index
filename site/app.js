@@ -247,7 +247,7 @@
     const strictShare = state.weighting === 'equal' ? sum.shareStrictEqual : sum.shareStrictValue;
     const costShare = state.weighting === 'equal' ? sum.shareEqualWeighted : sum.shareValueWeighted;
     $('stat-share').textContent = fmtPct(strictShare);
-    $('stat-share-sub').innerHTML = 'clears cost <i>and</i> its reliability floor · on cost alone: ' + fmtPct(costShare);
+    $('stat-share-sub').innerHTML = 'cheaper than the human <i>and</i> reliable enough · on cost alone: ' + fmtPct(costShare);
     $('stat-count').textContent = sum.viableCount + ' / ' + sum.strictCount;
     $('stat-count-sub').textContent = 'inside on cost / also meeting their reliability floor';
     $('stat-phi').textContent = sum.medianPhi >= 100 ? Math.round(sum.medianPhi) : sum.medianPhi.toFixed(1);
