@@ -345,7 +345,8 @@
       history.push({ role: 'user', content: q });
       const slot = add('assistant', 'Reasoning over the corpus...', true);
       try {
-        const r = await fetch('/api/chat', {
+        const API = location.hostname === 'aevf-index.vercel.app' ? '/api/chat' : 'https://aevf-index.vercel.app/api/chat';
+        const r = await fetch(API, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ messages: history.slice(-10) })
