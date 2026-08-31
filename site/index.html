@@ -168,7 +168,7 @@
       <nav>
         <a href="#frontier">Frontier</a>
         <a href="#tasks">Tasks</a>
-        <a href="#equations">Equations</a>
+        <a href="#thesis">Thesis</a>
         <a href="methodology.html">Methodology</a>
         <a href="https://github.com/maxrusk/aevf-index">GitHub</a>
       </nav>
@@ -331,28 +331,49 @@
     </div>
     <div class="worked" id="worked"></div>
 
-    <p class="section-label">Why this index exists</p>
+    <p class="section-label" id="thesis">The thesis · why this index exists</p>
     <div class="prose">
       <p>
-        Benchmarks measure whether models are impressive. This index measures something narrower and
-        more consequential: for which real tasks the machine is now the cheaper producer of an accepted
-        outcome, human review and error costs included, and how fast that set is growing. The stakes of
-        each crossing are structural, not incremental: once AI production undercuts the human price, the
-        marginal cost of that output decouples from labor and trends toward the cost of compute, the
-        price umbrella over the incumbent service collapses, and adoption becomes a competitive
-        requirement rather than a choice.
-        Between March 2023 and August 2026, flagship output tokens went from
-        <span class="num">$60</span> per million (GPT-4 at launch) to <span class="num">$10&ndash;$50</span>
-        (current flagships), with cached input and small models another order of magnitude below. Token
-        prices are not the story, though. In most rows of this table the binding cost is no longer
-        inference; it is human review, and the binding constraint is reliability.
+        <b>The capex bet.</b> Global AI investment is forecast to
+        <a href="https://www.goldmansachs.com/insights/articles/global-investment-is-forecast-to-exceed-1-trillion-in-2026" target="_blank" rel="noreferrer">exceed $1 trillion in 2026</a>
+        (Goldman Sachs Research), with cumulative investment since 2022 approaching
+        <span class="num">$1.8&thinsp;trillion</span> by year end. The entire return case for that capital
+        rests on one assumption: that in the interim before any
+        <a href="https://www.lesswrong.com/w/singularity" target="_blank" rel="noreferrer">RSI-to-ASI transition</a>,
+        AI agents actually diffuse into the economy, performing economically valuable tasks cheaper, faster,
+        and better than the humans who perform them today. If agents do not diffuse, the capex is not
+        justified by anything. Diffusion is the whole game, and diffusion is a measurable claim.
       </p>
       <p>
-        The thesis this instrument is built to test: the largest economic effects arrive not when AI helps
-        an incumbent do the same work slightly faster, but when production is redesigned around abundant
-        machine cognition and the outcome is sold directly. Where the table shows 10x to 100x compression,
-        that is where AI-native institutions get built. Full framing in the
-        <a href="methodology.html">methodology</a>.
+        <b>The industry measures the wrong thing.</b> Token prices, benchmark deltas, and
+        intelligence-per-dollar ratios are the standard proxies for AI progress, and none of them crosses
+        an economic threshold. Cheaper tokens are not cheaper accepted work. Benchmark gains invite
+        optimization against the measure itself rather than true generalization, a dynamic formalized in
+        <a href="https://arxiv.org/abs/2604.22230" target="_blank" rel="noreferrer">Qiu, Yu, and Xu, "On Benchmark Hacking in ML Contests" (2026)</a>.
+        A model can climb every leaderboard while the economic question, does anyone accept and pay for
+        the output, goes unanswered. This index exists because the underlying objective of the buildout
+        is not benchmark supremacy; it is displacement of human production cost, and that has to be
+        measured in dollars per accepted outcome or it is not being measured at all.
+      </p>
+      <p>
+        <b>The Neo Firm endgame.</b> The parent thesis behind this instrument holds that as the marginal
+        cost of compute trends toward zero, the cost of producing an economically viable service falls
+        toward, more or less, the price of compute, and the winners are Neo Firms: institutions built
+        AI-native from zero that sell the outcome directly, rather than software sold into incumbents who
+        keep their legacy cost structure. In that regime a specific inversion happens to model choice.
+        Below the viability threshold, capability is everything. Above it, once a task's reliability floor
+        and cost test are both cleared, model selection collapses into procurement: volume flows to
+        whichever model is most token-efficient at producing that accepted output. Which means the market
+        will need a precise definition of token efficiency, and dollars per million tokens is not it.
+        TCEVO, inference dollars per <em>accepted</em> economic output, is this project's candidate. Every
+        row in the table above is that number, computed live.
+      </p>
+      <p>
+        In most rows the binding cost today is not inference at all; it is human review, and the binding
+        constraint is reliability. That is what pre-diffusion looks like in the data: tokens are already
+        cheap enough, and the frontier now moves on R, not on price. Where the table shows 10x to 100x
+        compression with deterministic verification, that is where Neo Firms get built first. Full framing
+        and every caveat in the <a href="methodology.html">methodology</a>.
       </p>
     </div>
   </main>
