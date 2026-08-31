@@ -53,7 +53,10 @@ export default async function handler(req, res) {
         'X-Title': 'AEVF Index'
       },
       body: JSON.stringify({
-        model: 'anthropic/claude-sonnet-5',
+        // free-tier routing: strong open model with free fallbacks; swap to
+        // 'anthropic/claude-sonnet-5' once the OpenRouter account is funded
+        model: 'z-ai/glm-5.2:free',
+        models: ['z-ai/glm-5.2:free', 'nvidia/nemotron-3-ultra-550b-a55b:free', 'minimax/minimax-m3:free'],
         max_tokens: maxTokens,
         temperature: 0.3,
         messages: [

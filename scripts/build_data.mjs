@@ -59,7 +59,8 @@ const corpus = {
   built: payload.built,
   models: pricing.models.map(m => ({ id: m.id, name: m.name, in: m.input_per_mtok, out: m.output_per_mtok, cache: m.cache_read_per_mtok })),
   historical_prices: pricing.historical.map(h => `${h.model} (${h.date}): $${h.input_per_mtok}/$${h.output_per_mtok} per Mtok`),
-  reliability_evidence: (evidence.evidence ?? []).map(e => `${e.domain} · ${trunc(e.metric, 90)} · ${trunc(e.value, 140)} (${trunc(e.source?.title, 50)})`),
+  reliability_evidence: (evidence.evidence ?? []).map(e => `${e.domain} · ${trunc(e.metric, 120)} · ${trunc(e.value, 220)} · measures: ${trunc(e.measures, 150)} · caveat: ${trunc(e.caveat, 120)} (${trunc(e.source?.title, 60)})`),
+  reliability_note: trunc(evidence.priors_note ?? '', 900),
   review_rates_hr: base.defaults.review_rates_hr,
   tasks: tasks.map(t => ({
     id: t.task_id, name: t.name, dom: t.domain, unit: t.unit,
@@ -68,8 +69,9 @@ const corpus = {
     tok: [t.input_tokens, t.output_tokens], att: t.attempts_avg,
     tool: t.tool_cost, rev: [t.review_minutes, t.review_role], risk: t.risk_cost,
     a: t.autonomy, s: t.substitutability, cf: t.confidence,
-    basis: trunc(t.price_basis, 80), note: trunc(t.notes, 100),
-    src: (t.sources || []).slice(0, 2).map(s => trunc(s.publisher || s.title, 30))
+    risk_class: t.risk_class, verification: t.verification, human_minutes: t.human_minutes,
+    basis: trunc(t.price_basis, 140), note: trunc((t.notes + ' ' + (t.price_notes || '')).trim(), 220),
+    src: (t.sources || []).slice(0, 3).map(s => trunc(`${s.publisher || ''}: ${s.title}`, 70))
   }))
 };
 writeFileSync(join(root, 'api', '_corpus.js'),
