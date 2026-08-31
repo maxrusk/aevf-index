@@ -317,4 +317,29 @@
   $('ft-retrieved').textContent = D.retrieved;
   document.querySelectorAll('.n-tasks').forEach(n => { n.textContent = D.tasks.length; });
   render();
+
+  // ---- share ----
+  (function () {
+    const URL_ = 'https://aevf-index.vercel.app';
+    const TEXT = `The AI Economic Viability Frontier: a live index of ${D.tasks.length} real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R < V.`;
+    const u = encodeURIComponent(URL_), t = encodeURIComponent(TEXT);
+    const links = {
+      x: `https://x.com/intent/post?text=${t}&url=${u}`,
+      linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${u}`,
+      substack: `https://substack.com/notes?action=compose&message=${encodeURIComponent(TEXT + ' ' + URL_)}`,
+      email: `mailto:?subject=${encodeURIComponent('The AI Economic Viability Frontier')}&body=${encodeURIComponent(TEXT + '\n\n' + URL_)}`
+    };
+    document.querySelectorAll('#share-row a').forEach(a => { a.href = links[a.dataset.net]; });
+    const btn = $('copy-link');
+    btn.onclick = async () => {
+      try { await navigator.clipboard.writeText(URL_); }
+      catch {
+        const ta = document.createElement('textarea');
+        ta.value = URL_; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); ta.remove();
+      }
+      btn.textContent = 'Copied'; btn.classList.add('done');
+      setTimeout(() => { btn.textContent = 'Copy link'; btn.classList.remove('done'); }, 1800);
+    };
+  })();
 })();

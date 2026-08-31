@@ -5,6 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AEVF Index · Theseus</title>
   <meta name="description" content="The AI Economic Viability Frontier: a live, expanding index of real economic tasks, measuring when AI production cost falls below willingness to pay.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The AI Economic Viability Frontier">
+  <meta property="og:description" content="A live index of 100 real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R &lt; V. A Theseus Holdings research instrument.">
+  <meta property="og:url" content="https://aevf-index.vercel.app">
+  <meta property="og:image" content="https://aevf-index.vercel.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The AI Economic Viability Frontier">
+  <meta name="twitter:description" content="A live index of 100 real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R &lt; V.">
+  <meta name="twitter:image" content="https://aevf-index.vercel.app/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -178,6 +189,20 @@
     .prose { max-width: 720px; font-size: 16.5px; color: #222; }
     .prose p { margin-bottom: 16px; }
     .prose .num { font-family: var(--mono); font-size: 14px; }
+
+    /* share */
+    .share-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .share-row a, .share-row button {
+      font-family: var(--sans); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); background: #fff; border: 1px solid var(--hairline); border-radius: 99px;
+      padding: 9px 18px; text-decoration: none; cursor: pointer; transition: color 0.12s, border-color 0.12s;
+    }
+    .share-row a:hover, .share-row button:hover { color: var(--foreground); border-color: var(--accent); opacity: 1; }
+    .share-row button.done { background: var(--accent); border-color: var(--accent); color: #fff; }
+    .contact-block {
+      margin-top: 34px; font-size: 17px; color: #333; max-width: 640px;
+    }
+    .contact-block a { color: var(--accent); }
 
     footer { margin-top: 90px; border-top: 1px solid var(--hairline); padding: 32px 0 56px; }
     footer .frow { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
@@ -430,6 +455,19 @@
         compression with deterministic verification, that is where Neo Firms get built first. Full framing
         and every caveat in the <a href="methodology.html">methodology</a>.
       </p>
+    </div>
+    <p class="section-label">Share the index</p>
+    <div class="share-row" id="share-row">
+      <a data-net="x" target="_blank" rel="noreferrer">X</a>
+      <a data-net="linkedin" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a data-net="substack" target="_blank" rel="noreferrer">Substack Notes</a>
+      <a data-net="email">Email</a>
+      <button id="copy-link" type="button">Copy link</button>
+    </div>
+
+    <div class="contact-block">
+      Interested in contributing or want to learn more?
+      Reach out at <a href="mailto:contact@theseusholdings.xyz">contact@theseusholdings.xyz</a>.
     </div>
   </main>
 
