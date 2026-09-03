@@ -1,0 +1,108 @@
+{"tasks":[
+{"task_id":"foia-request-processing","unit":"per request","price_low":100,"price_base":480,"price_high":3000,"human_minutes":470,
+ "price_basis":"DOJ FY2024 government-wide FOIA processing cost $723.4M divided by 1,499,265 requests processed = $482 per request; 5,628 FTE x ~2,080 hrs / 1.5M requests = ~7.8 staff hours per request; low = simple request closed in ~2 hours, high = complex multi-exemption request at 6x the average",
+ "status":"derived (base from DOJ totals / requests processed; low and high estimated from the average)",
+ "sources":[
+  {"url":"https://www.justice.gov/oip/media/1398111/dl?inline=","title":"2024 Annual FOIA Report Summary","publisher":"US DOJ Office of Information Policy","date":"2025-04-28","retrieved":"2026-09-02","note":"1,499,265 requests processed; total FOIA costs $723,415,561; 5,628.46 full-time FOIA staff; $669.2M processing-related"},
+  {"url":"https://brechner.jou.ufl.edu/2025/04/30/foia-requests-denials-surge-fy-2024/","title":"FOIA requests, denials, backlogs, delays, costs surge in FY 2024","publisher":"Brechner Center, University of Florida","date":"2025-04-30","retrieved":"2026-09-02","note":"1.5M requests in FY2024 (up 25%); processing cost $723M (up 22%); 5,638 FTE"}
+ ],
+ "notes":"Average blends trivial and litigation-scale requests; state and local agencies lack comparable cost reporting."},
+{"task_id":"public-comment-synthesis","unit":"per docket","price_low":2600,"price_base":6000,"price_high":20000,"human_minutes":3600,
+ "price_basis":"Low = Future Fox ConsultAI G-Cloud rate £2.00 per comment x 1,000 comments = £2,000, about $2,600 at ~$1.30/GBP; base = contractor thematic coding and memo at ~60 analyst hours (3 min per comment plus synthesis) at a ~$100/hr loaded contractor rate; high = large or contentious docket with multi-reviewer coding",
+ "status":"mixed (per-comment service price observed; contractor hours and rate estimated on a BLS wage anchor)",
+ "sources":[
+  {"url":"https://assets.applytosupply.digitalmarketplace.service.gov.uk/g-cloud-14/documents/709730/154063523660315-pricing-document-2025-10-31-1526.pdf","title":"ConsultAI Pricing Document (G-Cloud 14)","publisher":"The Future Fox Ltd via UK Digital Marketplace","date":"2025-10-31","retrieved":"2026-09-02","note":"£2.00/comment at 1,000 comments; £1.25 at 10,000; £0.49 at 100,000"},
+  {"url":"https://www.bls.gov/ooh/business-and-financial/budget-analysts.htm","title":"Budget Analysts: Occupational Outlook Handbook","publisher":"US Bureau of Labor Statistics","date":"2025-05","retrieved":"2026-09-02","note":"median $44.06/hr (May 2025), used as the public-sector analyst wage anchor"}
+ ],
+ "notes":"AI-assisted vendors already set the floor; contractor pricing is opaque and mostly bundled into regulatory-analysis contracts."},
+{"task_id":"federal-grant-performance-report","unit":"per report","price_low":800,"price_base":1800,"price_high":4000,"human_minutes":720,
+ "price_basis":"Grant compliance consultant rates $65-$110/hr mid-career and $110-$150+/hr senior (Giddings) with federal specialists at $150-$250/hr (Grantboost); 8-16 hours per combined financial plus narrative report; base = 12 hrs x $150",
+ "status":"derived (hourly rates observed; hours per report estimated)",
+ "sources":[
+  {"url":"https://www.grantboost.io/blog/grant-writing-fees/","title":"The Real Cost of Grant Writing: Fees, Pricing Models & ROI","publisher":"Grantboost","date":"2026","retrieved":"2026-09-02","note":"federal grant specialists $150-$250/hr; experienced writers $75-$125/hr"},
+  {"url":"https://giddingsconsulting.com/blog/grant-writer-cost/","title":"How Much Does a Grant Writer Cost? 2026 Guide","publisher":"Giddings Consulting Group","date":"2026","retrieved":"2026-09-02","note":"$40-$150/hr by experience; senior specialists $110-$150+/hr; reporting is a separate fee"}
+ ],
+ "notes":"Assumes the grantee's books are current; reconciliation cleanup is extra."},
+{"task_id":"benefits-eligibility-determination","unit":"per case","price_low":50,"price_base":120,"price_high":350,"human_minutes":180,
+ "price_basis":"BLS eligibility interviewers median $54,210/yr (~$26/hr, ~$39/hr loaded); ~3 hours of caseworker time per initial determination including interview, verification, budgeting, and notice; low = 1.5 hr recertification at unloaded wage; high = complex case, roughly the FY2016 national average annual state admin expense per SNAP case ($348)",
+ "status":"derived (wage observed; hours per case estimated; high anchored to FNS per-case admin cost)",
+ "sources":[
+  {"url":"https://www.bls.gov/ooh/office-and-administrative-support/information-clerks.htm","title":"Information Clerks: Occupational Outlook Handbook","publisher":"US Bureau of Labor Statistics","date":"2025-05","retrieved":"2026-09-02","note":"eligibility interviewers, government programs, median $54,210 (May 2025)"},
+  {"url":"https://fns-prod.azureedge.us/sites/default/files/media/file/SNAP-State-Variation-Admin-Costs-Summary.pdf","title":"Exploring the Causes of State Variation in SNAP Administrative Costs (Summary)","publisher":"USDA Food and Nutrition Service","date":"2019","retrieved":"2026-09-02","note":"FY2016 SAE per case averaged $348, range $89 (FL) to $848 (WY); per case = annual SAE / avg monthly caseload"}
+ ],
+ "notes":"Per-case SAE covers all admin over a year, not one determination; states could not supply caseload-to-staff ratios to FNS."},
+{"task_id":"procurement-solicitation-draft","unit":"per solicitation","price_low":1200,"price_base":2800,"price_high":7600,"human_minutes":3000,
+ "price_basis":"NCPP RFP Tracking Project: non-complex solicitation 43+ personnel hours, complex 138+ hours; BLS buyers and purchasing agents median $39.27/hr (~$55 loaded); base = ~50 drafting hours x $55; low = 30 hrs at unloaded wage; high = 138 hrs x $55",
+ "status":"derived (hours and wage observed; drafting share of total procurement hours estimated)",
+ "sources":[
+  {"url":"https://nppgov.com/uncover-the-true-costs-of-rfps/","title":"Uncover the True Costs of RFPs","publisher":"NPPGov (citing NCPP RFP Tracking Project)","date":"2025","retrieved":"2026-09-02","note":"non-complex solicitation 43+ hours; complex 138+ hours; Orange County CA $86,000 staff time for one 5-year award"},
+  {"url":"https://www.bls.gov/ooh/business-and-financial/purchasing-managers-buyers-and-purchasing-agents.htm","title":"Purchasing Managers, Buyers, and Purchasing Agents: OOH","publisher":"US Bureau of Labor Statistics","date":"2025-05","retrieved":"2026-09-02","note":"buyers and purchasing agents $39.27/hr (May 2025)"}
+ ],
+ "notes":"NCPP hours cover the full solicitation lifecycle; drafting is roughly a third to a half."},
+{"task_id":"bill-summary-fiscal-note","unit":"per bill","price_low":600,"price_base":2500,"price_high":6000,"human_minutes":1800,
+ "price_basis":"Colorado Legislative Council fiscal note team: 13 FTE, $1.8M annual cost including benefits and overhead, across 650+ bills introduced in 2025 = ~$2,700 per bill including revisions; Utah legislative financial analyst $38.38-$53.41/hr; low = simple no-impact bill at ~12 hrs x $50; high = major tax or program bill",
+ "status":"derived (staff cost and bill counts observed; per-bill allocation and hours estimated)",
+ "sources":[
+  {"url":"https://archive.legmt.gov/content/Committees/Interim/2025-2026/Legislative-Council/October_28-29_2025/7.1.State_Fiscal_Note_Strategies_of_Various_States.pdf","title":"Fiscal Note Strategies of Various States (NCSL survey summary)","publisher":"Montana Legislative Services Division","date":"2025-10","retrieved":"2026-09-02","note":"Colorado 13.00 FTE fiscal note team, base salary $1.25M, $1.8M with benefits and overhead; New Mexico ~$388,620 per 60-day session"},
+  {"url":"https://davisgraham.com/news-events/2025-colorado-legislative-session-in-review/","title":"2025 Colorado Legislative Session In Review","publisher":"Davis Graham","date":"2025","retrieved":"2026-09-02","note":"over 650 bills introduced in the 2025 session"},
+  {"url":"https://www.governmentjobs.com/careers/utah/jobs/newprint/4505483","title":"Legislative Financial Analyst","publisher":"State of Utah","date":"2024","retrieved":"2026-09-02","note":"$38.38-$53.41/hr; prepares fiscal analysis of proposed legislation"}
+ ],
+ "notes":"Most states do not isolate fiscal note costs; Colorado is the cleanest published allocation."},
+{"task_id":"donor-acknowledgement-letters","unit":"per 100 letters","price_low":100,"price_base":330,"price_high":900,"human_minutes":400,
+ "price_basis":"Print, stuff, and mail at $1.00/letter (Zeffy) = $100 per 100; personalization labor by development staff at BLS fundraiser median $34.88/hr, ~4 min per letter = 6.7 hrs = $233; high = high-touch major-donor letters at ~9 min each by senior staff plus mailing",
+ "status":"mixed (fulfillment price observed; personalization labor derived from wage x estimated minutes)",
+ "sources":[
+  {"url":"https://www.zeffy.com/home/donor-mail","title":"Nonprofit Direct Mail: Send Donor Letters for $1","publisher":"Zeffy","date":"2026","retrieved":"2026-09-02","note":"$1 per letter covers printing, stuffing, postage, and mailing; merge fields for donor name"},
+  {"url":"https://www.bls.gov/ooh/business-and-financial/fundraisers.htm","title":"Fundraisers: Occupational Outlook Handbook","publisher":"US Bureau of Labor Statistics","date":"2025-05","retrieved":"2026-09-02","note":"median $72,550/yr, $34.88/hr (May 2025)"}
+ ],
+ "notes":"Fulfillment houses quote only on request; mail-merge templates already automate the low end."},
+{"task_id":"grant-progress-report","unit":"per report","price_low":400,"price_base":1000,"price_high":2500,"human_minutes":600,
+ "price_basis":"Grant writers $65-$110/hr mid-career (Giddings), $75-$125/hr experienced (Grantboost); Giddings notes the post-award report is usually a separate fee outside the proposal flat fee; 6-15 hours per report; base = 10 hrs x $100",
+ "status":"derived (hourly rates observed; hours per report estimated; no published per-report flat fee found)",
+ "sources":[
+  {"url":"https://giddingsconsulting.com/blog/grant-writer-cost/","title":"How Much Does a Grant Writer Cost? 2026 Guide","publisher":"Giddings Consulting Group","date":"2026","retrieved":"2026-09-02","note":"$40-$150/hr; flat fee usually does not include the grant report after you win, which is a separate fee"},
+  {"url":"https://www.grantboost.io/blog/grant-writing-fees/","title":"The Real Cost of Grant Writing: Fees, Pricing Models & ROI","publisher":"Grantboost","date":"2026","retrieved":"2026-09-02","note":"experienced writers $75-$125/hr; specialized $100-$200/hr"}
+ ],
+ "notes":"Post-award retainers run $1,000-$5,000/month per Instrumentl but bundle several reports."},
+{"task_id":"donor-prospect-profile","unit":"per profile","price_low":150,"price_base":350,"price_high":1500,"human_minutes":240,
+ "price_basis":"In-depth profile takes 3-4 hours, very detailed 10-15 hours (Chase Solutions); researcher labor at BLS fundraiser median $34.88/hr, consultant billing ~2x at $70-$100/hr; base = 4 hrs x ~$90; low = 3 hrs at ~$50; high = 15 hrs x $100; automated wealth screening at $0.10-$0.25 per record is a different product and excluded",
+ "status":"derived (hours per profile and wage observed; consultant markup estimated; firms quote per-profile fees privately)",
+ "sources":[
+  {"url":"https://prospectresearch.com/what-is-prospect-research/","title":"Facts & Questions: What Is Prospect Research?","publisher":"Chase Solutions","date":"2026","retrieved":"2026-09-02","note":"in-depth profiles 3-4 hours; very detailed profiles 10-15 hours"},
+  {"url":"https://www.bls.gov/ooh/business-and-financial/fundraisers.htm","title":"Fundraisers: Occupational Outlook Handbook","publisher":"US Bureau of Labor Statistics","date":"2025-05","retrieved":"2026-09-02","note":"median $34.88/hr (May 2025)"},
+  {"url":"https://aitoolsbakery.com/blog/donorsearch-pricing-2026/","title":"DonorSearch Pricing 2026: Quote Ranges + Demo Tips","publisher":"AI Tools Bakery","date":"2026","retrieved":"2026-09-02","note":"batch screening $0.10-$0.25 per record via DonorPerfect price sheet; subscriptions $4,000-$12,000/yr"}
+ ],
+ "notes":"Aspire, Helen Brown Group, and peers publish no per-profile prices; all quote on discovery call."},
+{"task_id":"nonprofit-annual-report-draft","unit":"per report","price_low":3000,"price_base":10000,"price_high":28000,"human_minutes":4800,
+ "price_basis":"Formal 16-page annual report $7,500-$20,000 with writing, $6,000-$10,000 when staff write internally (Phil); design-only estimates $6,000 for 24 pages to $28,000 for 64 pages (MillerCox); low = freelance writer plus template design for a small org",
+ "status":"observed (agency and studio ranges; low end estimated)",
+ "sources":[
+  {"url":"https://phil.ca/time-and-money-well-spent-crafting-a-brilliant-annual-report/","title":"Time & money well spent: crafting a brilliant Annual Report","publisher":"Phil Communications","date":"2025","retrieved":"2026-09-02","note":"16-page report $7,500-$20,000; $6,000-$10,000 with internal writing; ~3 months"},
+  {"url":"https://millercox.com/much-cost-design-publication/","title":"How much does it cost to design a publication?","publisher":"MillerCox Design","date":"2025","retrieved":"2026-09-02","note":"24-page agency report $6,000; 44-page $20,000; 64-page nonprofit report $28,000"}
+ ],
+ "notes":"Unit bundles writing and design; the AI-substitutable share is the writing and data-summary portion."},
+{"task_id":"utility-bill-audit","unit":"per account-year","price_low":100,"price_base":1000,"price_high":8000,"human_minutes":300,
+ "price_basis":"Industry fee is 25-40% of total recovery with typical findings from a few hundred dollars on small accounts to tens of thousands on large facilities (AAUBA); base = ~$3,000 recovery x 33%; low = $400 recovery x 25%; high = $20,000 recovery x 40%; accounts with no findings pay nothing",
+ "status":"estimated (contingency percentage and recovery ranges observed; implied per-account fee is author judgment)",
+ "sources":[
+  {"url":"https://aauba.org/utility-bill-auditing/","title":"Utility Bill Auditing: How It Works & Why Businesses Overpay","publisher":"AAUBA","date":"2026","retrieved":"2026-09-02","note":"auditor fee typically 25% to 40% of total recovery; findings from a few hundred dollars to tens of thousands"},
+  {"url":"https://oeo.com/utility-bill-audit/","title":"Utility Bill Audit Program","publisher":"OEO Energy Solutions","date":"2026","retrieved":"2026-09-02","note":"purely contingency based, no upfront fees; percentage of savings and refunds"}
+ ],
+ "notes":"Contingency pricing means willingness to pay tracks recovery, not effort; a flat-fee audit market barely exists."},
+{"task_id":"solar-interconnection-application","unit":"per application","price_low":300,"price_base":1000,"price_high":2000,"human_minutes":180,
+ "price_basis":"Utility interconnection application add-on priced at $1,000 flat (Solar Permit Solutions); homeowner-facing permit plus interconnection bundle from $1,425 (GoGreenSolar); low = installer in-house or low-cost design shop; high = commercial system under 50 kW with study coordination; utility application fees ($145 PG&E NEM) excluded",
+ "status":"observed (service fees; low end estimated)",
+ "sources":[
+  {"url":"https://www.solarpermitsolutions.com/blog/outsource-solar-permit-design-vs-in-house-engineering","title":"Outsource Solar Permit Design vs In-House: 2026 Cost Guide","publisher":"Solar Permit Solutions","date":"2026","retrieved":"2026-09-02","note":"residential plan set $1,200; AHJ submission and utility interconnection add-ons $1,000 each"},
+  {"url":"https://www.gogreensolar.com/products/solar-interconnection-service","title":"Solar Interconnection Service","publisher":"GoGreenSolar","date":"2026","retrieved":"2026-09-02","note":"starting at $1,425 including permit approval and utility communication; ~4 weeks to approval"}
+ ],
+ "notes":"GreenLancer advertises flat-fee interconnection filings with 1-2 day turnaround but does not publish the fee."},
+{"task_id":"ashrae-level1-energy-audit","unit":"per building","price_low":1500,"price_base":3500,"price_high":10000,"human_minutes":1200,
+ "price_basis":"Level 1 audits $0.05-$0.10/sq ft or $1,500-$5,000 flat (Envigilance); $0.05-$0.15/sq ft with a 60,000 sq ft warehouse example at $2,800 (Vutility); base = ~50,000 sq ft commercial building at ~$0.07/sq ft; high = 100,000 sq ft at $0.10",
+ "status":"observed (published per-square-foot and flat ranges)",
+ "sources":[
+  {"url":"https://envigilance.com/energy-monitoring/ashrae-energy-audit/","title":"ASHRAE Energy Audit: Levels 1-3 Explained","publisher":"Envigilance","date":"2026","retrieved":"2026-09-02","note":"Level 1 $0.05-0.10/sq ft or $1,500-5,000 flat; 1-3 days including report"},
+  {"url":"https://vutility.com/blog/commercial-energy-audit-cost-per-square-foot","title":"Commercial Energy Audit Cost Per Square Foot","publisher":"Vutility","date":"2026","retrieved":"2026-09-02","note":"Level 1 $0.05-$0.15/sq ft; Phoenix 60,000 sq ft warehouse Level 1 $2,800"}
+ ],
+ "notes":"Price includes the on-site walk-through; AI-substitutable share is the desk analysis and report."}
+]}

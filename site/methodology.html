@@ -48,7 +48,7 @@
 
   <main class="wrap">
     <div style="padding-top:64px">
-      <p class="kicker">AEVF Index · Methodology · v0.1 · August 2026</p>
+      <p class="kicker">AEVF Index · Methodology · v0.3 · September 2026</p>
       <h1>How this index is built, and exactly how much to trust it</h1>
     </div>
 
@@ -85,7 +85,7 @@
       <tr><td><b>Modeled assumption</b></td><td>Token counts, retry rates, review minutes, tool costs, risk costs</td><td>Author judgment about a competent single-agent scaffold, stated per task and adjustable in the interface</td></tr>
     </table>
     <p>
-      Nothing in v0.1 is a measured trial. The research specification this index implements calls for 20
+      Nothing in the index to date is a measured trial. The research specification this index implements calls for 20
       to 100 graded trials per task with blind expert grading and confidence intervals; that is Phase II.
       Until then, the correct reading of any single row is "a sourced, disciplined estimate," and the
       correct reading of the aggregate is directional.
@@ -102,20 +102,28 @@
       resolution rate and its case-study range of 42 to 50%, not tau-bench. Each task carries a low, base,
       and high R, and a minimum reliability floor; the index reports both the share of tasks that clear
       cost alone and the share that also clear their floor. The second number is the honest one.
+      Priors are also calibrated across releases: when a batch of new cards is added, each new prior is
+      checked against the closest existing analog (a deterministic form-filling task against the existing
+      form-filling tasks, an open research memo against the existing research memos) so that structurally
+      similar tasks carry comparable R regardless of who authored the card. The v0.3 batch was re-anchored
+      this way; the raw drafts ran about ten points more pessimistic than the v0.2 cards for equivalent
+      work, and the calibration closed roughly half of that gap, leaving the genuinely judgment-heavy new
+      domains (government determinations, construction, pharmacovigilance, root-cause analysis) where the
+      drafts put them.
     </p>
 
     <h2>Costs</h2>
     <ul>
       <li><b>Inference:</b> per-task input and output token estimates, times a retry multiplier, priced at live per-Mtok rates for the selected model, with a prompt-cache hit-rate assumption (default 50%) applied to input.</li>
       <li><b>Tools:</b> search, enrichment APIs, OCR, code execution, per task.</li>
-      <li><b>Human review:</b> minutes of role-appropriate review (attorney $180/hr, CPA $120, engineer $110, analyst $85, and so on) at a global multiplier the reader controls. In most rows this, not inference, is the dominant cost. That is finding one.</li>
+      <li><b>Human review:</b> minutes of role-appropriate review (attorney $180/hr, CPA $120, engineer $110, domain specialist $130, analyst $85, and so on) at a global multiplier the reader controls. In most rows this, not inference, is the dominant cost. That is finding one.</li>
       <li><b>Capital:</b> 10% of direct cost for orchestration, storage, compliance overhead.</li>
       <li><b>Risk:</b> an expected-value error cost per task, scaled by risk class, adjustable 0x to 3x.</li>
     </ul>
 
     <h2>Known biases, stated plainly</h2>
     <ol>
-      <li><b>Basket selection.</b> The tasks were chosen because they are discrete, gradable, and plausibly AI-producible. The frontier share of this basket therefore runs far ahead of the economy's. Do not quote the headline number without this caveat. The basket is deliberately open-ended: the index adds tasks release by release (v0.1 shipped with 50), and every aggregate recomputes over whatever the universe holds at the time.</li>
+      <li><b>Basket selection.</b> The tasks were chosen because they are discrete, gradable, and plausibly AI-producible. The frontier share of this basket therefore runs far ahead of the economy's. Do not quote the headline number without this caveat. The basket is deliberately open-ended: the index adds tasks release by release (v0.1 shipped with 50 tasks in 8 domains, v0.2 with 100 in 16, v0.3 with 200 in 32), and every aggregate recomputes over whatever the universe holds at the time.</li>
       <li><b>Historical-price anchoring.</b> V uses current human-market prices. Where AI supply is already compressing prices (SEO articles, translation, deposition summaries), V overstates durable willingness to pay and &Phi; overstates the opportunity. The spec's own warning applies: price is not value.</li>
       <li><b>No demand response.</b> The index says nothing yet about how much more of a task gets consumed when its price collapses, which is where much of the real economic impact lives.</li>
       <li><b>Regulatory viability is not modeled.</b> A tax return needs a preparer's signature; a legal opinion needs a bar member. Several rows are technically and economically viable but legally gated, noted per task.</li>

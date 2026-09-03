@@ -1,0 +1,429 @@
+{
+ "tasks": [
+  {
+   "task_id": "adverse-event-case-processing",
+   "unit": "per case",
+   "price_low": 50,
+   "price_base": 250,
+   "price_high": 600,
+   "human_minutes": 240,
+   "price_basis": "Vendor list: standard outsourced case processing $200-$400/case, expedited $400-$600, intake alone $50-$100; low end reflects offshore non-serious cases commonly cited at $50-$200; base = midpoint of standard band",
+   "status": "mixed (per-case fees observed from one vendor; low end estimated from industry ranges; hours per case estimated)",
+   "sources": [
+    {
+     "url": "https://peptidestaff.com/outsourcing-services/peptide-adverse-event-reporting-outsourcing-services/",
+     "title": "Adverse Event Reporting Outsourcing Services",
+     "publisher": "PeptideStaff",
+     "date": "2026-04-21",
+     "retrieved": "2026-09-02",
+     "note": "$200-$400/case standard, $400-$600 expedited, $50-$100 intake; programs $150k-$800k/yr"
+    },
+    {
+     "url": "https://intuitionlabs.ai/articles/pharma-ai-roi-calculator-payback-periods",
+     "title": "Pharma AI ROI: Quantifying Metrics and Payback Periods",
+     "publisher": "IntuitionLabs",
+     "date": "2026-04-03",
+     "retrieved": "2026-09-02",
+     "note": "14 hours/case before AI, 9.1 after; full-lifecycle including medical review and QC"
+    }
+   ],
+   "notes": "Human minutes reflect processing and QC only; full lifecycle with medical review runs far longer per the ROI source."
+  },
+  {
+   "task_id": "protocol-plain-language-summary",
+   "unit": "per protocol",
+   "price_low": 1000,
+   "price_base": 2500,
+   "price_high": 5000,
+   "human_minutes": 1200,
+   "price_basis": "Freelance regulatory medical writer $131.65/hr (AMWA 2024 average) and $50-$100+/hr marketplace rates, times an estimated 10-35 hours for a synopsis plus lay protocol summary; base = 20 hrs at ~$125",
+   "status": "derived (hourly rates observed; hours per deliverable estimated)",
+   "sources": [
+    {
+     "url": "https://cliniciansguide.substack.com/p/what-medical-writers-actually-earn",
+     "title": "What Medical Writers Actually Earn",
+     "publisher": "Clinician's Guide (Substack), citing AMWA 2024 survey",
+     "date": "2025-12-01",
+     "retrieved": "2026-09-02",
+     "note": "freelance regulatory writer average $131.65/hr"
+    },
+    {
+     "url": "https://www.kolabtree.com/blog/how-much-does-it-cost-to-hire-a-freelance-medical-writer/",
+     "title": "How much does it cost to hire a freelance medical writer?",
+     "publisher": "Kolabtree",
+     "date": "2020-08-14",
+     "retrieved": "2026-09-02",
+     "note": "regulatory writers $50+/hr, $100+/hr for complex work; clinical writers $40-$80/hr"
+    },
+    {
+     "url": "https://www.quanticate.com/lay-summaries-services",
+     "title": "Lay Summaries Writing Services for Clinical Trials",
+     "publisher": "Quanticate",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "vendor offers Plain Language Protocol Synopsis for CTIS; no list price"
+    }
+   ],
+   "notes": "No vendor publishes a per-summary price; EU CTR makes the lay protocol synopsis mandatory for EU trials."
+  },
+  {
+   "task_id": "csr-section-drafting",
+   "unit": "per section",
+   "price_low": 1500,
+   "price_base": 4000,
+   "price_high": 8000,
+   "human_minutes": 1800,
+   "price_basis": "Surveyed CSR timelines (16.9 days TLFs to first draft plus 25.7 days to final, roughly 340 writer-hours per CSR) allocated to one major methods or results section at 25-50 hours, times $50-$130/hr writer rates; base = 30 hrs at ~$130",
+   "status": "derived (rates and whole-CSR timelines observed; per-section hour allocation estimated)",
+   "sources": [
+    {
+     "url": "https://acrpnet.org/2020/09/15/clinical-study-reports-101-tips-and-tricks-for-the-novice",
+     "title": "Clinical Study Reports 101: Tips and Tricks for the Novice",
+     "publisher": "ACRP",
+     "date": "2020-09-15",
+     "retrieved": "2026-09-02",
+     "note": "mean 16.9 days TLFs to first draft, 25.7 days first to final, 83 days lock to completion (n=78 writers)"
+    },
+    {
+     "url": "https://cliniciansguide.substack.com/p/what-medical-writers-actually-earn",
+     "title": "What Medical Writers Actually Earn",
+     "publisher": "Clinician's Guide (Substack), citing AMWA 2024 survey",
+     "date": "2025-12-01",
+     "retrieved": "2026-09-02",
+     "note": "freelance regulatory writer average $131.65/hr"
+    },
+    {
+     "url": "https://www.kolabtree.com/blog/how-much-does-it-cost-to-hire-a-freelance-medical-writer/",
+     "title": "How much does it cost to hire a freelance medical writer?",
+     "publisher": "Kolabtree",
+     "date": "2020-08-14",
+     "retrieved": "2026-09-02",
+     "note": "regulatory writers $50-$100+/hr"
+    }
+   ],
+   "notes": "Whole-CSR contracts are quoted per study; per-section is an allocation of that effort."
+  },
+  {
+   "task_id": "regulatory-submission-formatting-qc",
+   "unit": "per document",
+   "price_low": 100,
+   "price_base": 300,
+   "price_high": 900,
+   "human_minutes": 300,
+   "price_basis": "eCTD publisher wages ~$30/hr (ZipRecruiter avg $29.90, range $23-$34) and BLS desktop publishers $35.90/hr, loaded to ~$45-$70/hr outsourced, times 2-12 hours per document depending on length and hyperlink density; base = 5 hrs at $60",
+   "status": "derived (wages observed; hours per document estimated; ZipRecruiter page fetch blocked, figure from search snippet)",
+   "sources": [
+    {
+     "url": "https://www.ziprecruiter.com/Jobs/Ectd-Publisher",
+     "title": "eCTD Publisher Jobs and Hourly Pay",
+     "publisher": "ZipRecruiter",
+     "date": "2026-05-11",
+     "retrieved": "2026-09-02",
+     "note": "avg $29.90/hr, most $23.08-$34.38; fetch returned 403, figures from search snippet"
+    },
+    {
+     "url": "https://www.bls.gov/news.release/ocwage.t01.htm",
+     "title": "Table 1. National employment and wage data, OEWS May 2025",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "physicians, all other $125.98/hr mean; desktop publishers $35.90; document management specialists $30.48; credit counselors $27.51"
+    }
+   ],
+   "notes": "Vendors quote per sequence or per page rather than per document; document-level publishing is a labor allocation."
+  },
+  {
+   "task_id": "ambient-soap-note",
+   "unit": "per visit",
+   "price_low": 8,
+   "price_base": 12,
+   "price_high": 25,
+   "human_minutes": 20,
+   "price_basis": "Virtual scribe per-visit fees $8-$15 and hourly $10-$35; monthly $1,200-$4,000 per provider; in-person scribes $3,750-$5,400/month allocated over ~300 visits gives $12-$18; high end = low-volume specialty allocation",
+   "status": "observed (per-visit and hourly vendor pricing; in-person allocation estimated)",
+   "sources": [
+    {
+     "url": "https://hellorache.com/how-much-does-a-virtual-medical-scribe-cost/",
+     "title": "Virtual Medical Scribe Cost: 2026 Price Guide",
+     "publisher": "Hello Rache",
+     "date": "2026-03-19",
+     "retrieved": "2026-09-02",
+     "note": "$10-$15/visit; $20-$35/hr industry, $9.50/hr Hello Rache; $1,200-$3,500/mo; in-person $2,600-$5,000/mo"
+    },
+    {
+     "url": "https://patientnotes.ai/resources/virtual-scribe-cost",
+     "title": "Virtual Scribe Cost 2026: Pricing Guide, ROI & Comparison",
+     "publisher": "PatientNotes",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "$8-$15/visit; $10-$35/hr; $1,200-$4,000/mo; in-person $45k-$65k/yr"
+    }
+   ],
+   "notes": "AI scribe subscriptions ($39-$299/mo) already price below human scribes; human price is the durable-WTP ceiling."
+  },
+  {
+   "task_id": "discharge-summary-drafting",
+   "unit": "per discharge",
+   "price_low": 25,
+   "price_base": 80,
+   "price_high": 150,
+   "human_minutes": 40,
+   "price_basis": "BLS physicians (all other) $125.98/hr times an estimated 30-60 minutes per summary (physicians reported ~10 hrs/week on summaries pre-intervention); low end = transcription-only cost of a 2-3 page summary at $0.10-$0.14/line",
+   "status": "derived (physician wage and transcription rates observed; minutes per summary estimated)",
+   "sources": [
+    {
+     "url": "https://www.bls.gov/news.release/ocwage.t01.htm",
+     "title": "Table 1. National employment and wage data, OEWS May 2025",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "physicians, all other $125.98/hr mean; desktop publishers $35.90; document management specialists $30.48; credit counselors $27.51"
+    },
+    {
+     "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4645715/",
+     "title": "Improving the efficiency of discharge summary completion by linking to preexisting patient information databases",
+     "publisher": "BMJ Quality Improvement Reports (PMC)",
+     "date": "2014",
+     "retrieved": "2026-09-02",
+     "note": "physicians spent 10.0 (SD 3.5) hrs/week on discharge summaries, 7.2 after intervention"
+    },
+    {
+     "url": "https://www.dittotranscripts.com/medical-transcription-pricing/",
+     "title": "Medical transcription pricing",
+     "publisher": "Ditto Transcripts",
+     "date": "2024-08-13",
+     "retrieved": "2026-09-02",
+     "note": "$0.10/line AI-assisted, $0.14/line human, $0.16 STAT; 65-character line"
+    }
+   ],
+   "notes": "Physician time is the real cost; transcription vendors only price the typing layer."
+  },
+  {
+   "task_id": "prior-auth-appeal-letter",
+   "unit": "per appeal",
+   "price_low": 40,
+   "price_base": 150,
+   "price_high": 1000,
+   "human_minutes": 60,
+   "price_basis": "Consumer appeal service $39.95 flat; physician time 45-60 min at $125.98/hr plus staff assembly gives ~$120-$180; patient advocates $50-$300/hr; attorney flat fees $500-$2,000 for appeal letter review set the high end",
+   "status": "mixed (service and attorney fees observed; base derived from physician wage times estimated minutes)",
+   "sources": [
+    {
+     "url": "https://www.getclaimable.com/for-providers",
+     "title": "Help Patients Easily Appeal Denied Insurance Claims",
+     "publisher": "Claimable",
+     "date": "2026-04-22",
+     "retrieved": "2026-09-02",
+     "note": "$39.95 flat fee per appeal plus shipping"
+    },
+    {
+     "url": "https://www.claimback.app/blog/cost-of-hiring-insurance-appeal-lawyer",
+     "title": "Cost of Hiring an Insurance Appeal Lawyer: 2026 Cost Guide",
+     "publisher": "ClaimBack",
+     "date": "2026-02-22",
+     "retrieved": "2026-09-02",
+     "note": "flat $500-$2,000 appeal letter review; $5,000-$15,000 full ERISA appeal; $150-$750/hr"
+    },
+    {
+     "url": "https://aviatorhealth.co/blog/how-much-do-patient-advocates-cost",
+     "title": "How Much Do Patient Advocates Cost?",
+     "publisher": "Aviator Health",
+     "date": "2025-12-15",
+     "retrieved": "2026-09-02",
+     "note": "private advocates $50-$300/hr (APHA)"
+    },
+    {
+     "url": "https://www.bls.gov/news.release/ocwage.t01.htm",
+     "title": "Table 1. National employment and wage data, OEWS May 2025",
+     "publisher": "U.S. Bureau of Labor Statistics",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "physicians, all other $125.98/hr mean; desktop publishers $35.90; document management specialists $30.48; credit counselors $27.51"
+    }
+   ],
+   "notes": "Low end is already an AI-assisted service, a sign the consumer channel is compressing fast."
+  },
+  {
+   "task_id": "resume-cover-letter-package",
+   "unit": "per package",
+   "price_low": 150,
+   "price_base": 350,
+   "price_high": 700,
+   "human_minutes": 600,
+   "price_basis": "Resume plus cover letter bundles: Resumeble $157, TopStack $329, Craft Resumes $499.99; TopResume resume from $179 with cover letter add-on, resume+cover letter package quoted at $379; professional-level resumes $200-$400, executive $350-$700",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://resumegenius.com/blog/resume-help/resume-writing-services",
+     "title": "The 12 Best Professional Resume Writing Services for 2026",
+     "publisher": "Resume Genius",
+     "date": "2026-02-23",
+     "retrieved": "2026-09-02",
+     "note": "bundles $157 / $329 / $499.99; TopResume $179-$599; market $135-$699"
+    },
+    {
+     "url": "https://topresume.com/career-advice/how-much-does-a-professional-resume-writing-service-cost",
+     "title": "How Much Does a Resume Writer Cost in 2026?",
+     "publisher": "TopResume",
+     "date": "2024-11-07",
+     "retrieved": "2026-09-02",
+     "note": "professional $200-$400, executive $350-$700; ~10 cumulative hours per project"
+    },
+    {
+     "url": "https://topresume.com/plans",
+     "title": "Plans & Pricing",
+     "publisher": "TopResume",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "Resume Writing from $179; Get Hired Now from $2,495"
+    }
+   ],
+   "notes": "Ten writer-hours per package per TopResume; AI tools are compressing the low end."
+  },
+  {
+   "task_id": "individual-tax-return-1040",
+   "unit": "per return",
+   "price_low": 250,
+   "price_base": 414,
+   "price_high": 800,
+   "human_minutes": 150,
+   "price_basis": "NSA 2020-21 survey inflation-adjusted to 2025: Form 1040 standard deduction $281, with Schedule A $414; high end = itemized return with state filing and multiple 1099s at CPA-firm rates",
+   "status": "observed (NSA survey figures, inflation-adjusted by the source; high end estimated)",
+   "sources": [
+    {
+     "url": "https://wallethacks.com/how-much-should-tax-preparation-cost/",
+     "title": "How Much Should Tax Preparation Cost in 2026?",
+     "publisher": "Wallet Hacks",
+     "date": "2026-01-20",
+     "retrieved": "2026-09-02",
+     "note": "NSA averages adjusted to 2025 dollars: $281 standard, $414 with Schedule A; Maryland example $1,032 itemized with state"
+    }
+   ],
+   "notes": "NSA stopped the fee survey after 2020-21; consumer software has already absorbed much of the simple-return market."
+  },
+  {
+   "task_id": "simple-will-estate-package",
+   "unit": "per package",
+   "price_low": 99,
+   "price_base": 600,
+   "price_high": 2500,
+   "human_minutes": 180,
+   "price_basis": "LegalZoom Basic Will bundle $99 (will, healthcare directive, financial POA, HIPAA), Premium with attorney review $249; attorney-drafted: will $500-$1,500, POA $100-$400, living will $300-$1,000; base = online-with-attorney-review to low-end attorney flat package",
+   "status": "observed (online bundle and attorney per-document ranges; package midpoint estimated)",
+   "sources": [
+    {
+     "url": "https://www.legalzoom.com/personal/estate-planning/estate-planning-bundle-compare.html",
+     "title": "Estate planning bundle comparison",
+     "publisher": "LegalZoom",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "Basic Will $99, Premium Will $249 with attorney review and 1 year of attorney calls"
+    },
+    {
+     "url": "https://www.legalzoom.com/articles/estate-planning-cost",
+     "title": "How Much Does Estate Planning Cost? 2026 Guide",
+     "publisher": "LegalZoom",
+     "date": "2026-01-05",
+     "retrieved": "2026-09-02",
+     "note": "will $500-$1,500; POA $100-$400; living will $300-$1,000; trust ~$2,000"
+    }
+   ],
+   "notes": "Range spans an order of magnitude between form-based online bundles and attorney-drafted packages."
+  },
+  {
+   "task_id": "college-essay-coaching",
+   "unit": "per student",
+   "price_low": 800,
+   "price_base": 1500,
+   "price_high": 4500,
+   "human_minutes": 600,
+   "price_basis": "Premier College Prep personal statement package $899 plus $300 per supplemental essay gives $1,499 for one statement and two supplements; consultants $79-$349/hr; main essay plus supplements commonly $1,000-$5,000",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://premiercollegeprep.com/essays",
+     "title": "College Essay Coaching and Admissions Consulting",
+     "publisher": "Premier College Prep",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "Personal Statement Package $899; supplemental essays $300 each; unlimited supplements $2,999"
+    },
+    {
+     "url": "https://www.collegeessaymentor.com/post/how-much-does-a-college-essay-consultant-cost",
+     "title": "How Much Does a College Essay Consultant Cost? 2026 Guide",
+     "publisher": "College Essay Mentor",
+     "date": "2026-06-24",
+     "retrieved": "2026-09-02",
+     "note": "main essay plus supplements $1,000-$5,000; PrepMaven $79-$349/hr; full packages $5,000-$15,000"
+    }
+   ],
+   "notes": "About 10 coaching hours across brainstorming and revision rounds for three essays."
+  },
+  {
+   "task_id": "personal-debt-budget-plan",
+   "unit": "per plan",
+   "price_low": 40,
+   "price_base": 300,
+   "price_high": 1500,
+   "human_minutes": 120,
+   "price_basis": "Nonprofit credit counseling session is free (30-60 min); DMP setup averages $38 with ~$35/month; financial coaches $100-$300/hr (national average $257) with 3-4 session debt-payoff packages $1,200-$1,500; base = ~2 coach hours at $150",
+   "status": "mixed (fees observed; plan-level allocation estimated)",
+   "sources": [
+    {
+     "url": "https://www.moneymanagement.org/debt-management/faq",
+     "title": "Debt Management Plan FAQs",
+     "publisher": "Money Management International",
+     "date": "2026",
+     "retrieved": "2026-09-02",
+     "note": "DMP setup fee average $38, monthly fee average $35; free financial analysis"
+    },
+    {
+     "url": "https://cpiinflationcalculator.com/whos-the-nfcc-can-they-help-with-debt-2026-review/",
+     "title": "Who's the NFCC? Can They Help with Debt? (2026 Review)",
+     "publisher": "CPI Inflation Calculator",
+     "date": "2026-06-02",
+     "retrieved": "2026-09-02",
+     "note": "initial counseling free, 30-60 minute review; modest setup fee plus small monthly fee capped in many states"
+    },
+    {
+     "url": "https://michaelryanmoney.com/how-much-does-a-financial-coach-charge/",
+     "title": "How Much Do Financial Coaches Charge?",
+     "publisher": "Michael Ryan Money",
+     "date": "2025-12-24",
+     "retrieved": "2026-09-02",
+     "note": "$100-$300/hr, national average $257/hr; 3-4 session packages $1,200-$1,500; 8 sessions $2,500-$2,700"
+    }
+   ],
+   "notes": "Free nonprofit counseling anchors the floor; paid coaching packages anchor the ceiling."
+  },
+  {
+   "task_id": "home-purchase-document-review",
+   "unit": "per transaction",
+   "price_low": 400,
+   "price_base": 590,
+   "price_high": 1250,
+   "human_minutes": 150,
+   "price_basis": "Flat-fee purchase agreement review averages $590 (ContractsCounsel); contract review only $400-$600 and full buyer representation through closing $750-$1,250 (Clever); hourly $200-$350",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.contractscounsel.com/b/real-estate-purchase-agreement-cost",
+     "title": "Real Estate Purchase Agreement Cost (2026)",
+     "publisher": "ContractsCounsel",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-02",
+     "note": "review $590 flat; drafting $850; $200-$350/hr"
+    },
+    {
+     "url": "https://listwithclever.com/real-estate-blog/realtor-or-real-estate-lawyer-which-is-cheaper/",
+     "title": "How Much Does a Real Estate Attorney Cost in 2026?",
+     "publisher": "Clever Real Estate",
+     "date": "2026-07-30",
+     "retrieved": "2026-09-02",
+     "note": "contract review $400-$600; buyer representation $750-$1,250; $150-$600/hr"
+    }
+   ],
+   "notes": "About 2.5 attorney hours to read the agreement, disclosures, and inspection report and write the issue memo."
+  }
+ ]
+}
