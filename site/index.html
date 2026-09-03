@@ -7,209 +7,19 @@
   <meta name="description" content="The AI Economic Viability Frontier: a live, expanding index of real economic tasks, measuring when AI production cost falls below willingness to pay.">
   <meta property="og:type" content="website">
   <meta property="og:title" content="The AI Economic Viability Frontier">
-  <meta property="og:description" content="A live index of 100 real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R &lt; V. A Theseus Holdings research instrument.">
+  <meta property="og:description" content="A live index of 200 real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R &lt; V. A Theseus Holdings research instrument.">
   <meta property="og:url" content="https://aevf-index.vercel.app">
   <meta property="og:image" content="https://aevf-index.vercel.app/og.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="The AI Economic Viability Frontier">
-  <meta name="twitter:description" content="A live index of 100 real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R &lt; V.">
+  <meta name="twitter:description" content="A live index of 200 real economic tasks measuring when AI agents become cheaper, all-in, than the human producer. C/R &lt; V.">
   <meta name="twitter:image" content="https://aevf-index.vercel.app/og.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --background: #fbfbf9;
-      --foreground: #111111;
-      --muted: #6f6f6a;
-      --hairline: #e6e5e0;
-      --accent: #1e3a5f;
-      --viable: #3b6ea5;
-      --nonviable: #c07a38;
-      --serif: 'Spectral', Georgia, serif;
-      --sans: 'Geist', -apple-system, system-ui, sans-serif;
-      --mono: 'Geist Mono', ui-monospace, 'SF Mono', monospace;
-    }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { color-scheme: light; }
-    body {
-      background: var(--background);
-      color: var(--foreground);
-      font-family: var(--serif);
-      font-size: 17px;
-      line-height: 1.6;
-      -webkit-font-smoothing: antialiased;
-    }
-    ::selection { background: var(--accent); color: #fff; }
-    a { color: inherit; text-decoration: underline; text-decoration-thickness: from-font; text-underline-offset: 4px; }
-    a:hover { opacity: 0.7; }
-    .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
-    .narrow { max-width: 720px; }
-
-    header.site { padding: 48px 0 0; }
-    .brandline { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; flex-wrap: wrap; }
-    .wordmark { font-family: var(--sans); font-weight: 500; font-size: 15px; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none; }
-    .brandline nav { font-family: var(--sans); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); display: flex; gap: 24px; }
-    .brandline nav a { text-decoration: none; color: inherit; }
-
-    .kicker { font-family: var(--mono); font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); }
-    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(34px, 5vw, 52px); line-height: 1.12; margin: 18px 0 20px; letter-spacing: -0.01em; }
-    .lede { font-size: 19px; color: #333; max-width: 640px; }
-    .lede em { font-style: italic; }
-    .intro { max-width: 680px; }
-    .intro p { font-size: 18px; color: #2a2a2a; margin-bottom: 17px; }
-    .intro p strong { font-weight: 500; font-size: 19px; }
-    .intro .intro-note { font-family: var(--sans); font-size: 13.5px; color: var(--muted); margin-top: 26px; }
-
-    .notice {
-      margin: 36px 0 0; padding: 14px 18px; border: 1px solid var(--hairline);
-      font-family: var(--sans); font-size: 13.5px; line-height: 1.55; color: var(--muted); background: #f6f5f1;
-    }
-    .notice strong { color: var(--foreground); font-weight: 600; }
-
-    .section-label {
-      font-family: var(--sans); font-weight: 500; font-size: 12px; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--muted); padding: 56px 0 18px;
-    }
-
-    /* stat tiles */
-    .tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
-    .tile { background: var(--background); padding: 22px 22px 18px; }
-    .tile .t-label { font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .tile .t-value { font-family: var(--mono); font-size: 34px; font-weight: 500; margin-top: 8px; font-variant-numeric: tabular-nums; }
-    .tile .t-sub { font-family: var(--sans); font-size: 12.5px; color: var(--muted); margin-top: 4px; }
-
-    /* assumptions */
-    .panel { border: 1px solid var(--hairline); padding: 24px; margin-top: 8px; }
-    .controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 22px 32px; }
-    .ctrl label { display: block; font-family: var(--sans); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); margin-bottom: 8px; }
-    .ctrl select {
-      width: 100%; font-family: var(--mono); font-size: 13px; padding: 8px 10px;
-      border: 1px solid var(--hairline); background: #fff; color: var(--foreground); border-radius: 0;
-    }
-    .seg { display: flex; border: 1px solid var(--hairline); }
-    .seg button {
-      flex: 1; font-family: var(--sans); font-size: 12.5px; padding: 8px 4px; background: #fff;
-      border: none; border-right: 1px solid var(--hairline); cursor: pointer; color: var(--muted);
-    }
-    .seg button:last-child { border-right: none; }
-    .seg button.on { background: var(--accent); color: #fff; }
-    .ctrl input[type=range] { width: 100%; accent-color: var(--accent); }
-    .ctrl .val { font-family: var(--mono); font-size: 12px; color: var(--foreground); }
-    .panel .reset { margin-top: 18px; font-family: var(--sans); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; background: none; border: none; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; padding: 0; }
-    .panel .reset:hover { color: var(--foreground); }
-
-    /* chart */
-    .chart-box { border: 1px solid var(--hairline); padding: 20px 12px 8px; margin-top: 8px; overflow-x: auto; }
-    .chart-caption { font-family: var(--sans); font-size: 13px; color: var(--muted); padding: 10px 10px 14px; line-height: 1.55; }
-    .legend { display: flex; gap: 22px; font-family: var(--sans); font-size: 12.5px; color: var(--muted); padding: 4px 10px 6px; flex-wrap: wrap; }
-    .legend .swatch { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 7px; vertical-align: baseline; }
-    #tooltip {
-      position: fixed; pointer-events: none; z-index: 50; display: none;
-      background: #fff; border: 1px solid var(--hairline); box-shadow: 0 2px 12px rgba(17,17,17,0.08);
-      padding: 10px 13px; font-family: var(--sans); font-size: 12.5px; line-height: 1.5; max-width: 280px;
-    }
-    #tooltip .tt-name { font-weight: 600; margin-bottom: 3px; }
-    #tooltip .tt-row { display: flex; justify-content: space-between; gap: 16px; color: var(--muted); }
-    #tooltip .tt-row b { font-family: var(--mono); font-weight: 500; color: var(--foreground); }
-
-    /* table */
-    .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 16px; }
-    .chips button {
-      font-family: var(--sans); font-size: 12.5px; padding: 7px 14px; cursor: pointer;
-      background: #fff; border: 1px solid var(--hairline); color: var(--muted); border-radius: 99px;
-    }
-    .chips button:hover { color: var(--foreground); }
-    .chips button.on { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .chips button .n { font-family: var(--mono); font-size: 10.5px; opacity: 0.75; margin-left: 5px; }
-    .table-tools { display: flex; justify-content: space-between; align-items: center; gap: 16px; flex-wrap: wrap; margin-bottom: 14px; }
-    .table-tools input[type=search] {
-      font-family: var(--sans); font-size: 13.5px; padding: 8px 12px; border: 1px solid var(--hairline);
-      background: #fff; width: 260px; max-width: 100%; border-radius: 0;
-    }
-    .table-tools .count { font-family: var(--mono); font-size: 12px; color: var(--muted); }
-    .table-wrap { overflow-x: auto; border: 1px solid var(--hairline); }
-    table { border-collapse: collapse; width: 100%; min-width: 900px; }
-    thead th {
-      font-family: var(--sans); font-size: 11px; letter-spacing: 0.09em; text-transform: uppercase;
-      color: var(--muted); text-align: right; padding: 12px 14px; border-bottom: 1px solid var(--hairline);
-      cursor: pointer; user-select: none; white-space: nowrap; background: #f6f5f1; position: sticky; top: 0;
-    }
-    thead th.left { text-align: left; }
-    thead th .arrow { font-family: var(--mono); }
-    thead th[data-k] { text-decoration: underline dotted; text-decoration-color: #c9c8c2; text-underline-offset: 4px; }
-    .tile .t-label { text-decoration: underline dotted; text-decoration-color: #c9c8c2; text-underline-offset: 4px; cursor: help; }
-    tbody td { padding: 11px 14px; border-bottom: 1px solid var(--hairline); font-size: 14.5px; text-align: right; white-space: nowrap; }
-    tbody td.left { text-align: left; white-space: normal; }
-    tbody tr.row { cursor: pointer; }
-    tbody tr.row:hover { background: #f6f5f1; }
-    td .num { font-family: var(--mono); font-size: 13px; font-variant-numeric: tabular-nums; }
-    .dot { display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 8px; }
-    .dot.v { background: var(--viable); }
-    .dot.n { background: var(--nonviable); }
-    .task-name { font-weight: 500; }
-    .task-domain { font-family: var(--sans); font-size: 11.5px; color: var(--muted); letter-spacing: 0.04em; }
-    .grade { font-family: var(--mono); font-size: 12px; border: 1px solid var(--hairline); padding: 1px 7px; color: var(--muted); }
-    .floorflag { font-family: var(--sans); font-size: 10.5px; color: var(--nonviable); letter-spacing: 0.04em; }
-
-    tr.detail td { background: #f6f5f1; text-align: left; white-space: normal; padding: 22px 26px; }
-    .detail-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 28px; }
-    @media (max-width: 800px) { .detail-grid { grid-template-columns: 1fr; } }
-    .detail h4 { font-family: var(--sans); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); font-weight: 500; margin: 0 0 10px; }
-    .cost-rows { font-family: var(--mono); font-size: 12.5px; }
-    .cost-row { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
-    .cost-row .cl { width: 150px; color: var(--muted); font-family: var(--sans); font-size: 12px; }
-    .cost-row .bar { height: 8px; background: var(--accent); opacity: 0.75; border-radius: 4px 4px 4px 4px; min-width: 2px; }
-    .cost-row .cv { font-variant-numeric: tabular-nums; }
-    .detail .meta { font-family: var(--sans); font-size: 13px; color: #333; line-height: 1.65; }
-    .detail .meta b { font-weight: 600; }
-    .detail .srcs { margin-top: 14px; font-family: var(--sans); font-size: 12.5px; color: var(--muted); line-height: 1.7; }
-    .detail .srcs a { color: var(--accent); }
-    .detail .statline { font-family: var(--mono); font-size: 12.5px; margin-top: 14px; line-height: 1.9; }
-
-    /* equations */
-    .eqs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1px; background: var(--hairline); border: 1px solid var(--hairline); }
-    .eq { background: var(--background); padding: 22px; }
-    .eq .formula { font-family: var(--mono); font-size: 15px; margin-bottom: 8px; }
-    .eq .expl { font-family: var(--sans); font-size: 13px; color: var(--muted); line-height: 1.55; }
-    .worked { margin-top: 20px; font-family: var(--sans); font-size: 14px; color: #333; line-height: 1.7; border-left: 2px solid var(--accent); padding-left: 18px; }
-    .worked .num { font-family: var(--mono); font-size: 13px; }
-
-    /* ask the index */
-    .ask-cta { border: 1px solid var(--hairline); padding: 26px 28px; max-width: 780px; }
-    .ask-cta a {
-      font-family: var(--sans); font-size: 15px; font-weight: 500; color: var(--accent);
-      text-decoration: none; letter-spacing: 0.02em;
-    }
-    .ask-cta a:hover { opacity: 0.75; }
-    .ask-cta p { font-family: var(--sans); font-size: 13px; color: var(--muted); margin-top: 10px; line-height: 1.55; }
-
-    .prose { max-width: 720px; font-size: 16.5px; color: #222; }
-    .prose p { margin-bottom: 16px; }
-    .prose .num { font-family: var(--mono); font-size: 14px; }
-
-    /* share */
-    .share-row { display: flex; flex-wrap: wrap; gap: 12px; }
-    .share-row a, .share-row button {
-      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
-      color: var(--muted); background: #fff; border: 1px solid var(--hairline); border-radius: 50%;
-      text-decoration: none; cursor: pointer; padding: 0; transition: color 0.12s, border-color 0.12s, transform 0.12s;
-    }
-    .share-row svg { width: 18px; height: 18px; display: block; }
-    .share-row svg[hidden] { display: none; }
-    .share-row a:hover, .share-row button:hover { color: var(--accent); border-color: var(--accent); opacity: 1; transform: translateY(-1px); }
-    .share-row button.done { background: var(--accent); border-color: var(--accent); color: #fff; }
-    .contact-block {
-      margin-top: 34px; font-size: 17px; color: #333; max-width: 640px;
-    }
-    .contact-block a { color: var(--accent); }
-
-    footer { margin-top: 90px; border-top: 1px solid var(--hairline); padding: 32px 0 56px; }
-    footer .frow { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; font-family: var(--sans); font-size: 12.5px; color: var(--muted); }
-    footer a { text-decoration: none; border-bottom: 1px solid var(--hairline); }
-  </style>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <header class="site">
@@ -217,7 +27,7 @@
       <a class="wordmark" href="https://theseusholdings.xyz">Theseus</a>
       <nav>
         <a href="#frontier">Frontier</a>
-        <a href="#tasks">Tasks</a>
+        <a href="tasks.html">Tasks</a>
         <a href="ask.html">Ask</a>
         <a href="#thesis">Thesis</a>
         <a href="methodology.html">Methodology</a>
@@ -356,9 +166,13 @@
     </div>
 
     <p class="section-label" id="tasks">The task universe · <span class="n-tasks">50</span> tasks, expanding</p>
-    <div class="chips" id="chips"></div>
+    <p class="preview-note">
+      A preview of the universe: the <b>15</b> tasks with the highest viability ratio under the current
+      assumptions, across <span class="n-domains">32</span> industries. Click a column header to re-rank the
+      preview, or a row for the task card. The full universe, searchable and filterable, is one click below.
+    </p>
     <div class="table-tools">
-      <input type="search" id="search" placeholder="Search tasks...">
+      <a class="btn" href="tasks.html">Browse all <span class="n-tasks">200</span> tasks &rarr;</a>
       <span class="count" id="tbl-count"></span>
     </div>
     <div class="table-wrap">
@@ -377,6 +191,10 @@
         </thead>
         <tbody id="tbody"></tbody>
       </table>
+    </div>
+    <div class="browse-all">
+      <div class="bt"><b>Every task, identifiable.</b> The full browser lists all <span class="n-tasks">200</span> tasks with search, industry filters, a frontier-status filter, sortable columns, and a permanent link for each task card.</div>
+      <a class="btn" href="tasks.html">Open the task browser &rarr;</a>
     </div>
 
     <p class="section-label" id="equations">The equations</p>
@@ -495,6 +313,8 @@
 
   <script src="data.js"></script>
   <script src="compute.js"></script>
+  <script src="table.js"></script>
+  <script src="controls.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

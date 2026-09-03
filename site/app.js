@@ -1,113 +1,24 @@
-/* AEVF dashboard. Renders from window.AEVF_DATA using the AEVF compute engine. */
+/* AEVF dashboard (index.html). Renders from window.AEVF_DATA using the AEVF compute engine.
+ * The task table here is a fixed-size preview; tasks.html holds the full browser. */
 (function () {
   const D = window.AEVF_DATA;
+  const T = AEVF_TABLE;
   const $ = id => document.getElementById(id);
+  const { fmtUSD, fmtX, fmtPct, showTip, hideTip } = T;
 
+  const PREVIEW_N = 15;
   const state = AEVF.defaults();
-  let sortKey = 'domain', sortDir = 1, filter = '', domainFilter = '', openRow = null;
+  let sortKey = 'phi', sortDir = -1, openRow = null;
 
-  const fmtUSD = v => {
-    if (v >= 1000) return '$' + Math.round(v).toLocaleString('en-US');
-    if (v >= 100) return '$' + v.toFixed(0);
-    if (v >= 10) return '$' + v.toFixed(1);
-    return '$' + v.toFixed(2);
-  };
-  const fmtX = v => (v >= 100 ? Math.round(v) : v >= 10 ? v.toFixed(1) : v.toFixed(2)) + 'x';
-  const fmtPct = v => (v * 100).toFixed(0) + '%';
+  AEVF_CONTROLS.init(state, render);
 
-  // ---- controls ----
-  const modelSel = $('model');
-  const groups = {};
-  D.models.forEach(m => { (groups[m.provider] = groups[m.provider] || []).push(m); });
-  Object.entries(groups).forEach(([prov, ms]) => {
-    const g = document.createElement('optgroup');
-    g.label = prov;
-    ms.forEach(m => {
-      const o = document.createElement('option');
-      o.value = m.id;
-      o.textContent = `${m.name}  ·  $${m.input_per_mtok}/$${m.output_per_mtok} per Mtok`;
-      g.appendChild(o);
-    });
-    modelSel.appendChild(g);
-  });
-  modelSel.value = state.modelId;
-  modelSel.onchange = () => { state.modelId = modelSel.value; render(); };
-
-  function segInit(id, key) {
-    const seg = $(id);
-    seg.querySelectorAll('button').forEach(b => {
-      b.onclick = () => {
-        seg.querySelectorAll('button').forEach(x => x.classList.remove('on'));
-        b.classList.add('on');
-        state[key] = b.dataset.v;
-        render();
-      };
-    });
-  }
-  segInit('seg-r', 'rScenario');
-  segInit('seg-p', 'priceScenario');
-  segInit('seg-w', 'weighting');
-
-  $('cache').oninput = e => { state.cacheShare = +e.target.value / 100; $('cache-val').textContent = e.target.value + '%'; render(); };
-  $('review').oninput = e => { state.reviewMult = +e.target.value / 100; $('review-val').textContent = (+e.target.value / 100).toFixed(1) + 'x'; render(); };
-  $('risk').oninput = e => { state.riskMult = +e.target.value / 100; $('risk-val').textContent = (+e.target.value / 100).toFixed(1) + 'x'; render(); };
-
-  $('reset').onclick = () => {
-    Object.assign(state, AEVF.defaults());
-    modelSel.value = state.modelId;
-    $('cache').value = 50; $('cache-val').textContent = '50%';
-    $('review').value = 100; $('review-val').textContent = '1.0x';
-    $('risk').value = 100; $('risk-val').textContent = '1.0x';
-    [['seg-r', 'base'], ['seg-p', 'base'], ['seg-w', 'value']].forEach(([id, v]) => {
-      $(id).querySelectorAll('button').forEach(b => b.classList.toggle('on', b.dataset.v === v));
-    });
-    render();
-  };
-
-  $('search').oninput = e => { filter = e.target.value.toLowerCase(); openRow = null; renderTable(window.__results); };
-
-  // industry filter chips
-  const DOMAINS = [...new Set(D.tasks.map(t => t.domain))];
-  const chipBox = $('chips');
-  const chipDefs = [['', 'All industries']].concat(DOMAINS.map(d => [d, d]));
-  chipBox.innerHTML = chipDefs.map(([v, label]) => {
-    const n = v ? D.tasks.filter(t => t.domain === v).length : D.tasks.length;
-    return `<button data-d="${v}" class="${v === '' ? 'on' : ''}">${label}<span class="n">${n}</span></button>`;
-  }).join('');
-  chipBox.querySelectorAll('button').forEach(b => {
-    b.onclick = () => {
-      domainFilter = b.dataset.d;
-      chipBox.querySelectorAll('button').forEach(x => x.classList.toggle('on', x === b));
-      openRow = null;
-      renderTable(window.__results);
-    };
-  });
-
-  // plain-English explanations, shown on hover over column headers and stat tiles
-  const HELP = {
-    name: 'One discrete, buyable output. Click a row for the full task card, cost breakdown, and sources.',
-    V: 'V · what buyers pay a human or firm for this outcome today. Sourced and cited per task. This is the bar the AI has to beat.',
-    fcso: 'C / R · the all-in cost for the AI to deliver one ACCEPTED output: tokens, tools, human review, overhead, and expected error cost, with failed attempts priced in. The task is inside the frontier when this is below the market price.',
-    tcevo: 'Token cost per economically viable output · inference spend alone, per accepted output. The token-efficiency number: once a task clears viability, volume should flow to whichever model minimizes this.',
-    phi: 'Viability ratio · expected value per dollar of production cost (R x V, divided by C). Above 1 = inside the frontier. A 10 means one dollar of AI cost supports ten dollars of expected value.',
-    ccr: 'Cost compression · how many times cheaper the AI is than the human: market price divided by all-in AI cost per success. 40x is a different production function, not a productivity gain.',
-    R: 'Reliability · the probability a professional accepts the output, anchored to published evidence, not benchmark scores. Failures make every success cost more, which is why costs are divided by R.',
-    confidence: 'Confidence grade · how well sourced this row is. A = observed prices and strong evidence; B = mostly observed; C = derived or thin evidence; D = speculative.'
-  };
+  // stat tile explanations
   const TILE_HELP = {
     'stat-share': 'The headline. Share of the basket (weighted by task value, or equally) where the AI is both cheaper than the human all-in AND clears the task’s minimum reliability floor. The cost-only share is shown beneath it.',
     'stat-count': 'Raw counts: tasks where AI cost per accepted output is below the human price / tasks that also meet their reliability floor.',
     'stat-phi': 'Median viability ratio across every tracked task: expected dollars of value supported by one dollar of AI production cost.',
     'stat-ccr': 'Median cost compression: how many times cheaper the AI process is than the human market price, all-in.'
   };
-  document.querySelectorAll('thead th').forEach(th => {
-    const help = HELP[th.dataset.k];
-    if (help) {
-      th.setAttribute('title', help);
-      th.addEventListener('mousemove', e => showTip(`<div style="max-width:260px">${help}</div>`, e.clientX, e.clientY));
-      th.addEventListener('mouseleave', hideTip);
-    }
-  });
   Object.entries(TILE_HELP).forEach(([id, help]) => {
     const tile = $(id).closest('.tile');
     tile.setAttribute('title', help);
@@ -115,25 +26,8 @@
     tile.addEventListener('mouseleave', hideTip);
   });
 
-  document.querySelectorAll('thead th').forEach(th => {
-    th.onclick = () => {
-      const k = th.dataset.k;
-      if (sortKey === k) sortDir = -sortDir; else { sortKey = k; sortDir = k === 'name' || k === 'confidence' ? 1 : -1; }
-      openRow = null;
-      renderTable(window.__results);
-    };
-  });
-
-  // ---- tooltip ----
-  const tip = $('tooltip');
-  function showTip(html, x, y) {
-    tip.innerHTML = html;
-    tip.style.display = 'block';
-    const w = tip.offsetWidth, h = tip.offsetHeight;
-    tip.style.left = Math.min(x + 14, window.innerWidth - w - 12) + 'px';
-    tip.style.top = Math.max(8, y - h - 12) + 'px';
-  }
-  function hideTip() { tip.style.display = 'none'; }
+  T.bindHeaderHelp($('tbl'));
+  T.bindSortHeaders($('tbl'), () => ({ sortKey, sortDir }), (k, d) => { sortKey = k; sortDir = d; openRow = null; renderTable(window.__results); });
 
   // ---- chart: reliability (x) vs FCSO as % of WTP (y, log) ----
   function renderChart(tasks, results) {
@@ -150,13 +44,12 @@
     const R_ = v => 4 + 9 * Math.sqrt(Math.log10(1 + v) / Math.log10(1 + vmax));
 
     let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" style="min-width:760px;display:block" font-family="Geist, sans-serif" role="img" aria-label="Scatter of task reliability against AI cost as a share of market price">`;
-    // gridlines
     const yTicks = [0.01, 0.03, 0.1, 0.3, 1, 3];
     yTicks.forEach(t => {
       const y = Y(t);
       const main = t === 1;
-      s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y}" y2="${y}" stroke="${main ? '#111111' : '#e6e5e0'}" stroke-width="${main ? 1.2 : 1}" ${main ? '' : ''}/>`;
-      s += `<text x="${m.l - 10}" y="${y + 4}" text-anchor="end" font-size="11" fill="#6f6f6a" font-family="Geist Mono, monospace">${t < 1 ? (t * 100) + '%' : (t * 100) + '%'}</text>`;
+      s += `<line x1="${m.l}" x2="${W - m.r}" y1="${y}" y2="${y}" stroke="${main ? '#111111' : '#e6e5e0'}" stroke-width="${main ? 1.2 : 1}"/>`;
+      s += `<text x="${m.l - 10}" y="${y + 4}" text-anchor="end" font-size="11" fill="#6f6f6a" font-family="Geist Mono, monospace">${(t * 100) + '%'}</text>`;
     });
     s += `<text x="${W - m.r}" y="${Y(1) - 7}" text-anchor="end" font-size="11" fill="#111111" font-family="Geist Mono, monospace">frontier · cost = price</text>`;
     for (let t = 0.4; t <= 1.001; t += 0.1) {
@@ -167,7 +60,6 @@
     s += `<text x="${m.l + iw / 2}" y="${H - 6}" text-anchor="middle" font-size="11.5" fill="#6f6f6a">Reliability R · probability the output is accepted</text>`;
     s += `<text transform="rotate(-90 16 ${m.t + ih / 2})" x="16" y="${m.t + ih / 2}" text-anchor="middle" font-size="11.5" fill="#6f6f6a">All-in AI cost per success, share of market price (log)</text>`;
 
-    // points
     tasks.forEach((t, i) => {
       const r = results[i];
       const ratio = r.fcso / r.V;
@@ -182,95 +74,34 @@
       c.addEventListener('mousemove', e => {
         const i = +c.dataset.i, t = tasks[i], r = results[i];
         showTip(
-          `<div class="tt-name">${t.name}</div>` +
+          `<div class="tt-name">${T.esc(t.name)}</div>` +
           `<div class="tt-row"><span>Market price</span><b>${fmtUSD(r.V)}</b></div>` +
           `<div class="tt-row"><span>AI cost / success</span><b>${fmtUSD(r.fcso)}</b></div>` +
           `<div class="tt-row"><span>Reliability</span><b>${fmtPct(r.R)}</b></div>` +
-          `<div class="tt-row"><span>&Phi;</span><b>${r.phi.toFixed(1)}</b></div>`,
+          `<div class="tt-row"><span>&Phi;</span><b>${r.phi.toFixed(1)}</b></div>` +
+          `<div class="tt-row" style="margin-top:4px"><span>click to open the task card</span></div>`,
           e.clientX, e.clientY);
       });
       c.addEventListener('mouseleave', hideTip);
       c.addEventListener('click', () => {
         const t = tasks[+c.dataset.i];
-        location.hash = '#tasks';
-        $('search').value = t.name; filter = t.name.toLowerCase();
-        openRow = t.task_id; renderTable(window.__results);
+        location.href = 'tasks.html#' + encodeURIComponent(t.task_id);
       });
     });
   }
 
-  // ---- table ----
-  function detailHTML(t, r) {
-    const parts = [
-      ['Inference', r.cInf], ['Tools and APIs', r.cTool], ['Human review', r.cHuman],
-      ['Capital overhead', r.cCapital], ['Expected error cost', r.cRisk]
-    ];
-    const maxc = Math.max(...parts.map(p => p[1]), 0.01);
-    const bars = parts.map(([l, v]) =>
-      `<div class="cost-row"><span class="cl">${l}</span><span class="bar" style="width:${Math.max(2, (v / maxc) * 200)}px"></span><span class="cv">${fmtUSD(v)}</span></div>`
-    ).join('');
-    const srcs = (t.sources || []).map(sr =>
-      `<div>${sr.publisher || ''}: <a href="${sr.url}" target="_blank" rel="noreferrer">${sr.title}</a> (retrieved ${sr.retrieved})${sr.note ? ' · ' + sr.note : ''}</div>`
-    ).join('');
-    const floor = r.R < t.min_reliability
-      ? `<div class="floorflag" style="margin-top:8px">Below its reliability floor of ${fmtPct(t.min_reliability)}: viable on cost, but acceptance risk remains the binding constraint.</div>` : '';
-    return `<div class="detail"><div class="detail-grid">
-      <div>
-        <h4>Cost per attempt · ${D.models.find(m => m.id === state.modelId).name}</h4>
-        <div class="cost-rows">${bars}
-          <div class="cost-row" style="margin-top:8px;border-top:1px solid #e6e5e0;padding-top:8px"><span class="cl"><b>Total per attempt</b></span><span class="bar" style="width:200px"></span><span class="cv"><b>${fmtUSD(r.cTotal)}</b></span></div>
-        </div>
-        <div class="statline">
-          TCEVO ${fmtUSD(r.tcevo)} · FCSO ${fmtUSD(r.fcso)} · EV ${fmtUSD(r.ev)} · &Phi; ${r.phi.toFixed(2)} · CCR ${fmtX(r.ccr)}
-        </div>
-        ${floor}
-      </div>
-      <div class="meta">
-        <h4>Task card</h4>
-        <div><b>Unit:</b> ${t.unit} · <b>Output:</b> ${t.economic_output}</div>
-        <div><b>Market price:</b> ${fmtUSD(t.price_low)} / ${fmtUSD(t.price_base)} / ${fmtUSD(t.price_high)} (low, base, high) · ${t.price_status}</div>
-        <div><b>Price basis:</b> ${t.price_basis}</div>
-        <div><b>Reliability prior:</b> ${fmtPct(t.r_low)} to ${fmtPct(t.r_high)} (base ${fmtPct(t.r_base)}) · floor ${fmtPct(t.min_reliability)} · <b>Risk:</b> ${t.risk_class}</div>
-        <div><b>Autonomy:</b> ${t.autonomy}/5 · <b>Substitutability:</b> ${t.substitutability}/5 · <b>Verification:</b> ${t.verification} · <b>Grade:</b> ${t.confidence}</div>
-        <div style="margin-top:8px;color:#6f6f6a">${t.notes} ${t.price_notes || ''}</div>
-        <div class="srcs"><h4 style="margin-top:14px">Sources</h4>${srcs || '<div>Wage-derived estimate; see methodology.</div>'}</div>
-      </div>
-    </div></div>`;
-  }
-
+  // ---- preview table: top N by the active sort ----
   function renderTable(results) {
-    const rows = D.tasks.map((t, i) => ({ t, r: results[i] }))
-      .filter(({ t }) => (!domainFilter || t.domain === domainFilter) &&
-        (!filter || (t.name + ' ' + t.domain).toLowerCase().includes(filter)));
-    rows.sort((a, b) => {
-      // default view: grouped by industry, best Phi first within each group
-      if (sortKey === 'domain') {
-        const d = a.t.domain.localeCompare(b.t.domain) * sortDir;
-        return d !== 0 ? d : b.r.phi - a.r.phi;
-      }
-      let va, vb;
-      if (sortKey === 'name') { va = a.t.name; vb = b.t.name; }
-      else if (sortKey === 'confidence') { va = a.t.confidence; vb = b.t.confidence; }
-      else { va = a.r[sortKey]; vb = b.r[sortKey]; }
-      return (va > vb ? 1 : va < vb ? -1 : 0) * sortDir;
-    });
-    $('tbl-count').textContent = rows.length + ' of ' + D.tasks.length + ' tasks';
+    const all = D.tasks.map((t, i) => ({ t, r: results[i] }));
+    const rows = T.sortRows(all, sortKey, sortDir).slice(0, PREVIEW_N);
+    const label = { phi: 'viability ratio', ccr: 'cost compression', V: 'market price', fcso: 'AI cost per success', tcevo: 'TCEVO', R: 'reliability', name: 'name', confidence: 'grade', domain: 'industry' }[sortKey];
+    $('tbl-count').textContent = `showing ${rows.length} of ${D.tasks.length} · sorted by ${label}`;
+    const modelName = T.modelName(state.modelId);
     const tb = $('tbody');
-    tb.innerHTML = rows.map(({ t, r }) => {
-      const open = openRow === t.task_id;
-      return `<tr class="row" data-id="${t.task_id}">
-        <td class="left"><span class="dot ${r.viable ? 'v' : 'n'}"></span><span class="task-name">${t.name}</span><br><span class="task-domain">${t.domain} · ${t.unit}</span></td>
-        <td><span class="num">${fmtUSD(r.V)}</span></td>
-        <td><span class="num">${fmtUSD(r.fcso)}</span></td>
-        <td><span class="num">${fmtUSD(r.tcevo)}</span></td>
-        <td><span class="num">${r.phi >= 100 ? Math.round(r.phi) : r.phi.toFixed(1)}</span></td>
-        <td><span class="num">${fmtX(r.ccr)}</span></td>
-        <td><span class="num">${fmtPct(r.R)}</span>${r.R < t.min_reliability ? '<br><span class="floorflag">below floor</span>' : ''}</td>
-        <td><span class="grade">${t.confidence}</span></td>
-      </tr>` + (open ? `<tr class="detail"><td colspan="8">${detailHTML(t, r)}</td></tr>` : '');
-    }).join('');
+    tb.innerHTML = rows.map(({ t, r }) => T.rowHTML(t, r, { openRow, modelName, showId: false, permalink: true })).join('');
     tb.querySelectorAll('tr.row').forEach(tr => {
-      tr.onclick = () => {
+      tr.onclick = e => {
+        if (e.target.closest('a')) return;
         openRow = openRow === tr.dataset.id ? null : tr.dataset.id;
         renderTable(results);
       };
@@ -316,6 +147,7 @@
   $('hdr-date').textContent = D.built;
   $('ft-retrieved').textContent = D.retrieved;
   document.querySelectorAll('.n-tasks').forEach(n => { n.textContent = D.tasks.length; });
+  document.querySelectorAll('.n-domains').forEach(n => { n.textContent = new Set(D.tasks.map(t => t.domain)).size; });
   render();
 
   // ---- share ----

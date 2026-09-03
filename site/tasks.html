@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All tasks · AEVF Index · Theseus</title>
+  <meta name="description" content="Every task in the AI Economic Viability Frontier index: searchable, filterable by industry, sortable by any metric, each with a permanent link, sourced market price, and full cost breakdown.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="The AEVF task universe">
+  <meta property="og:description" content="Every task in the AI Economic Viability Frontier index, searchable and sortable, each priced two ways: what buyers pay a human, and what an AI system costs all-in per accepted output.">
+  <meta property="og:url" content="https://aevf-index.vercel.app/tasks">
+  <meta property="og:image" content="https://aevf-index.vercel.app/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="The AEVF task universe">
+  <meta name="twitter:description" content="Every task in the AI Economic Viability Frontier index, searchable and sortable.">
+  <meta name="twitter:image" content="https://aevf-index.vercel.app/og.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site">
+    <div class="wrap brandline">
+      <a class="wordmark" href="https://theseusholdings.xyz">Theseus</a>
+      <nav>
+        <a href="index.html">Index</a>
+        <a href="tasks.html">Tasks</a>
+        <a href="ask.html">Ask</a>
+        <a href="methodology.html">Methodology</a>
+        <a href="https://github.com/maxrusk/aevf-index">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="tasks-head">
+      <p class="kicker">AEVF Index · Task universe · v0.3 · <span id="hdr-date"></span></p>
+      <h1>Every task in the index</h1>
+      <p class="lede">
+        <span class="n-tasks">200</span> tasks across <span class="n-domains">32</span> industries, each priced two ways:
+        what buyers pay a human or firm for the outcome, and what an AI system costs all-in per accepted output.
+        Search by name, industry, unit, or task id; sort by any column; click a row for the full task card, cost
+        breakdown, and sources. The <span class="task-id">#</span> beside a task name is its permanent link.
+      </p>
+      <p class="preview-note" id="sum-line"></p>
+    </div>
+
+    <p class="section-label" id="assumptions">Assumptions · adjust and every row recomputes</p>
+    <div class="panel compact">
+      <div class="controls compact">
+        <div class="ctrl">
+          <label for="model">Model (live API pricing)</label>
+          <select id="model"></select>
+        </div>
+        <div class="ctrl">
+          <label>Reliability scenario</label>
+          <div class="seg" id="seg-r">
+            <button data-v="low">Conservative</button>
+            <button data-v="base" class="on">Base</button>
+            <button data-v="high">Optimistic</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label>Willingness to pay</label>
+          <div class="seg" id="seg-p">
+            <button data-v="low">Low</button>
+            <button data-v="base" class="on">Base</button>
+            <button data-v="high">High</button>
+          </div>
+        </div>
+        <div class="ctrl">
+          <label for="cache">Prompt cache hit rate · <span class="val" id="cache-val">50%</span></label>
+          <input type="range" id="cache" min="0" max="90" step="5" value="50">
+        </div>
+        <div class="ctrl">
+          <label for="review">Human review cost · <span class="val" id="review-val">1.0x</span></label>
+          <input type="range" id="review" min="0" max="200" step="10" value="100">
+        </div>
+        <div class="ctrl">
+          <label for="risk">Error and liability cost · <span class="val" id="risk-val">1.0x</span></label>
+          <input type="range" id="risk" min="0" max="300" step="25" value="100">
+        </div>
+      </div>
+      <button class="reset" id="reset">Reset to defaults</button>
+    </div>
+
+    <p class="section-label" id="tasks">Browse · filter by industry</p>
+    <div class="chips" id="chips"></div>
+    <div class="table-tools">
+      <div class="tools-left">
+        <input type="search" id="search" placeholder="Search name, industry, unit, or task id..." autocomplete="off">
+        <div class="seg" id="seg-via" aria-label="Frontier status">
+          <button data-v="all" class="on">All</button>
+          <button data-v="inside">Inside frontier</button>
+          <button data-v="floor">Cheaper, below floor</button>
+          <button data-v="outside">Outside</button>
+        </div>
+      </div>
+      <span class="count" id="tbl-count"></span>
+    </div>
+    <div class="table-wrap">
+      <table id="tbl">
+        <thead>
+          <tr>
+            <th class="left" data-k="name">Task</th>
+            <th data-k="V">Market price</th>
+            <th data-k="fcso">AI cost / success</th>
+            <th data-k="tcevo">TCEVO</th>
+            <th data-k="phi">&Phi;</th>
+            <th data-k="ccr">Compression</th>
+            <th data-k="R">R</th>
+            <th data-k="confidence">Grade</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+    <p class="preview-note" style="margin-top:14px">
+      Default order groups tasks by industry with the highest viability ratio first. Click any column header to
+      sort by it; click again to reverse. Every figure is recomputed in the browser from the
+      <a href="https://github.com/maxrusk/aevf-index">published dataset</a>; nothing here is a measured trial,
+      see the <a href="methodology.html">methodology</a> for what is observed and what is modeled.
+    </p>
+
+    <div class="browse-all" style="margin-top:40px">
+      <div class="bt"><b>Back to the index.</b> The frontier share, the chart, and the thesis live on the main page.</div>
+      <a class="btn ghost" href="index.html#frontier">Return to the index &rarr;</a>
+    </div>
+  </main>
+
+  <div id="tooltip"></div>
+
+  <footer>
+    <div class="wrap frow">
+      <span>A <a href="https://theseusholdings.xyz">Theseus Holdings</a> research instrument</span>
+      <span>Data retrieved <span id="ft-retrieved"></span> · <a href="https://github.com/maxrusk/aevf-index">source and dataset on GitHub</a></span>
+    </div>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="compute.js"></script>
+  <script src="table.js"></script>
+  <script src="controls.js"></script>
+  <script src="tasks.js"></script>
+</body>
+</html>
