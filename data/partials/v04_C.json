@@ -1,0 +1,533 @@
+{
+  "tasks": [
+    {
+      "task_id": "dot-driver-qualification-file-audit",
+      "unit": "per driver file",
+      "price_low": 50,
+      "price_base": 75,
+      "price_high": 199,
+      "human_minutes": 45,
+      "price_basis": "Base is DotFleet's posted $75 one-time per-driver fee to build or audit-and-remediate an existing DQ file. High is FleetDrive 360's $199 per-driver DQF creation (30-page file, valid 12 months; $159 renewal). Low is set at $50, roughly one to two months of the $30 per driver per month managed-service tier that bundles ongoing file review; My Safety Manager's $150-500 per driver per year all-in figure brackets the range.",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://www.dotfleetcompliance.com/",
+          "title": "DotFleet Compliance | Driver Qualification File Management for Small Fleets",
+          "publisher": "DotFleet Compliance",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$75 per driver one-time to build or remediate a file; $30 per driver per month ongoing"
+        },
+        {
+          "url": "https://www.fleetdrive360.com/services-pricing/",
+          "title": "Services Pricing - Fleet Compliance Software Solution",
+          "publisher": "FleetDrive 360",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$199 per driver DQF creation, $159 annual renewal, ~30-page file"
+        },
+        {
+          "url": "https://www.mysafetymanager.com/driver-qualification-file-cost/",
+          "title": "Driver Qualification File Cost: Complete Fleet Breakdown",
+          "publisher": "My Safety Manager",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$150-500 per driver per year all-in; $49 per driver per month managed; average FMCSA fine $5,959 per violation"
+        }
+      ],
+      "notes": "Human minutes assume a safety clerk reviews a ~30-page file against the 391 checklist and writes the remediation list."
+    },
+    {
+      "task_id": "ifta-quarterly-fuel-tax-filing",
+      "unit": "per quarter",
+      "price_low": 50,
+      "price_base": 100,
+      "price_high": 350,
+      "human_minutes": 120,
+      "price_basis": "Small Fleet HQ puts outsourced IFTA at $50-150 per quarter per vehicle; ifta.work cites $50 per month ($150 per quarter) for a small fleet and 6 DIY hours per quarter for a 1-2 truck operation; Motor Carrier HQ files all four quarters for $320 ($80 per quarter); Start4Truckers lists $350 per quarter with mileage audit and fuel reconciliation while noting owner-operator services typically run $30-100. Low $50, base $100 (midpoint of the $80-150 cluster), high $350 (full-service listing).",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://smallfleethq.com/fuel-cards/ifta-reporting",
+          "title": "IFTA Reporting: Step-by-Step Filing for Truckers (2026)",
+          "publisher": "Small Fleet HQ",
+          "date": "2026-05-16",
+          "retrieved": "2026-09-09",
+          "note": "$50-150 per quarter per vehicle for outsourced filing"
+        },
+        {
+          "url": "https://ifta.work/whats-your-time-worth-the-hidden-cost-of-diy-ifta-filing/",
+          "title": "What's Your Time Worth? The Hidden Cost of DIY IFTA Filing",
+          "publisher": "ifta.work",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$150 per quarter small-fleet service; ~6 hours per quarter DIY for 1-2 trucks"
+        },
+        {
+          "url": "https://www.motorcarrierhq.com/ifta/",
+          "title": "Quarterly or Annual IFTA Reporting",
+          "publisher": "Motor Carrier HQ",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$320 for all four quarterly reports ($80 per quarter)"
+        },
+        {
+          "url": "https://start4truckers.com/services/ifta-quarterly-filing-service/",
+          "title": "IFTA Quarterly Filing Service for Truckers",
+          "publisher": "Start4Truckers",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$350 per quarter full service; owner-operator services typically $30-100 per quarter"
+        }
+      ],
+      "notes": "Unit is one small-fleet return per quarter; per-truck pricing scales above this for larger fleets. Human minutes are a professional preparer's time, below the 6-hour DIY figure."
+    },
+    {
+      "task_id": "fleet-daily-route-plan",
+      "unit": "per route day",
+      "price_low": 25,
+      "price_base": 50,
+      "price_high": 150,
+      "human_minutes": 30,
+      "price_basis": "No standalone route-planning price exists; dispatch services bundle it. FleetCollect: monthly retainer $500-1,500 per truck per month, flat $50-150 per load, or 5-10% of gross. Atom Dispatch: in-house dispatcher $65,000-90,000 all-in covering 5-8 trucks, which is $32-71 per truck-day over 252 working days. Dividing the retainer by ~21 working days gives $24-71 per truck-day. Low $25, base $50 (overlap of the retainer-per-day and in-house bands, also the low end of per-load flat fees), high $150 (top of per-load flat fee, single-truck day).",
+      "status": "derived (dispatch retainers and in-house dispatcher cost divided per truck-day; per-load flat fee observed)",
+      "sources": [
+        {
+          "url": "https://fleetcollect.net/blog/truck-dispatcher-cost-percentage-vs-flat-fee",
+          "title": "How Much Does a Truck Dispatcher Cost? Percentage vs Flat-Fee (2026)",
+          "publisher": "FleetCollect",
+          "date": "2026-05-28",
+          "retrieved": "2026-09-09",
+          "note": "$500-1,500 per truck per month retainer; $50-150 flat per load; 5-10% of gross"
+        },
+        {
+          "url": "https://atomdispatch.com/blog/how-much-does-truck-dispatcher-cost",
+          "title": "How Much Does a Truck Dispatcher Cost in 2026? [Pricing Guide]",
+          "publisher": "Atom Dispatch",
+          "date": "2026-05-01",
+          "retrieved": "2026-09-09",
+          "note": "in-house dispatcher $65k-90k all-in managing 5-8 trucks; flat $250-650 per week per truck"
+        },
+        {
+          "url": "https://truckleap.com/dispatch/pricing",
+          "title": "Truck Dispatch Service Pricing - 5-7% Flat Fee, No Contracts",
+          "publisher": "TruckLeap",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "4-7% of gross; deadhead planning and pre-booking next loads included in the fee"
+        }
+      ],
+      "notes": "Dispatch fees bundle load sourcing and broker calls, so this overstates pure route planning; treat V as an upper bound. Unit is one truck's route for one day."
+    },
+    {
+      "task_id": "freight-cargo-claim-filing",
+      "unit": "per claim",
+      "price_low": 150,
+      "price_base": 300,
+      "price_high": 900,
+      "human_minutes": 90,
+      "price_basis": "Warp's LTL claims research puts internal processing cost at $200-400 per claim regardless of outcome, on an average LTL claim of $1,796 (also cited by Red Stag). Contingency recovery firms such as Recoupex take a 20-50% success fee, which on a $1,796 average claim is $359-898. FreightClaims.com's ROI model has manual filing at 20-30 minutes of data entry per claim plus carrier follow-up. Low $150 (below the internal band for a simple, well-documented claim), base $300 (midpoint of the $200-400 internal cost), high $900 (50% contingency on the average claim).",
+      "status": "mixed (internal processing cost observed; contingency fee converted to dollars on the observed average claim)",
+      "sources": [
+        {
+          "url": "https://www.wearewarp.com/research/ltl-claims-calculator",
+          "title": "LTL Claims Cost Shippers $2.4 Billion Per Year",
+          "publisher": "Warp",
+          "date": "2026-03-01",
+          "retrieved": "2026-09-09",
+          "note": "claims processing $200-400 per claim; average claim $1,796; 1.24% damage rate"
+        },
+        {
+          "url": "https://www.recoupex.com/",
+          "title": "Cargo Claims Recovery - Recoupex",
+          "publisher": "Recoupex",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "20-50% success fee deducted from recovery; submit within 12 months"
+        },
+        {
+          "url": "https://freightclaims.com/freight-claims-software-roi/",
+          "title": "Freight Claims Software ROI Calculator",
+          "publisher": "FreightClaims.com",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "manual filing ~20-30 minutes per claim; manual recovery 35-45%; scenario claim values $1,200-3,000"
+        },
+        {
+          "url": "https://redstagfulfillment.com/ltl-freight-insurance/",
+          "title": "LTL Freight Insurance Explained",
+          "publisher": "Red Stag Fulfillment",
+          "date": "2025-09-29",
+          "retrieved": "2026-09-09",
+          "note": "average LTL damage and loss claim $1,796 per shipment; 1.24% damage rate"
+        }
+      ],
+      "notes": "Human minutes include document chase, carrier correspondence and follow-up through the 30-day acknowledgment, not just the 20-30 minutes of data entry."
+    },
+    {
+      "task_id": "hos-eld-log-violation-review",
+      "unit": "per 100 logs",
+      "price_low": 50,
+      "price_base": 65,
+      "price_high": 220,
+      "human_minutes": 100,
+      "price_basis": "Log-audit vendors price per driver per month: Office Tenders $12 (HOS violations, form-and-manner, receipt cross-check, next-day return), Johnson DOT Services $15 (HOS violations, math errors, falsification flags). At roughly 22 logs per driver-month that is $0.55-0.68 per log, so $55-68 per 100 logs; base $65. Low $50 rounds the Office Tenders rate down for volume. High $220 converts My Safety Manager's $49 per driver per month full-compliance tier, which bundles log review with DQ management.",
+      "status": "derived (per-driver-month vendor fees converted at ~22 logs per driver-month)",
+      "sources": [
+        {
+          "url": "http://officetenders.com/dot-compliance-services/driver-log-book-auditing-service/",
+          "title": "CDL Driver Log Book Auditing | DOT Compliance Services",
+          "publisher": "Office Tenders",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$12 per driver per month; HOS violations, change-of-duty errors, receipt cross-check, next-day audit"
+        },
+        {
+          "url": "https://www.johnsondotservices.com/driver-log-book-auditing",
+          "title": "Driver Log Book Auditing",
+          "publisher": "Johnson DOT Services",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$15 per driver per month; HOS violations, math errors, falsification flags, reports"
+        },
+        {
+          "url": "https://www.mysafetymanager.com/driver-qualification-file-cost/",
+          "title": "Driver Qualification File Cost: Complete Fleet Breakdown",
+          "publisher": "My Safety Manager",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$49 per driver per month managed compliance tier"
+        }
+      ],
+      "notes": "Human minutes assume about one minute per log for a trained auditor plus report writing. Cheap vendor pricing already reflects ELD software doing the first pass."
+    },
+    {
+      "task_id": "customs-entry-7501-filing",
+      "unit": "per entry",
+      "price_low": 125,
+      "price_base": 225,
+      "price_high": 600,
+      "human_minutes": 60,
+      "price_basis": "Williamsburg Customs posts $125-175 for a formal ocean Type 01 entry and $95-150 for air. Customs Broker Index puts formal entries at $150-800 with most importers paying $250-600 per shipment all-in and $150-250 per entry on high-volume retainers. Suaid Global lists $150-250 for a standard formal entry and $250-400 for complex 5+ line entries. Low $125 (posted ocean floor), base $225 (center of the standard-entry cluster), high $600 (top of the typical all-in band, excluding AD/CVD and multi-agency entries).",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://www.wiliamsburgmercantile.com/pricing.html",
+          "title": "Customs Broker Pricing 2025 - Transparent Fee Structure",
+          "publisher": "Williamsburg Customs",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "formal ocean entry $125-175; air $95-150; single transaction bond $75-150"
+        },
+        {
+          "url": "https://customsbrokerindex.com/blog/customs-broker-fees-what-youll-pay/",
+          "title": "Customs Broker Fees: What You'll Pay in 2026",
+          "publisher": "Customs Broker Index",
+          "date": "2026-05-28",
+          "retrieved": "2026-09-09",
+          "note": "formal entries $150-800; most importers $250-600 per shipment; high-volume $150-250 per entry"
+        },
+        {
+          "url": "https://suaidglobal.com/insights/customs-broker-fees-2026/",
+          "title": "Customs Broker Fees 2026: Cost Breakdown",
+          "publisher": "Suaid Global",
+          "date": "2026-09-01",
+          "retrieved": "2026-09-09",
+          "note": "standard formal entry $150-250; complex 5+ lines $250-400; informal $75-150"
+        }
+      ],
+      "notes": "Brokerage fee only; MPF, HMF, duties and bond premiums are pass-through. The licensed broker's sign-off is inside the price and inside review_minutes."
+    },
+    {
+      "task_id": "hts-tariff-classification",
+      "unit": "per SKU",
+      "price_low": 50,
+      "price_base": 150,
+      "price_high": 300,
+      "human_minutes": 60,
+      "price_basis": "GingerControl's April 2026 comparison puts manual classification at $30-150 per product, 30-60 minutes for simple goods and 2-4 hours for complex ones, at broker rates of $75-200 per hour. Williamsburg Customs posts $150-300 per SKU for an HTS classification review. Suaid Global lists $75-200 per product. Customs Broker Index gives classification research at $100-300 per hour. Low $50 (simple single-material SKU), base $150 (overlap of the three per-product bands), high $300 (posted ceiling for a formal review).",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://gingercontrol.com/blog/hts-code-lookup-api-vs-manual",
+          "title": "HTS Code Lookup API vs Manual Classification: Cost and Accuracy",
+          "publisher": "GingerControl",
+          "date": "2026-04-13",
+          "retrieved": "2026-09-09",
+          "note": "manual $30-150 per product; 30-60 min simple, 2-4 h complex; broker $75-200 per hour; manual accuracy 60-95% by complexity"
+        },
+        {
+          "url": "https://www.wiliamsburgmercantile.com/pricing.html",
+          "title": "Customs Broker Pricing 2025 - Transparent Fee Structure",
+          "publisher": "Williamsburg Customs",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "HTS classification review $150-300 per product SKU"
+        },
+        {
+          "url": "https://suaidglobal.com/insights/customs-broker-fees-2026/",
+          "title": "Customs Broker Fees 2026: Cost Breakdown",
+          "publisher": "Suaid Global",
+          "date": "2026-09-01",
+          "retrieved": "2026-09-09",
+          "note": "HS code classification $75-200 per product"
+        },
+        {
+          "url": "https://customsbrokerindex.com/blog/customs-broker-fees-what-youll-pay/",
+          "title": "Customs Broker Fees: What You'll Pay in 2026",
+          "publisher": "Customs Broker Index",
+          "date": "2026-05-28",
+          "retrieved": "2026-09-09",
+          "note": "HTS classification research $100-300 per hour"
+        }
+      ],
+      "notes": "AI classification APIs at $2-15 per SKU are already compressing this market; the human price here is the defended, ruling-cited review, not a lookup."
+    },
+    {
+      "task_id": "isf-10-plus-2-filing",
+      "unit": "per shipment",
+      "price_low": 30,
+      "price_base": 50,
+      "price_high": 85,
+      "human_minutes": 20,
+      "price_basis": "iContainers: brokers and forwarders charge $30-50 for the ISF filing (about $80-120 bundled with a single-use ISF bond). Strix: $25-75 per shipment. Williamsburg Customs posts $50-85. Suaid Global lists $35-75; Customs Broker Index $25-75. Low $30, base $50 (where all five bands overlap), high $85 (top of the posted schedule). Bond cost excluded.",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://www.icontainers.com/help/isf-filling/",
+          "title": "ISF FILING: All you need to know",
+          "publisher": "iContainers",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "ISF filing fee $30-50; $80-120 with single-use bond; penalties up to $50,000 per violation against the bond"
+        },
+        {
+          "url": "https://strixsmart.com/resources/guides/isf-filing",
+          "title": "ISF Filing Requirements: How to File ISF (10+2)",
+          "publisher": "Strix",
+          "date": "2026-08-14",
+          "retrieved": "2026-09-09",
+          "note": "$25-75 per shipment via a customs broker; $5,000 per violation penalty"
+        },
+        {
+          "url": "https://www.wiliamsburgmercantile.com/pricing.html",
+          "title": "Customs Broker Pricing 2025 - Transparent Fee Structure",
+          "publisher": "Williamsburg Customs",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "ISF 10+2 filing $50-85"
+        },
+        {
+          "url": "https://suaidglobal.com/insights/customs-broker-fees-2026/",
+          "title": "Customs Broker Fees 2026: Cost Breakdown",
+          "publisher": "Suaid Global",
+          "date": "2026-09-01",
+          "retrieved": "2026-09-09",
+          "note": "ISF filing $35-75 per filing"
+        }
+      ],
+      "notes": "Low-priced, high-penalty form; the filer must hold an ABI/AMS connection and file under a bond, which keeps a broker or forwarder in the loop."
+    },
+    {
+      "task_id": "export-license-eccn-determination",
+      "unit": "per product",
+      "price_low": 150,
+      "price_base": 400,
+      "price_high": 1200,
+      "human_minutes": 150,
+      "price_basis": "Export classification firms (CTP, Star USA) quote on request and publish no per-item rates, so the price is derived. ConsultFees' May 2026 benchmark puts senior independent compliance consultants at $150-300 per hour and specialist regulatory consultants at $250-450. GingerControl describes internal self-classification as hours to days per item and a BIS CCATS request as 30-60 days. Taking 1-4 hours of consultant time at $150-300 per hour gives $150-1,200; base $400 is roughly 2 hours at the upper-middle of the range for a moderately technical product. Perigee Direct's $50 ECCN and licence application processing fee is an administrative floor, not a determination.",
+      "status": "derived (consultant hourly rate observed, hours per product estimated)",
+      "sources": [
+        {
+          "url": "https://consultfees.com/use-cases/compliance-consultants",
+          "title": "Compliance Consultant Fees: 2026 Benchmarks & Pricing Guide",
+          "publisher": "ConsultFees",
+          "date": "2026-05-03",
+          "retrieved": "2026-09-09",
+          "note": "senior independent compliance consultants $150-300 per hour; specialist regulatory $250-450"
+        },
+        {
+          "url": "https://gingercontrol.com/blog/eccn-classification-export-controls",
+          "title": "ECCN Classification Guide: Export Controls Under EAR in 2026",
+          "publisher": "GingerControl",
+          "date": "2026-04-15",
+          "retrieved": "2026-09-09",
+          "note": "internal self-classification hours to days per item; BIS CCATS 30-60 days; civil penalties $300,000+ per violation"
+        },
+        {
+          "url": "https://www.bis.gov/licensing/classify-your-item",
+          "title": "Classify your item",
+          "publisher": "U.S. Bureau of Industry and Security",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "three routes: ask the manufacturer, self-classify with CCL tools, or request a classification via SNAP-R"
+        },
+        {
+          "url": "https://www.perigeedirect.com/products/eccn-export-license-processing-fee",
+          "title": "ECCN Export License Processing Fee",
+          "publisher": "Perigee Direct",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$50 administrative fee for ECCN and export licence application processing"
+        }
+      ],
+      "notes": "Hours-per-product is the author's estimate; trade-compliance attorneys bill higher than the consultant band used here, so high is conservative for controlled items."
+    },
+    {
+      "task_id": "landed-cost-quote",
+      "unit": "per quote",
+      "price_low": 40,
+      "price_base": 100,
+      "price_high": 300,
+      "human_minutes": 45,
+      "price_basis": "No published per-quote fee: forwarders fold landed cost into freight quotes (ExFreight advertises instant rates with integrated landed cost) to win the shipment. Derived as 30-90 minutes of broker or forwarder analyst time at the $75-200 per hour customs broker rate cited by GingerControl: $40-300, base $100 for a typical 45-minute single-lane, single-HTS quote. ExFreight and Freightos supply the component list (freight, insurance, duty, MPF 0.3464%, HMF 0.125%, brokerage $75-200 per entry, inland).",
+      "status": "derived (hourly rate observed, minutes per quote estimated; market largely bundled at zero)",
+      "sources": [
+        {
+          "url": "https://gingercontrol.com/blog/hts-code-lookup-api-vs-manual",
+          "title": "HTS Code Lookup API vs Manual Classification: Cost and Accuracy",
+          "publisher": "GingerControl",
+          "date": "2026-04-13",
+          "retrieved": "2026-09-09",
+          "note": "customs broker hourly rate $75-200"
+        },
+        {
+          "url": "https://www.exfreight.com/how-to-calculate-landed-cost-formulas-worked-examples/",
+          "title": "How to Calculate Landed Cost: Formulas and Worked Examples",
+          "publisher": "ExFreight",
+          "date": "2026-04-30",
+          "retrieved": "2026-09-09",
+          "note": "component list; MPF 0.3464% capped $634.62; HMF 0.125%; brokerage $75-200 per entry; instant integrated landed cost"
+        },
+        {
+          "url": "https://www.freightos.com/freight-resources/understanding-landed-cost-and-profitability/",
+          "title": "Landed Cost: Meaning, Formula & Calculator",
+          "publisher": "Freightos",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "Shipping + Customs + Risk + Overhead framing; calculators produce per-unit cost in minutes"
+        }
+      ],
+      "notes": "Willingness to pay is thin because calculators and forwarders give this away; V here is the labor being displaced, not a standalone market."
+    },
+    {
+      "task_id": "used-vehicle-appraisal-report",
+      "unit": "per vehicle",
+      "price_low": 100,
+      "price_base": 250,
+      "price_high": 550,
+      "human_minutes": 120,
+      "price_basis": "CostHelper: assessments without inspection $80-125, appraisals with inspection $100-500, detailed written reports typically $175-350 (examples $175-225 Wisconsin, $350 pre-purchase). Auto Appraisal Group: a good appraisal runs $250-750. Auto Appraisals MD posts standard valuation appraisals from $295 (10-13 page report), diminished value from $450 and pre-purchase from $550. Low $100 (report on a late-model vehicle brought to the appraiser), base $250 (overlap of the CostHelper detailed band and the AAG floor), high $550 (posted pre-purchase report).",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://personalfinance.costhelper.com/auto-appraiser.html",
+          "title": "Cost of a Car Appraisal - Consumer Information and Prices Paid",
+          "publisher": "CostHelper",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "assessment $80-125; with inspection $100-500; detailed report $175-350; expert testimony $200-300 per hour"
+        },
+        {
+          "url": "https://www.autoappraisal.com/how-much-does-a-car-appraisal-cost/",
+          "title": "How Much Does a Car Appraisal Cost?",
+          "publisher": "Auto Appraisal Group, Inc.",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$250-750 for a good appraisal; higher for custom and modified vehicles"
+        },
+        {
+          "url": "https://autoappraisalsmd.com/pricing/",
+          "title": "Vehicle appraisal services pricing",
+          "publisher": "Auto Appraisals MD, LLC",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "standard valuation from $295; diminished value from $450; pre-purchase from $550; forensic $85 per hour, $595 minimum"
+        }
+      ],
+      "notes": "Classic, custom and litigation appraisals sit above the high; human minutes include the on-site inspection and report writing."
+    },
+    {
+      "task_id": "auto-repair-estimate-writeup",
+      "unit": "per repair order",
+      "price_low": 75,
+      "price_base": 125,
+      "price_high": 200,
+      "human_minutes": 45,
+      "price_basis": "Shops price the diagnosis-plus-written-estimate as one labor block. RepairMath (July 2026): $100-180 at most shops, fair range $90-150 at independents, modeled as 0.8-1.4 hours at $110 per hour, dealers 25-35% higher. Kwik Kar 2026 guide: diagnostic fees $75-200, independents $80-130 per hour, dealers $120-180. Mysyara: US independents $80-150, one hour of posted rate as the norm. WickedFile cites Paar Melis' 2025 benchmark of ~$165 per hour average shop labor rate and a Ratchet+Wrench survey finding 54% of shops do not charge for diagnostic work. Low $75, base $125 (midpoint of the $100-150 cluster), high $200.",
+      "status": "observed (diagnostic-and-estimate fee used as the market proxy for the write-up)",
+      "sources": [
+        {
+          "url": "https://repairmath.com/repair/car-diagnostic-fee/",
+          "title": "Car diagnostic cost (2026) - fair prices by state",
+          "publisher": "RepairMath",
+          "date": "2026-07",
+          "retrieved": "2026-09-09",
+          "note": "$100-180 typical; $90-150 independents; 0.8-1.4 h at $110 per hour; dealers 25-35% higher"
+        },
+        {
+          "url": "https://www.kwikkarspringvalley.com/automotive-insights/how-auto-repair-pricing-works-a-2026-guide",
+          "title": "How Auto Repair Pricing Works: a 2026 Guide",
+          "publisher": "Kwik Kar Spring Valley",
+          "date": "2026-05-27",
+          "retrieved": "2026-09-09",
+          "note": "diagnostic fees $75-200; labor $80-130 independents, $120-180 dealers"
+        },
+        {
+          "url": "https://os.mysyara.com/blog/diagnostic-fee-auto-repair",
+          "title": "Diagnostic Fee Auto Repair: Best Practices for 2026",
+          "publisher": "Mysyara",
+          "date": "2026-05-29",
+          "retrieved": "2026-09-09",
+          "note": "US independents $80-150; price at one hour of posted labor rate; fee as a named line item on the estimate"
+        },
+        {
+          "url": "https://www.wickedfile.com/blogs/mechanic-diagnostic-fee/",
+          "title": "Mechanic Diagnostic Fee: Price It, Defend It",
+          "publisher": "WickedFile",
+          "date": "2026-08-11",
+          "retrieved": "2026-09-09",
+          "note": "average shop labor rate ~$165 per hour (Paar Melis 2025); 54% of shops do not charge for diagnostics"
+        }
+      ],
+      "notes": "The fee bundles technician diagnosis with the service writer's estimate; the AI displaces the write-up and pricing, not the hands-on diagnosis. Over half of shops waive the fee, so effective willingness to pay is below the posted range."
+    },
+    {
+      "task_id": "auto-warranty-claim-submission",
+      "unit": "per claim",
+      "price_low": 10,
+      "price_base": 20,
+      "price_high": 40,
+      "human_minutes": 40,
+      "price_basis": "Outsourced processors (QB Business Solutions, WPC, MM Warranty) price on paid-claim volume and do not publish rates, so the price is derived from in-house labor. PayScale (April 2026): warranty administrator with claim handling $19.99 per hour, range $15.19-25.41; loaded at ~1.35x that is about $20-34 per hour. Author estimate of 30-60 minutes per claim for coding, narrative, punch-time checks and submission gives $10-34; base $20 at 45 minutes and the median wage. High $40 allows for resubmission of rejected claims, consistent with WarrCloud's finding that per-claim processing time rose 47% since 2020.",
+      "status": "derived (wage observed, minutes per claim estimated)",
+      "sources": [
+        {
+          "url": "https://www.payscale.com/research/US/Job=Warranty_Administrator/Hourly_Rate/79f4446a/Claim-Handling",
+          "title": "Average Warranty Administrator with Claim Handling Skills Hourly Pay",
+          "publisher": "PayScale",
+          "date": "2026-04-13",
+          "retrieved": "2026-09-09",
+          "note": "$19.99 per hour average; $15.19-25.41 range; 352 profiles"
+        },
+        {
+          "url": "https://www.fi-magazine.com/news/cost-of-processing-auto-warranty-claims-up-by-28",
+          "title": "Cost of Processing Auto Warranty Claims Up by 28%",
+          "publisher": "F&I and Showroom",
+          "date": "2024-03-06",
+          "retrieved": "2026-09-09",
+          "note": "WarrCloud study: processing cost up 28% as % of revenue vs 2020; time per claim up 47%; outsourcing up 34%; warranty is 31% of service business"
+        },
+        {
+          "url": "https://qbbusinesssolutions.com/in-house-vs-outsourced-warranty-claims-processing/",
+          "title": "In-House vs. Outsourced Warranty Claims Processing",
+          "publisher": "QB Business Solutions",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "outsourced processor: 97%+ first-submission rate, 2-day turnaround, zero added payroll; pricing not published"
+        }
+      ],
+      "notes": "Percent-of-paid-claims outsourcing fees are quoted privately and were not verifiable on an opened page, so they are excluded; the labor-derived figure is the floor of what a dealer pays."
+    }
+  ]
+}

@@ -1,0 +1,493 @@
+{
+ "tasks": [
+  {
+   "task_id": "crop-scouting-report",
+   "unit": "per field report",
+   "price_low": 20,
+   "price_base": 65,
+   "price_high": 200,
+   "human_minutes": 60,
+   "price_basis": "Season scouting fees are quoted per acre: 2026 Iowa custom rate $6.65/acre average, $6.00 median, range $4.00 to $9.50 (13 responses); the AgProfessional national survey put once-a-week scouting at $6.54/acre and a full program with 7+ visits plus written report at $8.43/acre; Ontario vegetable scouting twice weekly is C$65/acre. Base divides an 80-acre field at $6.65/acre by 8 visits (~$66); low is a 40-acre field at $4/acre over 8 visits; high is a 160-acre field at $9.50/acre over 7 visits or a high-value crop at C$65/acre",
+   "status": "mixed (per-acre season fees observed; per-report division estimated)",
+   "sources": [
+    {
+     "url": "https://www.extension.iastate.edu/agdm/crops/pdf/a3-10.pdf",
+     "title": "2026 Iowa Farm Custom Rate Survey (A3-10)",
+     "publisher": "Iowa State University Extension, Ag Decision Maker",
+     "date": "2026-03",
+     "retrieved": "2026-09-09",
+     "note": "scouting crops $6.65/acre average, $6.00 median, range $4.00 to $9.50, 13 responses; 205 survey responses"
+    },
+    {
+     "url": "https://www.precisionfarmingdealer.com/articles/5070-survey-details-average-cost-for-precision-farming-services-in-iowa",
+     "title": "Survey Details Average Cost for Precision Farming Services in Iowa",
+     "publisher": "Precision Farming Dealer",
+     "date": "2022-03-29",
+     "retrieved": "2026-09-09",
+     "note": "scouting without drone $5.05/acre (14 responses), with drone $4.30/acre, range $2 to $7.50"
+    },
+    {
+     "url": "https://spectrumanalytic.com/support/library/pdf/What_do__ag_professionals_charge_for_their_services.pdf",
+     "title": "What do ag professionals charge for their services? National Survey of Fees",
+     "publisher": "AgProfessional (via Spectrum Analytic)",
+     "date": "2005-02",
+     "retrieved": "2026-09-09",
+     "note": "independent consultants: scouting once/week $6.54/acre, more than once/week $7.60/acre, full program 7+ visits plus written report $8.43/acre"
+    },
+    {
+     "url": "https://bradford-crops.uoguelph.ca/news/2026/02/2026-scouting",
+     "title": "2026 Scouting",
+     "publisher": "University of Guelph, Ontario Crops Research Centre Bradford",
+     "date": "2026-02-23",
+     "retrieved": "2026-09-09",
+     "note": "$65/acre for twice-weekly scouting with a report each visit (CAD)"
+    }
+   ],
+   "notes": "Human minutes cover drive, field walk and report write-up for one visit; the AI unit is the write-up only."
+  },
+  {
+   "task_id": "nutrient-management-plan",
+   "unit": "per farm plan",
+   "price_low": 1000,
+   "price_base": 3000,
+   "price_high": 6000,
+   "human_minutes": 1500,
+   "price_basis": "Vermont conservation district states TSP charges of $1,000 to $6,000 per farm depending on size, which sets low and high; Wisconsin's ATCP 50 cost-share of $10/acre/year for four years ($40/acre) is sized to plan-writing cost, so a 300-acre farm at $10/acre/year lands at $3,000, which sets base; the UVM self-write course at $800 is the floor for owner-written plans",
+   "status": "mixed (TSP range observed; base derived from per-acre cost-share rate)",
+   "sources": [
+    {
+     "url": "https://www.whiterivernrcd.org/nutrient-management-planning",
+     "title": "Nutrient Management Planning",
+     "publisher": "White River Natural Resources Conservation District (VT)",
+     "date": "undated, retrieved 2026",
+     "retrieved": "2026-09-09",
+     "note": "TSP total charges $1,000 to $6,000 depending on farm size; UVM class tuition and software $800"
+    },
+    {
+     "url": "https://datcp.wi.gov/Documents/NMCostShareFAQ.pdf",
+     "title": "Nutrient Management Cost-Share FAQ, Section 2.8",
+     "publisher": "Wisconsin DATCP",
+     "date": "2018-02",
+     "retrieved": "2026-09-09",
+     "note": "cost-share $10 per acre per year for four years ($40/acre) for a 590-compliant plan written by a qualified planner"
+    },
+    {
+     "url": "https://porkgateway.org/resource/comprehensive-nutrient-management-planning-for-your-pork-production-operation/",
+     "title": "Comprehensive Nutrient Management Planning for Your Pork Production Operation",
+     "publisher": "Pork Information Gateway",
+     "date": "2007-09-24",
+     "retrieved": "2026-09-09",
+     "note": "producer and TSP negotiate fees; fees above the NRCS Not-To-Exceed rate are paid by the producer"
+    }
+   ],
+   "notes": "Human minutes assume ~25 planner hours across sampling review, rate calculations, maps and state forms."
+  },
+  {
+   "task_id": "organic-certification-application",
+   "unit": "per operation",
+   "price_low": 850,
+   "price_base": 1750,
+   "price_high": 4000,
+   "human_minutes": 1500,
+   "price_basis": "No organic consultant publishes OSP-writing fees (Rodale and TeamAg offer it free in some states), so the price is derived: soil and plant scientist wages $37.91/hr median and $49.88/hr 75th percentile (BLS 2025), loaded to $57 to $100/hr as a consultant rate, times 15 hours (low), 25 hours at $70 (base) and 40 hours at $100 (high) to assemble a first-year OSP; CCOF's $350 application fee and $40 to $70/hr inspection are excluded certifier costs",
+   "status": "derived (BLS wage x estimated consultant hours; certifier fees observed but excluded)",
+   "sources": [
+    {
+     "url": "https://www.onetonline.org/link/localwages/19-1013.00",
+     "title": "Soil and Plant Scientists: National Wages (BLS 2025)",
+     "publisher": "O*NET OnLine / BLS",
+     "date": "2025",
+     "retrieved": "2026-09-09",
+     "note": "median $37.91/hr, 75th pct $49.88/hr, 90th pct $66.40/hr"
+    },
+    {
+     "url": "https://www.ccof.org/organic-certification-services/steps-to-certification/",
+     "title": "Steps to Certification",
+     "publisher": "CCOF",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$350 application fee paid at OSP submission; process typically 12 weeks or longer"
+    },
+    {
+     "url": "https://rodaleinstitute.org/blog/organic-certification-costs-a-small-investment-for-greater-profit/",
+     "title": "Organic Certification Costs: Small Investment, Greater Profits",
+     "publisher": "Rodale Institute",
+     "date": "2021-09-27",
+     "retrieved": "2026-09-09",
+     "note": "inspection $40 to $70/hr; typical PA farm certification about $2,000/yr; OCCSP cost share available"
+    }
+   ],
+   "notes": "Free extension and nonprofit consulting compresses the paid market, so the derived price is a ceiling on willingness to pay."
+  },
+  {
+   "task_id": "nutrition-facts-label-compliance",
+   "unit": "per SKU",
+   "price_low": 49,
+   "price_base": 480,
+   "price_high": 1295,
+   "human_minutes": 90,
+   "price_basis": "Three published per-label review prices: Sirocco Consulting $49 per label for a pass/fail checklist review, Food Lab $480 for a preliminary FDA compliance review of one label artwork (25% off follow-ups), and The Food Institute $1,295 per label with attorney final review and class-action risk assessment",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.siroccoconsulting.com/product/food-label-review-us-market-fda-compliance/",
+     "title": "Food Label Review (US market, FDA compliance)",
+     "publisher": "Sirocco Consulting",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "USD $49 per label; items marked passing, failing, N/A, exempt or needs clarification"
+    },
+    {
+     "url": "https://foodlab.com/services-pricing/",
+     "title": "Services and Pricing for FDA Food Label Compliance",
+     "publisher": "Food Lab, Inc.",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "Food Label Compliance Review $480; Complete Compliance Kit $840; consulting $420/hr"
+    },
+    {
+     "url": "https://foodinstitute.com/product/food-label/",
+     "title": "Food Label Review, Compliance with FDA Regulations",
+     "publisher": "The Food Institute",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$1,295 per label with final review by FDA labeling attorneys"
+    }
+   ],
+   "notes": "Nutrient analysis and the panel itself are priced separately ($240 to $360); this unit is the compliance review only."
+  },
+  {
+   "task_id": "haccp-plan-draft",
+   "unit": "per facility",
+   "price_low": 1200,
+   "price_base": 6000,
+   "price_high": 15000,
+   "human_minutes": 3000,
+   "price_basis": "Sirocco lists a custom single-process HACCP study from $1,200 (low); AuditBinder's 2026 guide puts consultant-led plans for SMEs at $2,500 to $15,000 with food manufacturing at $7,500 to $15,000+ (high); IFSQN consultants quote $5,000 to $8,000 per plan, ~50 hours at $7,475, and $10,000 to $15,000 by project, so base is set at $6,000 for a multi-process small facility",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.audit-binder.com/blog/haccp-plan-cost",
+     "title": "HACCP Plan Cost Guide 2026: Consultant Fees, Software Prices and Hidden Costs",
+     "publisher": "AuditBinder",
+     "date": "2026-03-11",
+     "retrieved": "2026-09-09",
+     "note": "consultant-led SME plans $2,500 to $15,000; consultants $95 to $400/hr; restaurants $1,500 to $3,500; manufacturing $7,500 to $15,000+"
+    },
+    {
+     "url": "https://www.ifsqn.com/forum/index.php/topic/48846-haccp-plan-development-cost/",
+     "title": "HACCP Plan Development Cost",
+     "publisher": "IFSQN forum",
+     "date": "2025-02-07",
+     "retrieved": "2026-09-09",
+     "note": "quotes of $10,000 to $15,000 by project; ~50 hours at $7,475; $150 to $400/hr reasonable"
+    },
+    {
+     "url": "https://www.siroccoconsulting.com/food-safety-consulting/haccp-hazard-analysis-critical-control-points/",
+     "title": "HACCP Consulting",
+     "publisher": "Sirocco Consulting",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "custom HACCP study from $1,200 per process, 7 to 10 business days; expert plan review $240"
+    }
+   ],
+   "notes": "Human minutes follow the 50-hour consultant estimate; validation hours on the plant floor are excluded."
+  },
+  {
+   "task_id": "feed-ration-formulation",
+   "unit": "per ration",
+   "price_low": 75,
+   "price_base": 200,
+   "price_high": 450,
+   "human_minutes": 120,
+   "price_basis": "No standalone per-ration price is published: feed and mineral companies bundle formulation into product sales (Crystal Creek offers it free with qualifying mineral purchases) and feedlot consultants bill retainer plus per-head fees. Derived from animal scientist wages $33.14/hr median and $49.67/hr 75th percentile (BLS 2025) loaded to a $75 to $150/hr independent consultant rate, times 1 hour (low), ~2 hours at $100 (base) and 3 hours at $150 for a multi-ingredient TMR with forage-test interpretation (high)",
+   "status": "derived (BLS wage x estimated hours; bundled market prevents observation)",
+   "sources": [
+    {
+     "url": "https://www.onetonline.org/link/localwages/19-1011.00",
+     "title": "Animal Scientists: National Wages (BLS 2025)",
+     "publisher": "O*NET OnLine / BLS",
+     "date": "2025",
+     "retrieved": "2026-09-09",
+     "note": "median $33.14/hr, 75th pct $49.67/hr, 90th pct $79.81/hr"
+    },
+    {
+     "url": "https://crystalcreeknatural.com/nutrition-consulting-ration-balancing/",
+     "title": "Dairy Nutrition Consulting and Ration Balancing",
+     "publisher": "Crystal Creek",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "free ration balancing and nutritional consulting with qualifying mineral purchases"
+    },
+    {
+     "url": "https://www.ndsu.edu/agriculture/extension/publications/cattle-producers-guide-feedlot-terminology",
+     "title": "Cattle Producer's Guide to Feedlot Terminology",
+     "publisher": "NDSU Extension",
+     "date": "2023-11",
+     "retrieved": "2026-09-09",
+     "note": "private and feed-company consulting nutritionists usually paid on a retainer plus a per-head fee"
+    }
+   ],
+   "notes": "Because formulation is a loss leader for feed sales, standalone willingness to pay is thin and V overstates it."
+  },
+  {
+   "task_id": "esg-report-drafting",
+   "unit": "per report",
+   "price_low": 14000,
+   "price_base": 30000,
+   "price_high": 60000,
+   "human_minutes": 12000,
+   "price_basis": "Hydrus puts a voluntary GRI/SASB report consulting engagement at $14,000 to $45,000 (low and range), Voice of Environment puts year-one external ESG report preparation at $15,000 to $50,000, and Socious cites specialist rates of EUR 200 to 400/hr; base is the midpoint of the two engagement ranges, high extends to the top of a first-report engagement for a 250 to 500 employee firm before data-infrastructure spend",
+   "status": "observed (consulting engagement ranges; drafting share of first-report packages estimated)",
+   "sources": [
+    {
+     "url": "https://hydrus.ai/resources/guides/esg-reporting-cost-transparent-breakdown",
+     "title": "How Much Does ESG Reporting Cost? A Transparent Breakdown",
+     "publisher": "Hydrus",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "voluntary GRI/SASB consulting engagement $14,000 to $45,000; boutique consultants EUR 800 to 1,500/day; small/mid first full report $50,000 to $200,000"
+    },
+    {
+     "url": "https://voiceofenvironment.com/2026/03/20/esg-compliance-cost-small-businesses-2026/",
+     "title": "ESG Compliance Cost for Small Business 2026: Full Budget Guide",
+     "publisher": "Voice of Environment",
+     "date": "2026-03-20",
+     "retrieved": "2026-09-09",
+     "note": "full ESG report preparation in year one $15,000 to $50,000 via external consultants"
+    },
+    {
+     "url": "https://socious.io/blog/sustainability-reporting-cost-reduction/",
+     "title": "The Real Cost of Sustainability Reporting, and How to Cut It by 80%",
+     "publisher": "Socious",
+     "date": "2026-04-03",
+     "retrieved": "2026-09-09",
+     "note": "specialist firms EUR 200 to 400/hr, Big Four EUR 300 to 500/hr; ~80% of reporting effort is manual systematic work"
+    }
+   ],
+   "notes": "Human minutes assume ~200 consultant hours; design and assurance are separate line items."
+  },
+  {
+   "task_id": "ghg-inventory-scope12",
+   "unit": "per company-year",
+   "price_low": 3500,
+   "price_base": 9000,
+   "price_high": 25000,
+   "human_minutes": 4200,
+   "price_basis": "Consultant-led Scope 1 and 2 measurement is quoted at $5,000 to $20,000 one-off for small businesses (Voice of Environment) and carbon footprint analysis at EUR 3,000 to 8,000 for small firms and EUR 10,000 to 30,000 for large firms (Hydrus, converted at 1.10 USD/EUR); low is the small-firm floor, base sits between the small-firm midpoints, high is a multi-site inventory",
+   "status": "observed (vendor and guide ranges; EUR converted at an assumed 1.10)",
+   "sources": [
+    {
+     "url": "https://voiceofenvironment.com/2026/03/20/esg-compliance-cost-small-businesses-2026/",
+     "title": "ESG Compliance Cost for Small Business 2026: Full Budget Guide",
+     "publisher": "Voice of Environment",
+     "date": "2026-03-20",
+     "retrieved": "2026-09-09",
+     "note": "consultant-led Scope 1 and 2 data collection and measurement $5,000 to $20,000 one-off; software $3,000 to $15,000/yr"
+    },
+    {
+     "url": "https://hydrus.ai/resources/guides/esg-reporting-cost-transparent-breakdown",
+     "title": "How Much Does ESG Reporting Cost? A Transparent Breakdown",
+     "publisher": "Hydrus",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "carbon footprint analysis alone EUR 3,000 to 8,000 (small firms) to EUR 10,000 to 30,000 (large firms)"
+    }
+   ],
+   "notes": "Carbon accounting SaaS already prices the calculation at $3k to $15k per year, so the consultant price is the ceiling."
+  },
+  {
+   "task_id": "phase1-esa-records-review",
+   "unit": "per site",
+   "price_low": 375,
+   "price_base": 1000,
+   "price_high": 1800,
+   "human_minutes": 300,
+   "price_basis": "Full Phase I ESAs run $1,900 to $5,000 (national average $3,450) per Apprais.ai and $2,000 to $5,000 per UST Contractors; A3 Environmental prices the desktop pieces separately at $250 for an EDR database report, $375 to $415 for a complete database package and $850 for a Record Search with Risk Assessment. Low is the database package alone, base is the RSRA plus historical-source and agency file review (~30% of a $3,450 Phase I), high is ~35% of a $5,000 industrial-site Phase I",
+   "status": "mixed (desktop products and Phase I totals observed; records-review share of the Phase I estimated)",
+   "sources": [
+    {
+     "url": "https://a3e.com/what-does-an-edr-report-cost/",
+     "title": "EDR Report Cost: What an Environmental Database Report Costs",
+     "publisher": "A3 Environmental Consultants",
+     "date": "2021-02",
+     "retrieved": "2026-09-09",
+     "note": "EDR report $250; database package $375 to $415; RSRA $850; Phase I $2,200 to $4,000"
+    },
+    {
+     "url": "https://apprais.ai/phase-1-environmental-cost/",
+     "title": "Phase 1 Environmental Site Assessment Cost 2026",
+     "publisher": "Apprais.ai",
+     "date": "2026-08",
+     "retrieved": "2026-09-09",
+     "note": "$1,900 to $5,000 national range, $3,450 average; gas stations +50 to 100%; rush +25 to 40%"
+    },
+    {
+     "url": "https://www.ustcontractors.com/phase-1-environmental-site-assessment-cost/",
+     "title": "Phase 1 Environmental Site Assessment Cost in 2026",
+     "publisher": "UST Contractors",
+     "date": "2026-07",
+     "retrieved": "2026-09-09",
+     "note": "$2,000 to $5,000; consultants use ERIS or EDR data vendors; expedite adds 25 to 40%"
+    }
+   ],
+   "notes": "Database vendor report fees (~$250 to $415) pass through as tool cost; the EP signature, site visit and interviews are excluded."
+  },
+  {
+   "task_id": "csrd-gap-assessment",
+   "unit": "per company",
+   "price_low": 5500,
+   "price_base": 15000,
+   "price_high": 45000,
+   "human_minutes": 6000,
+   "price_basis": "CSRD Experts (2026) prices an SME basic readiness assessment at EUR 5,000 to 15,000, an SME double materiality assessment at EUR 10,000 to 25,000 and a mid-market DMA at EUR 20,000 to 50,000; converted at an assumed 1.10 USD/EUR, low is the SME readiness floor, base the SME readiness top / DMA midpoint, high a mid-market gap plus DMA scope; Hydrus corroborates Big Four rates of EUR 300 to 500/hr",
+   "status": "observed (EUR consultant ranges converted at an assumed 1.10 USD/EUR)",
+   "sources": [
+    {
+     "url": "https://csrd-experts.com/blog/csrd-consultant-costs",
+     "title": "CSRD Consultant Costs: What Does CSRD Reporting Really Cost in 2026?",
+     "publisher": "CSRD Experts",
+     "date": "2026-02-20",
+     "retrieved": "2026-09-09",
+     "note": "SME readiness assessment EUR 5,000 to 15,000; SME DMA EUR 10,000 to 25,000; mid-market DMA EUR 20,000 to 50,000; senior consultants EUR 200 to 400/hr"
+    },
+    {
+     "url": "https://hydrus.ai/resources/guides/esg-reporting-cost-transparent-breakdown",
+     "title": "How Much Does ESG Reporting Cost? A Transparent Breakdown",
+     "publisher": "Hydrus",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "Big 4 CSRD advisory EUR 300 to 500/hr; full CSRD implementation EUR 15,000 to 50,000 mid-range firms"
+    },
+    {
+     "url": "https://www.intertek.com/assurance/eu-csrd/gap-assessment-in-compliance-with-the-csrd/",
+     "title": "Gap Assessment in compliance with the CSRD",
+     "publisher": "Intertek",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "gap assessment deliverables: double materiality analysis, KPI identification, data collection methodology, improvement action plan; pricing on request"
+    }
+   ],
+   "notes": "The 2025 Omnibus scope changes shrink the in-scope population, so demand for first-time gap work is falling while per-engagement fees hold."
+  },
+  {
+   "task_id": "epa-tier2-chemical-inventory-report",
+   "unit": "per facility",
+   "price_low": 1500,
+   "price_base": 3000,
+   "price_high": 6000,
+   "human_minutes": 600,
+   "price_basis": "RMA's 2026 cost guide puts consultant-prepared Tier II reports at $1,500 to $3,500 for simple facilities, $2,500 to $5,000 for moderate complexity and $5,000 and up for large or multi-site operations, with most projects $1,500 to $6,000 per facility; base is the moderate-facility midpoint. State filing fees are excluded and small: no federal fee (EPA), Oklahoma $12/facility or $15 to $30/substance capped at $1,000/company",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.rmagreen.com/rma-blog/how-much-does-tier-ii-reporting-cost-in-2026-online-estimator-included",
+     "title": "How much does Tier II Reporting Cost in 2026? (Online Estimator Included)",
+     "publisher": "Resource Management Associates",
+     "date": "2026-04-20",
+     "retrieved": "2026-09-09",
+     "note": "simple $1,500 to $3,500; moderate $2,500 to $5,000; large $5,000+; most $1,500 to $6,000 per facility"
+    },
+    {
+     "url": "https://oklahoma.gov/deq/divisions/land-protection/chemical-reporting-and-preparedness/tier-ii/tier-ii-reporting.html",
+     "title": "Tier II Reporting",
+     "publisher": "Oklahoma DEQ",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$12/reported facility for oil and gas and ag chemical dealers; $15/hazardous and $30/extremely hazardous substance otherwise; $1,000/company cap"
+    },
+    {
+     "url": "https://www.epa.gov/epcra/tier-ii-submission-fees",
+     "title": "EPCRA Hazardous Chemical Inventory Reporting: Tier II Submission Fees",
+     "publisher": "US EPA",
+     "date": "2026-05-11",
+     "retrieved": "2026-09-09",
+     "note": "no federal fees; many states charge reporting fees to support emergency planning"
+    }
+   ],
+   "notes": "Human minutes assume ~10 EHS consultant hours for SDS review, threshold math and portal entry at a mid-complexity site."
+  },
+  {
+   "task_id": "veterinary-soap-note",
+   "unit": "per visit",
+   "price_low": 10,
+   "price_base": 30,
+   "price_high": 75,
+   "human_minutes": 10,
+   "price_basis": "Human veterinary scribe services bill $2 to $5 per minute (CoVet, 2026); at the ~10 minutes per note that AI scribes claim to save (VetGeni), a scribe-written note costs $20 to $50, so base is $30; low is ~20 minutes of a technician's loaded time at ~$30/hr for an in-house note, high is a 15-minute complex visit at $5/min. For scale, the routine exam fee the note documents averages $95 (SpectrumCare) or $90 to $110 (VetSaglik)",
+   "status": "mixed (scribe per-minute rate observed; minutes per note and technician alternative estimated)",
+   "sources": [
+    {
+     "url": "https://co.vet/post/scribe-pricing/",
+     "title": "Veterinary scribe pricing: costs, models, and alternatives",
+     "publisher": "CoVet",
+     "date": "2026-06-05",
+     "retrieved": "2026-09-09",
+     "note": "human scribes $2 to $5 per minute billed monthly; AI scribes $100 to $400/month per DVM; hybrid $300 to $600/month"
+    },
+    {
+     "url": "https://www.vetgeni.com/blog/veterinary-ai-scribe-pricing-comparison-2026",
+     "title": "Veterinary AI Scribe Pricing Comparison (2026)",
+     "publisher": "VetGeni",
+     "date": "2026-02-17",
+     "retrieved": "2026-09-09",
+     "note": "~10 minutes per note plus ~10 minutes per discharge saved; AI scribes free to $250+/month per clinician"
+    },
+    {
+     "url": "https://spectrumcare.pet/costs/vet-exam-cost-guide",
+     "title": "Vet Exam Cost Guide",
+     "publisher": "SpectrumCare",
+     "date": "2026-03",
+     "retrieved": "2026-09-09",
+     "note": "exam national average $95, range $40 to $200; standard clinic visit $70 to $120"
+    },
+    {
+     "url": "https://www.vetsaglik.com/en/post/veterinary-prices-in-the-usa-2026-state-by-state-comparison-is-there-a-price-regulation",
+     "title": "Veterinary Prices in the USA (2026): State-by-State Comparison",
+     "publisher": "VetSaglik",
+     "date": "2026-02-22",
+     "retrieved": "2026-09-09",
+     "note": "national routine exam average 2026 approximately $90 to $110"
+    }
+   ],
+   "notes": "AI scribe subscriptions already price this at roughly $1 to $3 per visit, so the human price is a ceiling, not the market."
+  },
+  {
+   "task_id": "pet-insurance-claim-submission",
+   "unit": "per claim",
+   "price_low": 15,
+   "price_base": 35,
+   "price_high": 80,
+   "human_minutes": 30,
+   "price_basis": "No pet-specific per-claim handling price is published, so generic claims-processing benchmarks are applied: manual processing $20 to $80 per claim and ~$45 for a mid-size insurer (Agentmelt); manual/legacy $35 to $50+, industry average $15 to $25 (WarrantyHub); MoneyGeek documents the package contents (itemized invoice, proof of payment, medical records, diagnostics, insurer form). Low is the industry-average floor, base ~30 minutes of clinic or policyholder-services staff time, high the manual ceiling",
+   "status": "estimated (generic claims-handling benchmarks applied to pet claims; no pet-specific price observed)",
+   "sources": [
+    {
+     "url": "https://agentmelt.com/tools/claims-processing-cost-calculator/",
+     "title": "Claims Processing Cost Calculator",
+     "publisher": "Agentmelt",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "manual processing $20 to $80 per claim; ~$45+ per claim for a mid-size insurer at 500 claims/month"
+    },
+    {
+     "url": "https://warrantyhub.com/blog/claims-processing-benchmarks/",
+     "title": "Claims Processing Benchmarks 2026: Cycle Times, Costs and Approval Rates",
+     "publisher": "WarrantyHub",
+     "date": "2026-03-18",
+     "retrieved": "2026-09-09",
+     "note": "manual/legacy $35 to $50+ per claim; industry average $15 to $25; top performers $5 to $10; labor 60 to 70% of cost"
+    },
+    {
+     "url": "https://www.moneygeek.com/insurance/pet/coverage/claims-process/",
+     "title": "How to File a Pet Insurance Claim",
+     "publisher": "MoneyGeek",
+     "date": "2026-08-26",
+     "retrieved": "2026-09-09",
+     "note": "required: itemized invoice, proof of payment, medical records, diagnostic results, insurer forms; 7 to 15 business days to approval"
+    }
+   ],
+   "notes": "Most pet insurers offer free app submission, so the buyer here is a clinic or concierge service doing it on the owner's behalf."
+  }
+ ]
+}

@@ -1,0 +1,103 @@
+{"tasks":[
+{"task_id":"medication-reconciliation","unit":"per encounter","price_low":20,"price_base":30,"price_high":60,"human_minutes":25,
+ "price_basis":"Pharmacist labor only: 20 minutes per discharge at $79/hour = $26 per encounter in the 2024 academic-center study; Dutch pulmonology study measured EUR 41.04 of pharmacy labor per patient (about $55 at the study's 1.3443 rate) where the team did the full history; low assumes technician-assisted history at roughly 15 pharmacist-equivalent minutes, high is the full-team figure rounded",
+ "status":"derived (pharmacist time x wage from two published studies, no vendor per-encounter list price)",
+ "sources":[
+  {"url":"https://pmc.ncbi.nlm.nih.gov/articles/PMC11651628/","title":"Impact of pharmacist-led discharge medication reconciliation on error and patient harm prevention at a large academic medical center","publisher":"J Am Coll Clin Pharm via PMC","date":"2024","retrieved":"2026-09-09","note":"20 minutes per discharge, $79/hour staff pharmacist, $816 labor for 31 discharges"},
+  {"url":"https://europepmc.org/article/MED/22395255","title":"Effect of medication reconciliation on medication costs after hospital discharge in relation to hospital pharmacy labor costs","publisher":"Annals of Pharmacotherapy via Europe PMC","date":"2012","retrieved":"2026-09-09","note":"labor cost EUR 41.04 per patient for medication reconciliation, 262 patients"},
+  {"url":"https://pubmed.ncbi.nlm.nih.gov/28557517/","title":"Economic value of pharmacist-led medication reconciliation for reducing medication errors after hospital discharge","publisher":"AJMC via PubMed","date":"2017","retrieved":"2026-09-09","note":"preventable ADE cost $472 per patient with usual care, $266 with reconciliation, net benefit $206 after intervention cost"},
+  {"url":"https://europepmc.org/article/MED/36777983","title":"Effect of a Pharmacist Admission Medication Reconciliation Service at a Children's Hospital","publisher":"J Pediatr Pharmacol Ther via Europe PMC","date":"2023","retrieved":"2026-09-09","note":"283 admission reconciliations in 90 days, 69% required intervention, $46,747 cost avoidance"}
+ ],
+ "notes":"Price is the pharmacist labor a hospital pays, not a billed fee; TCM codes bundle it. The avoided-harm value ($206 net per patient) is far above the labor cost, which is why the review gate stays."},
+{"task_id":"patient-education-handout","unit":"per handout","price_low":450,"price_base":1500,"price_high":5700,"human_minutes":600,
+ "price_basis":"High is the Ontario cancer-center survey mean of $5,672 per pamphlet ($4,560 development plus $1,112 review, institutional process); base assumes a freelance healthcare writer at $125/hour for 8-10 hours plus a clinician review hour; low is the MedForms $450 one-time customization fee for a vendor booklet, the cheapest way to buy a tailored handout",
+ "status":"mixed (observed institutional cost and vendor setup fee, derived freelance figure)",
+ "sources":[
+  {"url":"https://europepmc.org/article/MED/33037573","title":"The Cost of Patient Education Materials Development: Opportunities to Identify Value and Priorities","publisher":"Journal of Cancer Education via Europe PMC","date":"2022","retrieved":"2026-09-09","note":"$5,672 mean per pamphlet (SD $3,180), development $4,560, review $1,112, 14 cancer centers"},
+  {"url":"https://medforms.com/patient-education-booklets-effective-teaching-tools/","title":"Patient Education Booklets: Effective Teaching Tools","publisher":"MedForms","date":"2026","retrieved":"2026-09-09","note":"booklets from about $3.00 each, $450 one-time customization setup fee"},
+  {"url":"https://vitalcomgroup.com/blog/freelance-medical-and-healthcare-writing-rates-what-you-should-pay/","title":"Freelance Medical and Healthcare Writing Rates: What You Should Pay","publisher":"Vital Communications","date":"2026","retrieved":"2026-09-09","note":"experienced freelance healthcare copywriter $125/hour or more"}
+ ],
+ "notes":"Institutional cost is inflated by committee review cycles; the freelance base is closer to what a clinic actually pays per handout. Templated handout libraries (subscription) already undercut this."},
+{"task_id":"specialist-referral-letter","unit":"per referral","price_low":15,"price_base":35,"price_high":60,"human_minutes":35,
+ "price_basis":"Derived: MGMA benchmark of 25-30 minutes of coordinator work per referral plus 10-15 physician minutes for the letter itself; primary care physician at $214,942 per year is about $103/hour, so 10-15 minutes is $17-26, and coordinator time at the medical-assistant wage adds $8-12; low is coordinator-only for a templated letter, high is a full physician-written letter with prior-auth attachments",
+ "status":"derived (time benchmarks x wage, no per-letter market price)",
+ "sources":[
+  {"url":"https://linear.health/blog/why-referrals-get-lost-primary-care-specialists","title":"Why Referrals Get Lost Between PCPs and Specialists","publisher":"Linear Health","date":"2026-06-10","retrieved":"2026-09-09","note":"MGMA benchmark 25-30 minutes of active work per referral, 12-16 referrals per coordinator per day"},
+  {"url":"https://www.indeed.com/career/primary-care-physician/salaries","title":"Primary care physician salary in United States","publisher":"Indeed","date":"2026-08-31","retrieved":"2026-09-09","note":"$214,942 average annual salary, 13.4k postings"},
+  {"url":"https://referralmd.com/cost-savings.pdf","title":"Cost savings per physician","publisher":"ReferralMD","date":"2013","retrieved":"2026-09-09","note":"medical assistants average $30,000 per year, practices spend $12,000 per worker per year interacting with health plans"}
+ ],
+ "notes":"Referral coordinators, not physicians, do most of the work; the physician time is signature plus clinical framing. Human minutes blend both roles."},
+{"task_id":"utilization-review-case","unit":"per case","price_low":30,"price_base":75,"price_high":650,"human_minutes":45,
+ "price_basis":"Low and base are first-level nurse review: UR nurse at $42.33/hour for 40-45 minutes is about $30, and vendor RN-led review billed at $40-100/hour with overhead puts a per-case fee near $75; high is the physician-level independent review fee set by state schedules, $650 for an MD/DO Tier 1 review in Texas ($460 for other clinicians) and $600-1,100 caps in Washington",
+ "status":"mixed (observed state IRO fee schedules and wage data, derived per-case nurse cost)",
+ "sources":[
+  {"url":"https://www.indeed.com/career/utilization-review-nurse/salaries","title":"Utilization review nurse salary in United States","publisher":"Indeed","date":"2026-08-31","retrieved":"2026-09-09","note":"$42.33/hour average, range $26.15-$68.53, 945 postings"},
+  {"url":"https://helpware.com/blog/healthcare-utilization-management-companies","title":"Top 10 Healthcare Utilization Management Companies for 2026","publisher":"Helpware","date":"2026-04-21","retrieved":"2026-09-09","note":"per-review fixed-fee pricing model; RN-led clinical review $40-100+ per hour"},
+  {"url":"https://www.tdi.texas.gov/hmo/mcqa/irofaqs.html","title":"Independent Review Organization FAQ","publisher":"Texas Department of Insurance","date":"2026","retrieved":"2026-09-09","note":"Tier 1 review by MD/DO $650, Tier 2 review by other providers $460"},
+  {"url":"https://lawfilesext.leg.wa.gov/Law/WACArchive/2021/htm/WAC%20284%20%20TITLE/WAC%20284%20-%2043A%20CHAPTER/WAC%20284%20-%2043A-130.htm","title":"WAC 284-43A-130 Maximum fees for independent review","publisher":"Washington State Legislature","date":"2021","retrieved":"2026-09-09","note":"contract review $600, standard medical review $700, highly specialized $1,000, multiple reviewers $1,100, $200 expedited surcharge"}
+ ],
+ "notes":"The 20x range is the nurse-versus-physician split inside one workflow; most volume is nurse first-level review, so base sits there. Adverse determinations legally require a physician."},
+{"task_id":"openapi-spec-generation","unit":"per API","price_low":1500,"price_base":4000,"price_high":12000,"human_minutes":2400,
+ "price_basis":"Full API documentation sets run $3,000-$15,000 and API/dev-doc writers bill $60-100/hour (niche $120-175); the OpenAPI spec alone is the reference layer of that set, so low is 15-25 writer hours at the low rate, base is a 40-hour spec-and-examples engagement at about $100/hour, high is a large multi-service API near the full-set ceiling; API build guides put documentation at 10-15% of total API project cost",
+ "status":"mixed (observed full-documentation range and hourly rates, estimated spec-only share)",
+ "sources":[
+  {"url":"https://www.biztoolkit.co/post/freelance-technical-writer-rates-in-2026-per-word-hour-project","title":"Freelance Technical Writer Rates in 2026: Per Word, Hour and Project","publisher":"BizToolkit","date":"2026-08-13","retrieved":"2026-09-09","note":"API/dev docs $0.20-0.40 per word, $60-100/hour mid-career, $120-175+ niche, full API doc sets $3,000-15,000"},
+  {"url":"https://www.spaceotechnologies.com/blog/api-development-cost/","title":"API Development Cost in 2026: A Detailed Cost Breakdown","publisher":"Space-O Technologies","date":"2026-08-20","retrieved":"2026-09-09","note":"documentation adds 10-15% to total API project cost; US developer rates $100-250/hour"}
+ ],
+ "notes":"Code-first generators (Swagger annotations, FastAPI) already produce skeleton specs for free, so the paid market is for the schemas, examples and error semantics generators miss; V overstates durable willingness to pay."},
+{"task_id":"ci-pipeline-configuration","unit":"per repository","price_low":1500,"price_base":4000,"price_high":15000,"human_minutes":1500,
+ "price_basis":"Single-application CI/CD setup quoted at $2,000-5,000 (1-2 weeks) and basic CI/CD at $2,000-10,000 by two consulting guides; project-based pipeline implementations at $15,000-50,000 mark the monorepo or multi-environment ceiling; low is a freelancer day and a half at $75-150/hour for a standard stack, base is the midpoint of the single-app quotes",
+ "status":"observed (consulting price guides), low derived from hourly rates",
+ "sources":[
+  {"url":"https://squareops.com/blog/devops-consulting-services-cost-pricing-guide-2026/","title":"How Much Do DevOps Consulting Services Cost in 2026?","publisher":"SquareOps","date":"2026-03-18","retrieved":"2026-09-09","note":"single application CI/CD setup $2,000-5,000; microservices 5-10 services $8,000-20,000; US rates $100-300+/hour"},
+  {"url":"https://www.clustox.com/blog/devops-consulting-cost/","title":"DevOps Consulting Cost in 2025","publisher":"Clustox","date":"2026-04-27","retrieved":"2026-09-09","note":"basic CI/CD setup $2,000-10,000; solo consultants $75-150/hour"},
+  {"url":"https://tasrieit.com/blog/how-much-does-devops-consulting-cost-2026-pricing-guide","title":"How Much Does DevOps Consulting Cost in 2026?","publisher":"Tasrie IT Services","date":"2026-01-20","retrieved":"2026-09-09","note":"CI/CD pipeline implementation $15,000-50,000 over 4-8 weeks; senior engineer $125-200/hour"}
+ ],
+ "notes":"Marketplace gigs advertise CI setup under $150, so the consulting range reflects integration with existing infra, secrets and deploy targets rather than the YAML itself."},
+{"task_id":"database-schema-design","unit":"per application","price_low":2000,"price_base":5000,"price_high":15000,"human_minutes":2400,
+ "price_basis":"Small-business database design projects run $2,000-10,000 with designers billing $50-250/hour; database architecture skill averages $104.96/hour; base is 40-50 hours at about $105/hour for a new application schema with migrations, high extends toward the lower end of the enterprise range for a multi-tenant or high-volume design",
+ "status":"observed (project range), base derived from hourly rate x time",
+ "sources":[
+  {"url":"https://www.costowl.com/b2b/design-services/design-services-database-cost/","title":"Database Design Prices: How Much Does a Database Design Service Cost?","publisher":"CostOwl","date":"2026","retrieved":"2026-09-09","note":"$50-250/hour; small business projects $2,000-10,000; larger companies $10,000 to $500,000"},
+  {"url":"https://www.payscale.com/research/US/Skill=Database_Architecture/Hourly_Rate","title":"Hourly Rate for Skill: Database Architecture","publisher":"PayScale","date":"2026","retrieved":"2026-09-09","note":"$104.96 average base hourly rate"},
+  {"url":"https://www.indeed.com/career/database-architect/salaries","title":"Data warehouse architect salary in United States","publisher":"Indeed","date":"2026-08-30","retrieved":"2026-09-09","note":"$136,054 average annual salary, range $103,391-179,038"}
+ ],
+ "notes":"Schema design is rarely sold alone; the price is the design-phase slice of an application build, which is why the range is wide."},
+{"task_id":"performance-profiling-report","unit":"per service","price_low":800,"price_base":3000,"price_high":8000,"human_minutes":1440,
+ "price_basis":"Website performance audits list at $150-400 freelance and $800-2,000 agency; Core Web Vitals audits at EUR 900-2,500 for 2-4 person-days; skilled engineering audit time bills around $1,000-1,500 per day; a backend service profiling engagement is 2-4 engineer days, so base is 3 days at about $1,000, high is a week of senior time on a distributed service, low is the agency floor for a single-service report",
+ "status":"mixed (observed audit list prices and day rates, derived backend engagement size)",
+ "sources":[
+  {"url":"https://www.grigora.co/blog/website-audit-costs/","title":"Website Audit Cost in 2026: $200-$10,000+ (Pricing)","publisher":"Grigora","date":"2026-09-05","retrieved":"2026-09-09","note":"performance audit $150-400 freelancer, $800-2,000 agency; technical audit $250-600 / $1,200-3,500"},
+  {"url":"https://www.gemeosagency.com/en/blog/website-audit-cost","title":"Website Audit Cost in 2026: Complete Pricing Guide","publisher":"Gemeos Agency","date":"2026-08-28","retrieved":"2026-09-09","note":"performance / Core Web Vitals audit EUR 900-2,500 for 2-4 person-days; senior freelancers EUR 600-800/day, agencies EUR 700-1,200/day"},
+  {"url":"https://codebridgeagency.com/blog/web-application-security-audit-cost","title":"How Much Does a Web App Security Audit Cost in 2026?","publisher":"Code Bridge Agency","date":"2026-06-09","retrieved":"2026-09-09","note":"skilled auditor time about $1,000-1,500 per day; tightly scoped single-app audits $4,000-10,000"}
+ ],
+ "notes":"Published prices are for web front-end audits; backend service profiling is bought as consulting days, so the base is a day-rate derivation. APM vendors bundle much of this into subscriptions."},
+{"task_id":"tenant-screening-report","unit":"per applicant","price_low":25,"price_base":40,"price_high":65,"human_minutes":30,
+ "price_basis":"TransUnion SmartMove packages at $25 Basic, $35 Plus, $40 Premium (a comparison guide lists $25-47); RentPrep with FCRA-certified screener review $21-49 per screening; TurboTenant $45-55; base is the full credit-plus-eviction-plus-criminal package, high is a human-verified package with income verification add-ons",
+ "status":"observed (vendor list prices)",
+ "sources":[
+  {"url":"https://www.rentwithclara.com/post/is-smartmove-worth-it","title":"TransUnion SmartMove Review 2026: Worth it for Landlords?","publisher":"Clara","date":"2026","retrieved":"2026-09-09","note":"SmartMove Basic $25, Plus $35, Premium $40, no monthly fees"},
+  {"url":"https://www.thecreditpeople.com/bureaus/how-much-does-transunion-smartmove-cost","title":"How Much Does TransUnion SmartMove Cost?","publisher":"The Credit People","date":"2026","retrieved":"2026-09-09","note":"$35 full credit, background and eviction; $25 credit only, $15 background only, $10 eviction only"},
+  {"url":"https://www.tenantcloud.com/blog/which-tenant-screening-service-is-the-best","title":"Best Tenant Screening Services for Landlords: Comparing Top 10 Picks","publisher":"TenantCloud","date":"2026","retrieved":"2026-09-09","note":"SmartMove $25-47, RentPrep $21-49 with FCRA-certified screener review, TurboTenant $45-55 per screening"}
+ ],
+ "notes":"The price is mostly bureau data resale; the human-verified tier (RentPrep) adds roughly $10-20 for a screener's review. FCRA and fair-housing compliance, not analysis, is the hard part."},
+{"task_id":"property-tax-appeal","unit":"per parcel","price_low":150,"price_base":500,"price_high":1750,"human_minutes":240,
+ "price_basis":"Residential appeals are mostly contingency at 25-50% of first-year savings: a $20,000 value cut at a 3% rate saves $600 and pays a 25% firm $150; AppealDesk's guide puts contingency services at $125-1,750 (25-35% of savings), a $49 flat evidence-only service, and attorneys at $600-2,500+; independent appraisers charge $300-600 flat; base is a 25% fee on a $2,000 saving, high is the top of the contingency range",
+ "status":"observed (fee percentages and flat fees), expressed as expected fee per parcel",
+ "sources":[
+  {"url":"https://www.appealdesk.com/blog/property-tax-appeal-cost","title":"How Much Does a Property Tax Appeal Cost?","publisher":"AppealDesk","date":"2026-02","retrieved":"2026-09-09","note":"$49 flat evidence service; $125-1,750 contingency (25-35% of savings); attorney $600-2,500+; O'Connor $600-1,000 on $2,000 savings"},
+  {"url":"https://ntpts.com/how-much-property-tax-consultants-charge/","title":"How Much Do Property Tax Consultants Charge?","publisher":"North Texas Property Tax Services","date":"2026","retrieved":"2026-09-09","note":"contingency 25-50% of savings; $20,000 reduction at 3% = $600 saved, 25% fee = $150"},
+  {"url":"https://www.ownwell.com/blog/property-tax-consultants-how-to-choose","title":"Property Tax Consultants: How to Choose the Right One for Your Home","publisher":"Ownwell","date":"2026","retrieved":"2026-09-09","note":"national firms 25-35% contingency; local firms 30-50% or flat plus contingency; attorneys $200-500/hour; appraisers $300-600 flat"}
+ ],
+ "notes":"Because most firms work on contingency, the fee tracks the savings rather than the work; a $49 flat AI-assisted evidence service already exists, so V overstates durable willingness to pay for the analysis alone."},
+{"task_id":"rent-roll-audit","unit":"per property","price_low":750,"price_base":3500,"price_high":10000,"human_minutes":1920,
+ "price_basis":"Derived from engagement size: a 50-100 unit property takes an experienced auditor 3-5 business days, and manual consulting file reviews run $150-300 per tenant file; at a billed rate of $100-150/hour (auditor salaries average $74,572, about $36/hour, billed at 3x) that is $2,400-6,000, so base is 32 hours at about $110; low is a small 10-20 unit property or a property-management operational audit ($500-1,500); high is a 200+ unit asset or a full file-by-file review at the per-file rate",
+ "status":"derived (auditor days x billed rate, anchored to per-file consulting rates)",
+ "sources":[
+  {"url":"https://rea.co/rent-roll-auditing-verify-accuracy-before-closing/","title":"Rent Roll Auditing: Verify Accuracy Before Closing","publisher":"REA","date":"2026-05-06","retrieved":"2026-09-09","note":"50-100 units with organized documentation takes an experienced auditor 3-5 business days"},
+  {"url":"https://tenantfileaudit.com/","title":"LIHTC Compliance Software: Tenant File Audit for Affordable Housing","publisher":"TenantAudit","date":"2026","retrieved":"2026-09-09","note":"manual consulting reviews $150-300 per tenant file; automated $0.50-1.00 per file"},
+  {"url":"https://belonghome.com/blog/who-can-review-my-lease-and-management-practices-before-i-remove-a-resident","title":"Who Can Review My Lease and Management Practices Before I Remove a Resident?","publisher":"Belong","date":"2026-07-29","retrieved":"2026-09-09","note":"attorney hourly audit $200-500/hour, 2-4 hours; property management operational audit $500-1,500"},
+  {"url":"https://www.indeed.com/career/auditor/salaries","title":"Auditor salary in United States","publisher":"Indeed","date":"2026-08-30","retrieved":"2026-09-09","note":"$74,572 average annual salary, range $41,543-133,860"}
+ ],
+ "notes":"Due-diligence vendors quote by unit count and do not publish rates; the per-file consulting rate ($150-300) is from an affordable-housing compliance context, so the base leans on the day-rate derivation."}
+]}

@@ -1,0 +1,472 @@
+{
+ "tasks": [
+  {
+   "task_id": "structural-calc-package-review",
+   "unit": "per package",
+   "price_low": 600,
+   "price_base": 1500,
+   "price_high": 5000,
+   "human_minutes": 480,
+   "price_basis": "Structural engineer hourly $150 to $300 (Palisade 2026) and $190 to $280 senior (Monograph 2026) times 4 hours for a simple residential package (low), 8 hours at ~$190 for a typical package (base), and 20 hours at $250 or 0.25% of a $2M construction cost, the low end of the 0.25 to 0.50% peer review band (high). Creative Design Partner lists new-construction calculations at $1,500 to $3,500, and a review runs below the authoring fee.",
+   "status": "derived (hourly rates and peer-review percentage observed; hours per package estimated)",
+   "sources": [
+    {
+     "url": "https://monograph.com/blog/structural-engineer-fees-cost-breakdown",
+     "title": "Structural Engineer Fees: Complete Cost Breakdown",
+     "publisher": "Monograph",
+     "date": "2026-06-11",
+     "retrieved": "2026-09-09",
+     "note": "peer review 0.25 to 0.50% of construction cost; hourly $110 to $350 by seniority"
+    },
+    {
+     "url": "https://www.pe-se.com/blog/structural-engineer-cost",
+     "title": "How Much Does a Structural Engineer Cost? 2026 Pricing Guide",
+     "publisher": "Palisade Engineering",
+     "date": "2026-03-27",
+     "retrieved": "2026-09-09",
+     "note": "hourly $150 to $300; simple residential letters from $875"
+    },
+    {
+     "url": "https://creativedesignpartner.com/structural-engineer-cost/",
+     "title": "How Much Does a Structural Engineer Cost in 2026?",
+     "publisher": "Creative Design Partner",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "calculations $500 to $1,000 minor residential, $1,500 to $3,500+ new construction; hourly $100 to $250+"
+    }
+   ],
+   "notes": "Third-party peer review is mandated on many design-build and CMAR projects, which sets the ceiling; a PE must sign."
+  },
+  {
+   "task_id": "mep-load-calculation",
+   "unit": "per building",
+   "price_low": 1200,
+   "price_base": 4000,
+   "price_high": 12000,
+   "human_minutes": 1200,
+   "price_basis": "Full MEP design fees run $0.50 to $3.00/sf for tenant finish-outs (PYRA, 374 projects), $2 to $6/sf standard (GDI 2025) and $2 to $5/sf small commercial (Brunswick 2026). The load calculation set is taken as roughly 15 to 25% of the design fee: a 5,000 sf finish-out at $1/sf gives ~$1,200 (low); a 10,000 sf small commercial building at $2.50/sf and 15% gives ~$4,000 (base); a 20,000 sf building at $3/sf and 20% gives $12,000 (high).",
+   "status": "derived (per-square-foot design fees observed; load-calculation share of fee estimated)",
+   "sources": [
+    {
+     "url": "https://www.pyra-engineering.com/what-mep-engineering-costs-in-texas/",
+     "title": "What MEP Engineering Actually Costs in Texas (2026)",
+     "publisher": "PYRA Engineering",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "MEP design $0.50 to $3.00 per sf or 1 to 3% of construction cost for tenant finish-outs"
+    },
+    {
+     "url": "https://gdiengdesign.com/how-much-do-mep-engineering-design-services-cost-in-2025/",
+     "title": "How Much Do MEP Engineering Design Services Cost in 2025?",
+     "publisher": "GDI Engineering",
+     "date": "2025-12-13",
+     "retrieved": "2026-09-09",
+     "note": "$2 to $6 per sf standard, $6 to $15 high-performance; senior engineer $150 to $250/hr"
+    },
+    {
+     "url": "https://brunswickeng.com/how-much-does-mep-design-cost-for-commercial-buildings/",
+     "title": "How Much Does MEP Design Cost for Commercial Buildings?",
+     "publisher": "Brunswick Engineering",
+     "date": "2026-07-01",
+     "retrieved": "2026-09-09",
+     "note": "small commercial $2 to $5 per sf, medium $3 to $7, complex $5 to $12+"
+    },
+    {
+     "url": "https://www.cadcrowd.com/blog/what-are-mep-design-costs-drafting-fees-engineering-service-rates-for-companies/",
+     "title": "What Are MEP Design Costs, Drafting Fees & Engineering Service Rates for Companies?",
+     "publisher": "Cad Crowd",
+     "date": "2023-10-30",
+     "retrieved": "2026-09-09",
+     "note": "residential shell $0.50/sf, commercial or medical $3.00/sf; MEP fee ~4% of MEP construction"
+    }
+   ],
+   "notes": "Load calcs are rarely sold standalone; the price is the share of a stamped MEP design fee attributable to them."
+  },
+  {
+   "task_id": "cad-drawing-qc-markup",
+   "unit": "per sheet set",
+   "price_low": 300,
+   "price_base": 600,
+   "price_high": 2000,
+   "human_minutes": 360,
+   "price_basis": "Firm CAD drafter rates $80 to $120/hr (Cad Crowd) and $75 to $200/hr for drafting firms with revision work at $40 to $90/hr (Digital Estimating 2026); CAD/CAM Services bills basic 2D at $45+/hr. A 20 to 40 sheet set checked at 10 to 15 minutes per sheet is 4 to 8 hours: 4 hrs at $75 (low), 6 hrs at $100 (base), 15 hrs at ~$130 for a large multi-discipline set (high).",
+   "status": "derived (hourly rates observed; minutes per sheet estimated)",
+   "sources": [
+    {
+     "url": "https://www.cadcrowd.com/blog/what-are-autocad-designer-rates-drafting-costs-services-company-pricing/",
+     "title": "All You Need to Know About AutoCAD Designer Rates, Drafting Costs & Services Company Pricing",
+     "publisher": "Cad Crowd",
+     "date": "2024-11-18",
+     "retrieved": "2026-09-09",
+     "note": "freelancers $30 to $85/hr, firm drafters $80 to $120/hr; $35 to $180 per CAD sheet"
+    },
+    {
+     "url": "https://digitalestimating.com/how-much-do-cad-drafting-services-cost/",
+     "title": "How Much Do CAD Drafting Services Cost? Real Pricing Examples & Smart Budgeting Tips",
+     "publisher": "Digital Estimating",
+     "date": "2026-05",
+     "retrieved": "2026-09-09",
+     "note": "firms $75 to $200+/hr; standard architectural sheet $165 to $365; revisions $40 to $90/hr"
+    },
+    {
+     "url": "https://www.cadcam.org/blog/cad-drafting-services-prices-what-to-expect-when-outsourcing",
+     "title": "CAD Drafting Services Prices: What to Expect When Outsourcing",
+     "publisher": "CAD/CAM Services",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "basic AutoCAD 2D $45+/hr; $185 flat per D or E size sheet; $150 minimum"
+    }
+   ],
+   "notes": "QC is usually absorbed in firm overhead rather than sold, so the price is the drafter time it displaces."
+  },
+  {
+   "task_id": "as-built-drawing-update",
+   "unit": "per sheet set",
+   "price_low": 500,
+   "price_base": 1200,
+   "price_high": 4000,
+   "human_minutes": 600,
+   "price_basis": "Per-sheet AutoCAD drafting runs $35 to $180 (Cad Crowd) and $60 to $110 for simple conversions up to $165 to $365 for standard architectural sheets (Digital Estimating). Updating a 10 to 20 sheet set from redlines at $50/sheet gives $500 (low), 15 sheets at $80 (base), 25 sheets at $160 (high). Full as-built packages with field capture run $700 to $1,300 residential (Cad Crowd) and $2,500 to $5,500 small commercial (LiDAR As-Built Drawings), which bound the high end since our unit excludes the survey.",
+   "status": "mixed (per-sheet drafting rates observed; sheet count per set estimated; full-package fees observed as ceiling)",
+   "sources": [
+    {
+     "url": "https://www.cadcrowd.com/blog/what-are-as-built-drawing-costs-drafting-rates-at-architecture-companies/",
+     "title": "What Are As-Built Drawings Costs & Drafting Rates at Architecture Companies?",
+     "publisher": "Cad Crowd",
+     "date": "2024-11-05",
+     "retrieved": "2026-09-09",
+     "note": "residential as-builts $700 to $1,300 or $0.40 to $2.50 per sf"
+    },
+    {
+     "url": "https://lidarasbuiltdrawings.com/as-built-drawings-cost/",
+     "title": "As-Built Drawings Cost: Prices, Ranges & Per SF Guide [2026]",
+     "publisher": "LiDAR As-Built Drawings",
+     "date": "2026-03-07",
+     "retrieved": "2026-09-09",
+     "note": "small commercial under 3,000 sf $2,500 to $5,500; simple retail $0.35 to $0.75 per sf; Revit add $1,500 to $3,000"
+    },
+    {
+     "url": "https://digitalestimating.com/how-much-do-cad-drafting-services-cost/",
+     "title": "How Much Do CAD Drafting Services Cost? Real Pricing Examples & Smart Budgeting Tips",
+     "publisher": "Digital Estimating",
+     "date": "2026-05",
+     "retrieved": "2026-09-09",
+     "note": "simple CAD conversion $60 to $110 per sheet; standard architectural sheet $165 to $365"
+    },
+    {
+     "url": "https://www.thefuture3d.com/learn/as-built-drawings-cost/",
+     "title": "As-Built Drawings Cost: Pricing Guide for 2026",
+     "publisher": "The Future 3D",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "2D CAD as-builts $0.15 to $0.35 per sf; $2,500 project minimum; as-builts 1 to 3% of renovation budget"
+    }
+   ],
+   "notes": "Priced as redline transfer into CAD, not laser-scan documentation; scan-to-BIM vendors are already automating the capture side."
+  },
+  {
+   "task_id": "zoning-analysis-report",
+   "unit": "per parcel",
+   "price_low": 325,
+   "price_base": 900,
+   "price_high": 5000,
+   "human_minutes": 480,
+   "price_basis": "Municipal zoning analysis report $325 (Ann Arbor) sets the low; commercial zoning conformance reports $900 to $1,050 and summaries $600 to $750 (Zoning Info) set the base; Tectmind states developers pay $5,000+ per property for a full zoning analysis, which sets the high for an entitlement-path report by a consultant. Zoneomics briefs at $39 to $65 are the AI-compressed floor and are excluded from the range.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.a2gov.org/planning/general-zoning-information/zoning-reports/",
+     "title": "Zoning Reports",
+     "publisher": "City of Ann Arbor",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "Zoning Information Report $200; Zoning Analysis Report $325"
+    },
+    {
+     "url": "https://zoning-info.com/commercial-zoning-reports/",
+     "title": "Commercial Zoning Reports",
+     "publisher": "Zoning Info",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "Zoning Conformance Report $900 to $1,050; Conformance Summary $600 to $750; document retrieval $250 plus municipal fees"
+    },
+    {
+     "url": "https://tectmind.com/zoning-analysis-service",
+     "title": "Hire a NYC Zoning Expert & Get a Zoning report in hours",
+     "publisher": "Tectmind",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "developers pay $5,000+ for a zoning analysis per property; 2 to 3 business day turnaround"
+    },
+    {
+     "url": "https://www.zoneomics.com/pricing/reports",
+     "title": "Zoning Report Pricing",
+     "publisher": "Zoneomics",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "additional zoning briefs $65, $55, $39 by plan tier; $92 to $279 per month subscriptions"
+    }
+   ],
+   "notes": "Lender-grade PZR reports run $500 to $700 plus municipal letter fees; the top of the range is consultant entitlement analysis, not a conformance letter."
+  },
+  {
+   "task_id": "csi-spec-section-draft",
+   "unit": "per section",
+   "price_low": 100,
+   "price_base": 250,
+   "price_high": 800,
+   "human_minutes": 150,
+   "price_basis": "Employed specifications writers earn $36/hr average, $27 to $40 range (Salary.com, Sept 2026), roughly $55 to $75/hr loaded; independent specifiers bill at consultant rates near $100 to $150/hr. Editing a master section to a project takes about 1.5 to 3 hours (base: 2.5 hrs at $100), a Division 10 to 12 section under 1.5 hours (low), and a from-scratch Division 04 to 08 section with product research 6 to 8 hours (high). Consultants list individual sections as a sold unit (KramerCS) but quote per project.",
+   "status": "derived (wage observed; hours per section and consultant multiplier estimated)",
+   "sources": [
+    {
+     "url": "https://www.salary.com/research/salary/benchmark/specifications-writer-hourly-wages",
+     "title": "Hourly wage for Specifications Writer",
+     "publisher": "Salary.com",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "average $36/hr; $27 to $40 range; $31 to $38 interquartile"
+    },
+    {
+     "url": "https://www.kramercs.com/services",
+     "title": "Specification Consultants Services",
+     "publisher": "KramerCS",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "individual specification sections and full project manuals sold as services; no published rate"
+    }
+   ],
+   "notes": "Forum rules of thumb cluster near $100 per section on 50 to 70 section manuals, consistent with the base; a full manual is priced as a lump sum or ~0.1% of construction cost."
+  },
+  {
+   "task_id": "hvac-manual-j-load-calc",
+   "unit": "per home",
+   "price_low": 79,
+   "price_base": 150,
+   "price_high": 600,
+   "human_minutes": 90,
+   "price_basis": "Online services publish flat fees: $79 any size (ManualJs.com), $125 under 5,000 sf (Rescheck Review), $0.10/sf or $250 for a 2,500 sf home (Manual J Express). Rescheck Review reports typical market pricing of $100 to $300 small homes, $250 to $600 average homes and $1,000+ for large or complex homes; base set at $150, high at the top of the average-home band.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.rescheckreview.com/a-typical-cost-for-a-manual-j-load-calculation-report",
+     "title": "Typical Cost for a Manual J Load Calculation Report",
+     "publisher": "Rescheck Review",
+     "date": "2024-01-16",
+     "retrieved": "2026-09-09",
+     "note": "$125 flat under 5,000 sf; market $100 to $300 small, $250 to $600 average, $1,000+ large"
+    },
+    {
+     "url": "https://www.manualjs.com/",
+     "title": "Manual J Service $79",
+     "publisher": "ManualJs.com",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$79 for any size home; 4 to 6 hour turnaround from PDF plans"
+    },
+    {
+     "url": "https://manualjexpress.com/",
+     "title": "Manual J S D Report - HVAC Load Calculations",
+     "publisher": "Manual J Express",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "Manual J $0.10 per sf; Manual S $100 per system; 2 to 3 business days; unlimited revisions"
+    }
+   ],
+   "notes": "Already a software-plus-technician commodity; local HVAC contractors bundle it free with equipment quotes, so standalone willingness to pay is thin."
+  },
+  {
+   "task_id": "home-inspection-report",
+   "unit": "per home",
+   "price_low": 75,
+   "price_base": 120,
+   "price_high": 250,
+   "human_minutes": 90,
+   "price_basis": "Full home inspection fees average $344 (Angi, June 2026 HomeAdvisor data, $296 to $424 typical) and $343 (Clever, iBuyer), ranging $200 to $250 for condos under 1,000 sf to $500+ over 3,000 sf and $450 to $650 in high-cost states. Inspectors spend 2 to 3 hours on site and 1 to 2 hours writing (Clever: report within a day or two), so the report-writing deliverable is taken as ~35% of the fee: $75 on a $215 condo inspection (low), $120 on the $344 average (base), $250 on a $700 large or high-cost-market inspection (high).",
+   "status": "derived (inspection fee observed; report-writing share of fee estimated from time split)",
+   "sources": [
+    {
+     "url": "https://www.angi.com/articles/how-much-does-home-inspection-cost.htm",
+     "title": "How Much Does a Home Inspection Cost? [2026 Data]",
+     "publisher": "Angi",
+     "date": "2026-06",
+     "retrieved": "2026-09-09",
+     "note": "national average $344, typical $296 to $424; under 1,000 sf $200 to $250; 2,500 to 3,000 sf $300 to $500"
+    },
+    {
+     "url": "https://listwithclever.com/real-estate-blog/how-long-does-a-home-inspection-take/",
+     "title": "How Long Does a Home Inspection Take?",
+     "publisher": "Clever Real Estate",
+     "date": "2026-04-06",
+     "retrieved": "2026-09-09",
+     "note": "inspection 2 to 3 hours on site; report within a day or two; average cost $343"
+    },
+    {
+     "url": "https://ibuyer.com/blog/how-much-does-a-home-inspection-cost/",
+     "title": "How Much Does a Home Inspection Cost? (2026)",
+     "publisher": "iBuyer",
+     "date": "2026-06-04",
+     "retrieved": "2026-09-09",
+     "note": "average $343; $300 to $500 standard; California $450 to $550; 3,000+ sf $500+"
+    }
+   ],
+   "notes": "The site visit and signature belong to a licensed inspector; only the desk deliverable (report assembly from notes and photos) is priced here, and Spectora-style software already compresses it."
+  },
+  {
+   "task_id": "roofing-estimate-aerial",
+   "unit": "per roof",
+   "price_low": 75,
+   "price_base": 130,
+   "price_high": 300,
+   "human_minutes": 90,
+   "price_basis": "Aerial measurement report $40 to $75 for residential (SquareCount 2026), $55 to $95 EagleView Premium and $50 to $70 Hover (RoofGenius 2026), $35 to $100 by roof size (Western States Metal Roofing). Roofing estimator pay averages $30/hr (Salary.com, Sept 2026), ~$40 loaded, times 1 to 2 hours to build the estimate and proposal: $35 report plus 1 hr (low), $60 report plus ~1.75 hrs (base), $95 premium report plus 4 hrs for a complex or commercial roof plus overhead (high).",
+   "status": "mixed (report prices observed; estimator wage observed; hours per estimate estimated)",
+   "sources": [
+    {
+     "url": "https://squarecount.io/eagleview-pricing",
+     "title": "EagleView Pricing 2026: What Roof Reports Actually Cost",
+     "publisher": "SquareCount",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "residential standard report $40 to $60; premium or commercial $75+; typical $40 to $75"
+    },
+    {
+     "url": "https://roofgenius.ai/blog/how-much-does-a-roof-measurement-report-cost",
+     "title": "How Much Does a Roof Measurement Report Cost? (2026 Pricing Guide)",
+     "publisher": "RoofGenius.ai",
+     "date": "2026-06-25",
+     "retrieved": "2026-09-09",
+     "note": "EagleView Premium $55 to $95; Hover $50 to $70; GAF QuickMeasure $25 to $35; AI reports $10"
+    },
+    {
+     "url": "https://www.westernstatesmetalroofing.com/blog/eagleview-roof-reports",
+     "title": "What Is An Eagle View Report? Benefits And Cost",
+     "publisher": "Western States Metal Roofing",
+     "date": "2022-10-24",
+     "retrieved": "2026-09-09",
+     "note": "EagleView $35 under 20 squares, $55 for 20 to 40, $75 over 40, $100 commercial; 3 to 6 hour delivery"
+    },
+    {
+     "url": "https://www.salary.com/research/salary/posting/roofing-estimator-salary",
+     "title": "Roofing Estimator Salary",
+     "publisher": "Salary.com",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "average $62,840 per year or $30/hr; $51,361 to $74,460 range"
+    }
+   ],
+   "notes": "The estimate is normally free to the homeowner and absorbed as sales cost; AI measurement vendors ($10 reports) are already compressing the report input."
+  },
+  {
+   "task_id": "plumbing-repair-estimate",
+   "unit": "per job",
+   "price_low": 50,
+   "price_base": 100,
+   "price_high": 200,
+   "human_minutes": 60,
+   "price_basis": "The diagnostic or service-call fee is the market price of a written estimate: $75 to $150 standard with a $95 example applied toward work (Housecall Pro, June 2026), $50 to $150 (Plumb Smart, Jan 2025), $79 to $129 most commonly (PSV Plumbing, July 2026). Low and high are the ends of those bands, base is the midpoint; emergency dispatch $150 to $350 excluded.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.housecallpro.com/resources/marketing/how-to/how-to-price-plumbing-jobs/",
+     "title": "2026 Plumbing Price Guide: Average Rates & How to Estimate",
+     "publisher": "Housecall Pro",
+     "date": "2026-06-05",
+     "retrieved": "2026-09-09",
+     "note": "service call fee $75 to $150; example diagnostic fee $95 credited to approved work; residential $80 to $130/hr"
+    },
+    {
+     "url": "https://plumbsmart.com/how-much-is-a-plumber-service-call/",
+     "title": "How Much Is a Plumber Service Call?",
+     "publisher": "Plumb Smart, Inc.",
+     "date": "2025-01-30",
+     "retrieved": "2026-09-09",
+     "note": "service call fee $50 to $150 for assessment and estimate"
+    },
+    {
+     "url": "https://psvplumbinginc.com/2026/07/29/plumbing-costs/",
+     "title": "Plumbing Costs in 2026: What Homeowners Should Budget",
+     "publisher": "PSV Plumbing Inc",
+     "date": "2026-07-29",
+     "retrieved": "2026-09-09",
+     "note": "service or diagnostic fee $79 to $129, most commonly waived on approved repair; labor $75 to $200/hr"
+    }
+   ],
+   "notes": "Most of the fee pays for the truck roll and on-site diagnosis; the write-up itself is minutes of office time and is already templated by flat-rate price-book software."
+  },
+  {
+   "task_id": "landscape-design-plan",
+   "unit": "per yard",
+   "price_low": 500,
+   "price_base": 1500,
+   "price_high": 5000,
+   "human_minutes": 900,
+   "price_basis": "Standalone plan fees: 2D site plan $300 to $1,500 and quarter-acre design $550 to $1,650 (LawnStarter 2026); standard residential plans $700 to $3,000, small $300 to $600, large $3,500 to $9,000 (DecorAI 2026); HomeGuide reports $300 to $15,000 per plan with designers at $50 to $150/hr. Low is a quarter-acre plan, base a standard suburban yard (~15 designer hours at $100), high a half-acre to one-acre master plan with 3D renderings.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.lawnstarter.com/blog/cost/landscape-design-price/",
+     "title": "How Much Does Landscape Design Cost in 2026?",
+     "publisher": "LawnStarter",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "2D site plan $300 to $1,500; 3D renderings add $400 to $500; quarter acre $550 to $1,650, one acre $2,200 to $6,530; $50 to $150/hr"
+    },
+    {
+     "url": "https://decorai.io/blog/how-much-does-landscape-design-cost/",
+     "title": "How Much Does Landscape Design Cost in 2026?",
+     "publisher": "DecorAI",
+     "date": "2026-09-06",
+     "retrieved": "2026-09-09",
+     "note": "small plans $300 to $600; standard residential $700 to $3,000; large $3,500 to $9,000; consultation $100 to $200"
+    },
+    {
+     "url": "https://homeguide.com/costs/landscape-design-cost",
+     "title": "How Much Does Landscape Design Cost? (2026)",
+     "publisher": "HomeGuide",
+     "date": "2025-12-27",
+     "retrieved": "2026-09-09",
+     "note": "per design plan $300 to $15,000, average $6,000 with installation scope; $50 to $150/hr; 15 to 20% of project cost"
+    }
+   ],
+   "notes": "Design-build firms often credit the design fee against installation, and AI yard-render apps already sell concept images for tens of dollars."
+  },
+  {
+   "task_id": "contractor-bid-proposal",
+   "unit": "per bid",
+   "price_low": 400,
+   "price_base": 1200,
+   "price_high": 4000,
+   "human_minutes": 720,
+   "price_basis": "Outsourced estimating benchmarks: residential complete home $600 to $1,500, multi-trade 2 to 4 divisions $800 to $1,800, full multi-division commercial $1,200 to $2,500 (Edge Estimates, Aug 2026); complete commercial bid package $1,500 to $5,000+ from freelancers and $300 to $1,200 offshore (Optimar Precon 2026); $250 to $2,500 per estimate, up to ~$5,000 complex (Quotr, Aug 2026). Low is a single-trade residential bid, base a multi-trade residential or light commercial bid, high a full commercial package from a domestic estimator.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://edgeestimates.com/construction-estimating-cost-benchmark-2026/",
+     "title": "Construction Estimating Cost Benchmark 2026",
+     "publisher": "Edge Estimates",
+     "date": "2026-08",
+     "retrieved": "2026-09-09",
+     "note": "residential complete home $600 to $1,500; multi-trade $800 to $1,800; full commercial $1,200 to $2,500; in-house estimator $106,750 to $144,640 loaded"
+    },
+    {
+     "url": "https://optimarprecon.com/how-much-does-construction-estimating-cost/",
+     "title": "How Much Does Construction Estimating Cost in 2026?",
+     "publisher": "Optimar Precon",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "residential takeoff $200 to $800; complete commercial bid package $1,500 to $5,000+; offshore $300 to $1,200 per project"
+    },
+    {
+     "url": "https://quotr.ai/blog/outsource-construction-estimating/",
+     "title": "Should You Outsource Construction Estimating? Costs, Pros & Cons (2026)",
+     "publisher": "Quotr",
+     "date": "2026-08-24",
+     "retrieved": "2026-09-09",
+     "note": "$250 to $2,500 per estimate, up to ~$5,000 complex; in-house estimator $115,000 to $195,000 loaded"
+    }
+   ],
+   "notes": "Offshore estimating firms at $15 to $45/hr already set the price, so the human alternative is closer to the low end for most small contractors."
+  }
+ ]
+}

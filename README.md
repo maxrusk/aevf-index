@@ -1,6 +1,6 @@
 # AEVF Index
 
-**The AI Economic Viability Frontier**: a live, expanding index of real economic tasks, each priced two ways, what buyers pay a human or firm to produce the outcome, and what it costs an AI system to produce an accepted outcome all-in. The task universe grows release by release (v0.1 shipped with 50 tasks, v0.2 with 100, v0.3 with 200 across 32 domains); every aggregate recomputes over whatever the universe holds. A task is inside the frontier when
+**The AI Economic Viability Frontier**: a live, expanding index of real economic tasks, each priced two ways, what buyers pay a human or firm to produce the outcome, and what it costs an AI system to produce an accepted outcome all-in. The task universe grows release by release (v0.1 shipped with 50 tasks, v0.2 with 100, v0.3 with 200 across 32, v0.4 with 300 across 48 domains); every aggregate recomputes over whatever the universe holds. A task is inside the frontier when
 
 ```
 R · V > C

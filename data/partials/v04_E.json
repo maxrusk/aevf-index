@@ -1,0 +1,509 @@
+{
+ "tasks": [
+  {
+   "task_id": "pitch-deck-draft",
+   "unit": "per deck",
+   "price_low": 800,
+   "price_base": 2500,
+   "price_high": 8000,
+   "human_minutes": 1500,
+   "price_basis": "Freelance pitch deck designers $300-$3,500 (Whitepage) and $1,000-$5,000 with a basic tier at $800-$1,200 (spectup) set low; Hype's entry Refresh package is $2,500 US and most seed founders spend $2,000-$5,000 (spectup) so base $2,500; high at the top of the $3,000-$8,000 seed agency band, below the $10,000-$20,000+ narrative-strategy engagements",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://www.whitepage.studio/blog/pitch-deck-design-cost",
+     "title": "How Much Does a Pitch Deck Cost in 2026? (Complete Guide)",
+     "publisher": "Whitepage",
+     "date": "2026-06-02",
+     "retrieved": "2026-09-09",
+     "note": "freelancers $300-$3,500; agencies $3,000-$20,000+; tiers Lite $0-$3,500, Basic $2,500-$10,000, Premium $5,000-$20,000+"
+    },
+    {
+     "url": "https://www.spectup.com/resource-hub/how-much-does-a-pitch-deck-cost",
+     "title": "How Much Does a Pitch Deck Cost in 2026?",
+     "publisher": "spectup",
+     "date": "2026-08-07",
+     "retrieved": "2026-09-09",
+     "note": "freelancers $1,000-$5,000 (basic $800-$1,200, custom $2,000-$3,500); agencies $3,000-$50,000+; most seed founders spend $2,000-$5,000; $100-$150 per slide"
+    },
+    {
+     "url": "https://hypepresentations.com/blog/pitch-deck-design-cost/",
+     "title": "Pitch Deck Design Cost in 2026 (UK & US Prices)",
+     "publisher": "Hype Presentations",
+     "date": "2026-07-13",
+     "retrieved": "2026-09-09",
+     "note": "Refresh $2,500, Premium $4,450, Ultimate $11,400 US; mid-range freelancers 500-1,500 GBP"
+    }
+   ],
+   "notes": "AI deck tools sell the draft for $0-$500, so the durable price sits in narrative and design polish, not slide generation."
+  },
+  {
+   "task_id": "investor-update-monthly",
+   "unit": "per update",
+   "price_low": 150,
+   "price_base": 450,
+   "price_high": 1500,
+   "human_minutes": 90,
+   "price_basis": "Founder time of 1-2 hours per update (Findex) or 30 minutes with a template (Avonmore) priced at fractional CFO rates: marketplace CFOs $125-$225/hr for 1 hour sets low; 1.5 hours at the ~$300/hr market median (CFO Advisors) gives base; high is 3-5 hours at $300-$500/hr for a data-heavy update with charts and variance commentary",
+   "status": "derived (hours observed from founder guides; fractional CFO hourly rates observed)",
+   "sources": [
+    {
+     "url": "https://www.myfindex.com/knowledge-base/investor-relations/send-investor-updates-startup/",
+     "title": "How to Send Investor Updates: A Startup Guide 2026",
+     "publisher": "Findex",
+     "date": "2026-06-20",
+     "retrieved": "2026-09-09",
+     "note": "cost of a monthly update is one to two hours of founder time"
+    },
+    {
+     "url": "https://www.avonmoredevelopments.com/insights/monthly-investor-updates",
+     "title": "Writing a monthly investor update that actually gets read",
+     "publisher": "Avonmore Developments",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "quality updates take thirty minutes to write with a template"
+    },
+    {
+     "url": "https://cfoadvisors.com/blog/fractional-cfo-hourly-rates-2026-benchmarks",
+     "title": "Fractional CFO Hourly Rates in 2026: Benchmark Data by Stage and Scope",
+     "publisher": "CFO Advisors",
+     "date": "2026-08-06",
+     "retrieved": "2026-09-09",
+     "note": "marketplace $125-$225/hr, solo $200-$350/hr, boutique $250-$450/hr; market median ~$300/hr"
+    },
+    {
+     "url": "https://www.fiscallion.io/blog/fractional-cfo-cost-the-complete-pricing-guide-for-startup-founders",
+     "title": "Fractional CFO cost: the complete 2026 pricing guide for startup founders",
+     "publisher": "Fiscallion",
+     "date": "2026-09-02",
+     "retrieved": "2026-09-09",
+     "note": "hourly $150-$250 entry, $250-$350 mid, $350-$500 senior; investor support bundled in $3,000-$15,000/mo retainers"
+    }
+   ],
+   "notes": "Usually written by the founder for free or bundled in a CFO retainer; no standalone SKU, so this is the opportunity cost of the writer."
+  },
+  {
+   "task_id": "cap-table-scenario-model",
+   "unit": "per model",
+   "price_low": 500,
+   "price_base": 1200,
+   "price_high": 4000,
+   "human_minutes": 240,
+   "price_basis": "No standalone consultant SKU; derived from fractional CFO rates (marketplace $125-$225/hr, solo $200-$350/hr, median ~$300/hr) times 2-3 hours for a two-scenario SAFE conversion model (low), 4 hours for a multi-scenario model with option pool and pro rata (base), 12 hours for a multi-round model with exit waterfall (high), kept under the $5,000 floor of fundraising-prep project fees; software anchors are Carta Starter $2,800/yr with scenario modeling included and Cake Build $1,000/yr",
+   "status": "derived (fractional CFO hourly rates observed; hours estimated; software anchors observed)",
+   "sources": [
+    {
+     "url": "https://cfoadvisors.com/blog/fractional-cfo-hourly-rates-2026-benchmarks",
+     "title": "Fractional CFO Hourly Rates in 2026: Benchmark Data by Stage and Scope",
+     "publisher": "CFO Advisors",
+     "date": "2026-08-06",
+     "retrieved": "2026-09-09",
+     "note": "marketplace $125-$225/hr, solo $200-$350/hr, boutique $250-$450/hr; median ~$300/hr"
+    },
+    {
+     "url": "https://www.fiscallion.io/blog/fractional-cfo-cost-the-complete-pricing-guide-for-startup-founders",
+     "title": "Fractional CFO cost: the complete 2026 pricing guide for startup founders",
+     "publisher": "Fiscallion",
+     "date": "2026-09-02",
+     "retrieved": "2026-09-09",
+     "note": "fundraising support materials plus diligence prep $5,000-$20,000 project-based"
+    },
+    {
+     "url": "https://www.spendflo.com/blog/how-much-does-carta-cost-a-breakdown-of-plans-and-pricing",
+     "title": "Carta pricing plans in 2025 (+ Hidden costs explained)",
+     "publisher": "Spendflo",
+     "date": "2025-03-23",
+     "retrieved": "2026-09-09",
+     "note": "Carta Launch $280/yr, Starter $2,800/yr up to 50 stakeholders including scenario modeling; Growth and Scale $6k-$77k/yr"
+    },
+    {
+     "url": "https://www.cakeequity.com/pricing",
+     "title": "Cake Equity Pricing",
+     "publisher": "Cake Equity",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "Free plan 5 stakeholders; Build $1,000/yr; Team $2,750/yr; scenario modeling on all paid plans"
+    }
+   ],
+   "notes": "Cap table software bundles unlimited scenario modeling for $1,000-$2,800 a year, so the per-model human price is a ceiling most funded startups no longer pay."
+  },
+  {
+   "task_id": "market-sizing-tam-sam-som",
+   "unit": "per analysis",
+   "price_low": 500,
+   "price_base": 1200,
+   "price_high": 5000,
+   "human_minutes": 720,
+   "price_basis": "Business Plan Firm publishes fixed-price TAM/SAM/SOM packages at $500 (Essential), $1,200 (Standard, full competitor matrix and demand model) and $2,200 (Premium, senior consultant); low and base taken directly; high sits inside the $3,000-$8,000 market research and competitive analysis component of GTM consulting (knex.pro) and below the $11,500 market assessment tier at strategy firms (ConsultFees)",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://businessplanfirm.com/market-research",
+     "title": "Market Research and TAM, SAM, SOM Sizing | From $500",
+     "publisher": "Business Plan Firm",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "Essential $500, Standard $1,200, Premium $2,200; 5-10 day turnaround; editable sizing workbook and source register"
+    },
+    {
+     "url": "https://app.knex.pro/cost/go-to-market-strategy",
+     "title": "Go-to-Market Strategy Cost in 2026: Pricing Guide",
+     "publisher": "knex.pro",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "market research and competitive analysis component $3,000-$8,000"
+    },
+    {
+     "url": "https://consultfees.com/use-cases/strategy-consultants",
+     "title": "Strategy Consultant Fees: 2026 Benchmarks & Pricing Guide",
+     "publisher": "ConsultFees",
+     "date": "2026-04-18",
+     "retrieved": "2026-09-09",
+     "note": "market assessment and competitive landscape $11,500; growth strategy $200-$375/hr"
+    }
+   ],
+   "notes": "Deep-research products and free TAM calculators already compress this; the fixed-price packages are the honest floor of what founders still pay."
+  },
+  {
+   "task_id": "term-sheet-summary-analysis",
+   "unit": "per term sheet",
+   "price_low": 600,
+   "price_base": 1500,
+   "price_high": 4000,
+   "human_minutes": 150,
+   "price_basis": "No published per-term-sheet flat fee; derived from startup counsel hourly rates ($400-$650 smaller practices, $500-$750 startup-focused firms, $800-$1,200 top-tier partners) times 1.5 hours (low, $400), 2.5 hours (base, $600) and 4 hours (high, $1,000) of review and memo; cross-checked against SAFE round flat fees of $2,500-$5,000 (Acevedo) and $3,000-$7,000 (Zecca Ross) which include the review plus the closing",
+   "status": "derived (hourly rates observed; hours estimated; round flat fees observed as ceiling)",
+   "sources": [
+    {
+     "url": "https://www.acevedoventurelaw.com/articles/how-much-does-startup-lawyer-cost/",
+     "title": "How Much Does a Startup Lawyer Cost in 2026?",
+     "publisher": "Acevedo Venture Law",
+     "date": "2026-06-17",
+     "retrieved": "2026-09-09",
+     "note": "hourly $400-$650 smaller practices, $500-$750 boutique, $600-$900 mid-tier, $800-$1,200 top-tier; SAFE round flat $2,500-$5,000; priced seed $10,000-$30,000 per side"
+    },
+    {
+     "url": "https://rockhurstastor.com/who-pays-the-legal-fees-in-a-startup-funding-round-and-how-much-should-it-cost/",
+     "title": "Who Pays the Legal Fees in a Startup Funding Round? And How Much Should it Cost?",
+     "publisher": "Rockhurst Astor",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "startup-focused firms $500-$750/hr; seed round legal $5,000-$15,000 simple to $25,000-$75,000"
+    },
+    {
+     "url": "https://www.zeccarosslaw.com/article-flat-fee-packages",
+     "title": "How Law Firms Structure Flat-Fee Packages for Seed and Series A Deals",
+     "publisher": "Zecca Ross Law",
+     "date": "2025-07-21",
+     "retrieved": "2026-09-09",
+     "note": "SAFE/convertible note rounds $3,000-$7,000 flat; priced seed $10,000-$15,000; Series A from $30,000"
+    }
+   ],
+   "notes": "Counsel rarely bills the summary alone; it is the first hours of a round engagement, so the standalone price is an imputed slice."
+  },
+  {
+   "task_id": "board-deck-quarterly",
+   "unit": "per deck",
+   "price_low": 2000,
+   "price_base": 6000,
+   "price_high": 15000,
+   "human_minutes": 1200,
+   "price_basis": "CFO Advisors reports the month before a board meeting needs ~60 fractional CFO hours versus 15 in a quiet month, so ~45 incremental hours at $300/hr median ($13,500) sets high; base is 20 hours at $300/hr for a controller-supported deck; low is 10 hours at $200/hr (solo fractional CFO floor) for a template refresh; Cocountant's timeline of 3 business days for analysis and deck finalization after close corroborates the base",
+   "status": "derived (hours and hourly rates observed; allocation to the deck estimated)",
+   "sources": [
+    {
+     "url": "https://cfoadvisors.com/blog/fractional-cfo-hourly-rates-2026-benchmarks",
+     "title": "Fractional CFO Hourly Rates in 2026: Benchmark Data by Stage and Scope",
+     "publisher": "CFO Advisors",
+     "date": "2026-08-06",
+     "retrieved": "2026-09-09",
+     "note": "month before a board meeting or fundraise needs 60 hours, quiet month 15; median ~$300/hr; solo $200-$350/hr"
+    },
+    {
+     "url": "https://cocountant.com/blog/bookkeeping/how-to-use-your-monthly-close-to-prepare-for-quarterly-board-meetings/",
+     "title": "How to Use Monthly Close for Quarterly Board Meetings",
+     "publisher": "Cocountant",
+     "date": "2026-08-18",
+     "retrieved": "2026-09-09",
+     "note": "performance analysis and deck finalization 3 business days after a 10-15 day close; pre-read 2 days before meeting"
+    },
+    {
+     "url": "https://www.fiscallion.io/blog/fractional-cfo-cost-the-complete-pricing-guide-for-startup-founders",
+     "title": "Fractional CFO cost: the complete 2026 pricing guide for startup founders",
+     "publisher": "Fiscallion",
+     "date": "2026-09-02",
+     "retrieved": "2026-09-09",
+     "note": "board deck support bundled in Growth and Ultimate retainers; retainers $3,000-$15,000/mo; hourly $150-$500"
+    }
+   ],
+   "notes": "Almost always bundled in a CFO retainer; the deck is the visible output of a quarter of close work, so the price here is the incremental board-month labor."
+  },
+  {
+   "task_id": "sales-battlecard",
+   "unit": "per battlecard",
+   "price_low": 400,
+   "price_base": 1000,
+   "price_high": 3000,
+   "human_minutes": 360,
+   "price_basis": "No per-battlecard SKU; derived from marketing consultant rates (mid-level specialist $100-$175/hr, senior strategist $175-$300/hr) times 4 hours of desk research and drafting (low, $100/hr), 6-7 hours (base, $150/hr) and 10-12 hours including win-loss interviews (high, $250-$300/hr); dedicated CI platforms run $20,000-$40,000/yr (Klue, Crayon) with the authoring labor on top",
+   "status": "derived (hourly rates observed; hours per battlecard estimated; platform prices observed)",
+   "sources": [
+    {
+     "url": "https://strategicpete.com/blog/marketing-consultant-rates/",
+     "title": "Marketing Consultant Rates: 2026 Pricing Guide",
+     "publisher": "Strategic Pete",
+     "date": "2026-05-15",
+     "retrieved": "2026-09-09",
+     "note": "junior $50-$100/hr, mid-level specialist $100-$175/hr, senior strategic $175-$300/hr"
+    },
+    {
+     "url": "https://www.autobound.ai/blog/top-15-competitive-intelligence-tools-2026",
+     "title": "Competitive Intelligence Tools: 15 Compared (2026)",
+     "publisher": "Autobound",
+     "date": "2026-02-20",
+     "retrieved": "2026-09-09",
+     "note": "Klue and Crayon $20,000-$40,000/yr; Kompyte from $300/yr; 68% of battlecards never used by sales"
+    },
+    {
+     "url": "https://klue.com/blog/competitive-battlecards-101",
+     "title": "Sales Battlecards 101: Guide + Battlecard Templates (2025)",
+     "publisher": "Klue",
+     "date": "2026-04-01",
+     "retrieved": "2026-09-09",
+     "note": "manual battlecard research took hours; AI generates battlecard content in under 60 seconds"
+    }
+   ],
+   "notes": "AI-compressed market: the leading CI vendors now generate the first draft themselves, so willingness to pay for the standalone card is thin."
+  },
+  {
+   "task_id": "personalized-demo-script",
+   "unit": "per demo",
+   "price_low": 100,
+   "price_base": 250,
+   "price_high": 700,
+   "human_minutes": 150,
+   "price_basis": "Sales engineer median $60.05/hr and 75th percentile $77.52 (BLS May 2025, ~$78-$100 loaded) times the prep share of a standard demo (3.6 hours including prep per the 2026 State of Demo Automation survey via Navattic): 1.5 hours at ~$65 (low), 2.5 hours at ~$100 loaded (base), 6-7 hours at $100-$115 for heavy customization that adds hours or days (Reprise) for high",
+   "status": "derived (BLS wage x survey-reported demo prep hours)",
+   "sources": [
+    {
+     "url": "https://www.onetonline.org/link/localwages/41-9031.00",
+     "title": "Sales Engineers: National Wages (BLS May 2025)",
+     "publisher": "O*NET OnLine / BLS",
+     "date": "2025",
+     "retrieved": "2026-09-09",
+     "note": "median $60.05/hr, 75th pct $77.52/hr, 90th pct $93.88/hr; annual median $124,900"
+    },
+    {
+     "url": "https://www.navattic.com/blog/demo-best-practices-for-sales-engineers",
+     "title": "Demo Best Practices for Sales Engineers in 2026",
+     "publisher": "Navattic",
+     "date": "2026-03-19",
+     "retrieved": "2026-09-09",
+     "note": "standard demo ~3.6 hours including prep; ~7 demos/week, 11-25 hours weekly; demo environment maintenance 3 hours/week per SE"
+    },
+    {
+     "url": "https://www.reprise.com/resources/blog/best-sales-engineer-tools",
+     "title": "4 Best Sales Engineering Tools and Platforms for 2025",
+     "publisher": "Reprise",
+     "date": "2025-04-23",
+     "retrieved": "2026-09-09",
+     "note": "customization such as custom datasets adds hours or even days to demo prep; 79% of SEs spend 1+ hour/week maintaining environments"
+    }
+   ],
+   "notes": "Environment build and data seeding are excluded; this prices the script and talk track only, which is the part a text agent can produce."
+  },
+  {
+   "task_id": "cpq-quote-configuration",
+   "unit": "per quote",
+   "price_low": 20,
+   "price_base": 60,
+   "price_high": 400,
+   "human_minutes": 75,
+   "price_basis": "US Tech Automations benchmarks manual quote builds at 25-40 minutes with team quoting labor of 18-25 hours a month costing $900-$1,250 (~$50/hr loaded), giving low $20 for a standard quote; base is 1-1.5 hours at $50-$60 for a multi-line quote with discount approval; high is 6-8 hours of rep, sales ops and finance time for a complex configured quote with ramps and approvals, consistent with DepositFix's claim that CPQ cuts prep time 75% and moves quoting from hours to minutes",
+   "status": "derived (minutes per quote and loaded rate observed; complex-quote hours estimated)",
+   "sources": [
+    {
+     "url": "https://ustechautomations.com/resources/blog/best-estimating-software-for-saas-companies-2026",
+     "title": "5 Best Quoting Software Picks for SaaS Sales Teams (2026)",
+     "publisher": "US Tech Automations",
+     "date": "2026-08-25",
+     "retrieved": "2026-09-09",
+     "note": "manual quote build 25-40 minutes vs 3-5 with software; 18-25 team hours/month costing $900-$1,250; 4-7 pricing errors per 100 manual quotes; 15-20% need finance correction"
+    },
+    {
+     "url": "https://www.depositfix.com/blog/configure-price-quote-process",
+     "title": "Configure Price Quote Process & Speed Up Sales",
+     "publisher": "DepositFix",
+     "date": "2025-07-23",
+     "retrieved": "2026-09-09",
+     "note": "CPQ reduces quote preparation time 75%, quotes in minutes not hours, 50% faster internal approval"
+    },
+    {
+     "url": "https://www.cincom.com/blog/cpq/sales-operations-checklist-10-manufacturing-quoting-audit-questions/",
+     "title": "Sales Operations Checklist: 10 Quoting Audit Questions",
+     "publisher": "Cincom",
+     "date": "2026-08-12",
+     "retrieved": "2026-09-09",
+     "note": "quote cycle times of multiple days lose deals; 62% of manufacturers see moderate margin loss between quote and delivery"
+    }
+   ],
+   "notes": "CPQ software already automates the rule-checking; the human price is rep and ops labor that most mid-market teams treat as overhead, not a fee."
+  },
+  {
+   "task_id": "deal-desk-discount-review",
+   "unit": "per deal",
+   "price_low": 40,
+   "price_base": 120,
+   "price_high": 500,
+   "human_minutes": 90,
+   "price_basis": "Deal desk analyst average $128,914/yr on Indeed (~$62/hr, ~$80 loaded; range $85,583-$194,182) times 30 minutes for a within-corridor exception (low), 1.5 hours for a mid-risk request with comparables and margin check (base), and 5-6 hours of senior analyst plus finance and legal time for a precedent-setting deal (high); SLAs of same or next business day for standard and 2-3 business days for complex requests (B2BProcess) and same-day mid-risk, 48-hour senior review (Revology) bound the effort",
+   "status": "derived (salary observed; review hours estimated from published SLA tiers)",
+   "sources": [
+    {
+     "url": "https://www.indeed.com/career/deal-desk-analyst/salaries",
+     "title": "Deal desk analyst salary in United States",
+     "publisher": "Indeed",
+     "date": "2026-08-31",
+     "retrieved": "2026-09-09",
+     "note": "average $128,914/yr, range $85,583-$194,182, 526 salaries"
+    },
+    {
+     "url": "https://b2bprocess.com/deal-desk",
+     "title": "Deal Desk: definition, workflow, roles, metrics & SOP",
+     "publisher": "B2BProcess",
+     "date": "2026-07-08",
+     "retrieved": "2026-09-09",
+     "note": "standard requests same or next business day; complex deals 2-3 business days; reps approve 0-10%, managers ~20%, desk/finance deeper"
+    },
+    {
+     "url": "https://revologyanalytics.com/articles/deal-desk",
+     "title": "Deal Desk Playbook: 7 Proven Guardrails To Win Margin Back",
+     "publisher": "Revology Analytics",
+     "date": "2026-08",
+     "retrieved": "2026-09-09",
+     "note": "standard deals auto-approved within hours; mid-risk same-day analyst SLA; high-risk senior review within 48 hours"
+    }
+   ],
+   "notes": "Internal function with no market fee; the value is margin protected ($1,500-$6,000/mo in discount corrections at small teams), which dwarfs the labor priced here."
+  },
+  {
+   "task_id": "brand-messaging-framework",
+   "unit": "per framework",
+   "price_low": 2500,
+   "price_base": 5000,
+   "price_high": 15000,
+   "human_minutes": 2400,
+   "price_basis": "knex.pro prices the positioning and messaging framework component of GTM work at $3,000-$7,000 and Tenet puts brand voice and messaging at $2,500-$50,000; low is Tenet's floor, base the knex midpoint, high the top of the boutique-agency band ($5,000-$20,000 for strategy plus messaging per Knapsack and Strategic Pete) at Clutch's $100-$149/hr brand messaging rate, roughly 100 agency hours",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://app.knex.pro/cost/go-to-market-strategy",
+     "title": "Go-to-Market Strategy Cost in 2026: Pricing Guide",
+     "publisher": "knex.pro",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "positioning and messaging framework $3,000-$7,000 as a GTM component"
+    },
+    {
+     "url": "https://www.wearetenet.com/blog/branding-cost",
+     "title": "Branding Package Pricing: How Much Does Branding Cost?",
+     "publisher": "Tenet",
+     "date": "2025-11-17",
+     "retrieved": "2026-09-09",
+     "note": "brand voice and messaging $2,500-$50,000; brand strategy development $5,000-$50,000+; boutique agencies $5,000-$20,000"
+    },
+    {
+     "url": "https://clutch.co/agencies/branding/pricing",
+     "title": "Branding Pricing Guide September 2026",
+     "publisher": "Clutch",
+     "date": "2026-09-09",
+     "retrieved": "2026-09-09",
+     "note": "brand strategy and brand messaging both $100-$149/hr; typical project $10,000-$49,999"
+    },
+    {
+     "url": "https://strategicpete.com/blog/marketing-consultant-rates/",
+     "title": "Marketing Consultant Rates: 2026 Pricing Guide",
+     "publisher": "Strategic Pete",
+     "date": "2026-05-15",
+     "retrieved": "2026-09-09",
+     "note": "brand strategy project $5,000-$20,000; messaging and positioning framework included in brand or GTM fees"
+    }
+   ],
+   "notes": "Agencies bundle the framework with workshops and identity; the standalone document is the smallest sellable slice of a brand engagement."
+  },
+  {
+   "task_id": "influencer-campaign-brief",
+   "unit": "per brief",
+   "price_low": 250,
+   "price_base": 750,
+   "price_high": 2500,
+   "human_minutes": 420,
+   "price_basis": "No standalone brief SKU: agencies bundle brief development into $15,000-$30,000/mo strategic retainers and $5,000-$50,000 per-campaign project fees (InfluencerFee); estimated as 5-8 strategist hours at Clutch's influencer agency rates ($25-$49/hr average, $50-$199/hr mid-range): 5 hours at $50 (low), 7 hours at ~$105 (base), and a $2,500 high equal to the strategy slice of a $5,000 minimum project",
+   "status": "estimated (agency retainers and hourly rates observed; brief share of bundle estimated)",
+   "sources": [
+    {
+     "url": "https://influencerfee.com/blog/influencer-marketing-agency-pricing/",
+     "title": "Influencer Marketing Agency Pricing: What Agencies Charge and When to Hire One",
+     "publisher": "InfluencerFee",
+     "date": "2026-09-09",
+     "retrieved": "2026-09-09",
+     "note": "boutique $3,000-$8,000/mo, mid-market $8,000-$15,000/mo, enterprise $15,000-$25,000+/mo; projects $5,000-$50,000+; 10-20% of spend"
+    },
+    {
+     "url": "https://influencerfee.com/post.php?slug=influencer-marketing-agency-cost",
+     "title": "Influencer Marketing Agency Cost: What Agencies Charge in 2026",
+     "publisher": "InfluencerFee",
+     "date": "2026-09-09",
+     "retrieved": "2026-09-09",
+     "note": "influencer brief development bundled in $15,000-$30,000/mo full-strategy retainers; execution-only $3,000-$5,000/mo"
+    },
+    {
+     "url": "https://clutch.co/agencies/social-media-marketing/influencer/pricing",
+     "title": "Influencer Advertising Pricing Guide September 2026",
+     "publisher": "Clutch",
+     "date": "2026-09-09",
+     "retrieved": "2026-09-09",
+     "note": "average $25-$49/hr; mid-range $50-$199/hr; most common project $10,000-$49,999"
+    }
+   ],
+   "notes": "Creator fees and paid amplification are excluded; the brief is a fraction of agency strategy time and is increasingly templated."
+  },
+  {
+   "task_id": "product-launch-plan",
+   "unit": "per launch",
+   "price_low": 3000,
+   "price_base": 7000,
+   "price_high": 20000,
+   "human_minutes": 3000,
+   "price_basis": "knex.pro prices the channel strategy and launch plan component at $4,000-$10,000 and focused single-product GTM strategies at $5,000-$10,000; Strategic Pete puts GTM strategy projects at $5,000-$25,000; low is a 15-20 hour plan at senior consultant $175-$200/hr, base the knex launch-plan midpoint, high the top of the GTM project band for a tier-1 launch with enablement, below the $29,000 full-entry-strategy tier at strategy firms (ConsultFees)",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://app.knex.pro/cost/go-to-market-strategy",
+     "title": "Go-to-Market Strategy Cost in 2026: Pricing Guide",
+     "publisher": "knex.pro",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "channel strategy and launch plan $4,000-$10,000; focused GTM $5,000-$10,000; full GTM $5,000-$25,000"
+    },
+    {
+     "url": "https://strategicpete.com/blog/marketing-consultant-rates/",
+     "title": "Marketing Consultant Rates: 2026 Pricing Guide",
+     "publisher": "Strategic Pete",
+     "date": "2026-05-15",
+     "retrieved": "2026-09-09",
+     "note": "go-to-market strategy project $5,000-$25,000; senior strategic consultant $175-$300/hr"
+    },
+    {
+     "url": "https://consultfees.com/use-cases/strategy-consultants",
+     "title": "Strategy Consultant Fees: 2026 Benchmarks & Pricing Guide",
+     "publisher": "ConsultFees",
+     "date": "2026-04-18",
+     "retrieved": "2026-09-09",
+     "note": "growth strategy $200-$375/hr; market entry strategy tiers $11,500 / $29,000 / $54,000"
+    }
+   ],
+   "notes": "Consultants price the cross-functional alignment and launch execution; the plan document alone is the low end of these ranges."
+  }
+ ]
+}

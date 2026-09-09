@@ -1,0 +1,493 @@
+{
+ "tasks": [
+  {
+   "task_id": "compensation-benchmark-report",
+   "unit": "per role",
+   "price_low": 25,
+   "price_base": 250,
+   "price_high": 600,
+   "human_minutes": 180,
+   "price_basis": "Low: usage-based benchmarking platforms sell individual role reports for a few dollars to a few tens of dollars per role (EvenBetter), plus minimal analyst time. Base: consulting engagements covering 10 to 20 roles run several thousand dollars (EvenBetter), about $200 to $400 per role, cross-checked as ~3 hours of a compensation specialist at the BLS 75th percentile $48.27/hr loaded to ~$70 plus data. High: senior HR consultant $200 to $350/hr (Paradigm IE) for 2 to 3 hours per role with narrative and recommendation.",
+   "status": "mixed (observed per-report software price and consulting ranges; per-role consulting figure derived)",
+   "sources": [
+    {
+     "url": "https://www.evenbetter.ai/salary/resources/salary-benchmarking-cost",
+     "title": "How much does salary benchmarking cost? Pricing models compared",
+     "publisher": "EvenBetter",
+     "date": "2026-07-21",
+     "retrieved": "2026-09-09",
+     "note": "pay-per-report a few dollars to a few tens of dollars per role; consulting for 10 to 20 roles several thousand dollars; surveys low thousands to tens of thousands per year"
+    },
+    {
+     "url": "https://www.paradigmie.com/post/hr-consulting-fees-rates-2026",
+     "title": "HR Consulting Fees & Rates 2026: A Practical Guide for SMBs",
+     "publisher": "Paradigm IE",
+     "date": "2026-08-18",
+     "retrieved": "2026-09-09",
+     "note": "HR consultants $75-130 entry, $130-200 mid, $200-350+ senior per hour; compensation design projects $15,000-60,000"
+    },
+    {
+     "url": "https://www.onetonline.org/link/localwages/13-1141.00",
+     "title": "Compensation, Benefits, and Job Analysis Specialists: National Wages (BLS 2025)",
+     "publisher": "O*NET OnLine / BLS",
+     "date": "2025",
+     "retrieved": "2026-09-09",
+     "note": "median $37.60/hr, 75th pct $48.27/hr, 90th pct $61.98/hr"
+    }
+   ],
+   "notes": "Survey licences (Mercer, WTW, Radford) are a separate pass-through; software platforms are already compressing the per-role price."
+  },
+  {
+   "task_id": "employee-handbook-update",
+   "unit": "per handbook",
+   "price_low": 500,
+   "price_base": 1500,
+   "price_high": 4000,
+   "human_minutes": 600,
+   "price_basis": "Low: attorney annual review packages and payroll-provider annual updates start at $500 (Blissbook, Complete Payroll Solutions, DocBird $500-2,000). Base: HR consultant revision of an existing handbook $500-4,000 (Blissbook), midpoint of substantial-update ranges. High: substantial revisions by counsel $1,500-5,000+ (Blissbook), set at $4,000 short of multi-state rewrites.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://blissbook.com/blog/how-much-does-it-cost-to-create-an-employee-handbook/",
+     "title": "How Much Does It Cost to Create an Employee Handbook?",
+     "publisher": "Blissbook",
+     "date": "2024-03-26",
+     "retrieved": "2026-09-09",
+     "note": "HR consultant revision $500-4,000; law firm annual review $500-1,000; substantial revisions $1,500-5,000+"
+    },
+    {
+     "url": "https://docbird.io/employee-handbook-cost",
+     "title": "Employee Handbook Cost Guide (2026)",
+     "publisher": "DocBird",
+     "date": "2026-04",
+     "retrieved": "2026-09-09",
+     "note": "attorney annual review $500-2,000; attorney hourly $200-600; new attorney-drafted handbooks $2,000-25,000 by size"
+    },
+    {
+     "url": "https://www.completepayrollsolutions.com/blog/employee-handbook-cost",
+     "title": "How Much Does An Employee Handbook Cost? Pricing for Employers",
+     "publisher": "Complete Payroll Solutions",
+     "date": "2022-06-28",
+     "retrieved": "2026-09-09",
+     "note": "custom handbook up to $5,000, average $1,250; annual updates $500"
+    }
+   ],
+   "notes": "Human minutes assume ~10 consultant hours for a single-state annual update; multi-state handbooks run several times that."
+  },
+  {
+   "task_id": "i9-compliance-audit",
+   "unit": "per 100 files",
+   "price_low": 800,
+   "price_base": 1600,
+   "price_high": 3500,
+   "human_minutes": 1200,
+   "price_basis": "Low: Verifyi9 small-business internal audit $8 per form (100 forms = $800). Base: Verifyi9 standard internal audit ~$16 per form for up to 100 I-9s ($1,600); certified audit $19 per form plus $75 prep is $1,975. High: California Employers Association hourly audits at $250 (member) to $325 (nonmember) per hour; at ~12 minutes per form (OnboardingCost puts Section 2 review at 15-30 minutes) 100 files is 10-12 hours, $3,250-3,900, set at $3,500.",
+   "status": "observed (per-form vendor pricing; hourly alternative derived from hours per form)",
+   "sources": [
+    {
+     "url": "https://audits.verifyi9.com/",
+     "title": "Form I-9 Audit Service",
+     "publisher": "Verifyi9",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$8 per form small-business internal audit (up to 100 forms); ~$16 per form internal audit; $19 per form plus $75 certified audit"
+    },
+    {
+     "url": "https://employers.org/services/form-i-9-audits/",
+     "title": "Form I-9 Audits",
+     "publisher": "California Employers Association",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$250/hr members, $325/hr nonmembers, plus $500 for onsite audits"
+    },
+    {
+     "url": "https://onboardingcost.com/i-9-and-e-verify-cost",
+     "title": "I-9 and E-Verify Cost 2026: Per-Hire Compliance Math + Fine Risk",
+     "publisher": "OnboardingCost.com",
+     "date": "2026-06",
+     "retrieved": "2026-09-09",
+     "note": "Section 2 review 15-30 minutes per form; HR admin labor $30-60/hr; substantive paperwork fines $288-2,861 per form"
+    }
+   ],
+   "notes": "Fine exposure of $288-2,861 per defective form drives the risk term; I-9 software vendors already automate new-hire forms, so audits of legacy paper files are the residual market."
+  },
+  {
+   "task_id": "performance-review-draft",
+   "unit": "per review",
+   "price_low": 70,
+   "price_base": 150,
+   "price_high": 400,
+   "human_minutes": 180,
+   "price_basis": "Derived: Deloitte/CEB figure of 210 manager hours per year on performance management (via Filippov) spread over 6-8 direct reports implies ~25-35 hours per report per year across the cycle; the written review draft is taken as 2-5 of those hours. Priced at BLS general and operations manager wages: low 2 hours at the 25th percentile $34.77/hr ($70); base 3 hours at the median $50.85/hr ($150); high 5 hours at the 75th percentile $80.42/hr ($400).",
+   "status": "derived (BLS wage x author time assumption anchored on the 210-hour CEB figure)",
+   "sources": [
+    {
+     "url": "https://nikitafilippov.substack.com/p/the-hidden-tax-nobody-talks-about",
+     "title": "The Hidden Tax Nobody Talks About",
+     "publisher": "Nikita Filippov (Substack)",
+     "date": "2025-06-18",
+     "retrieved": "2026-09-09",
+     "note": "managers spend 210 hours annually on performance management (Deloitte/CEB); employees 40 hours; EUR 3,000-5,000 per employee per year"
+    },
+    {
+     "url": "https://www.onetonline.org/link/localwages/11-1021.00",
+     "title": "General and Operations Managers: National Wages (BLS 2025)",
+     "publisher": "O*NET OnLine / BLS",
+     "date": "2025",
+     "retrieved": "2026-09-09",
+     "note": "25th pct $34.77/hr, median $50.85/hr, 75th pct $80.42/hr"
+    }
+   ],
+   "notes": "No firm sells review drafts per unit; the price is the manager's opportunity cost, and performance-management SaaS already ships AI drafting."
+  },
+  {
+   "task_id": "hr-investigation-report",
+   "unit": "per case",
+   "price_low": 3000,
+   "price_base": 6000,
+   "price_high": 12000,
+   "human_minutes": 1500,
+   "price_basis": "Derived: third-party investigator hourly rates $195-275/hr for employee-misconduct tier work (Case IQ), $132/hr average with $125-550 report preparation for PI-licensed investigators (Zealous Advocate), and $200-350+/hr for senior HR specialists with investigations at a premium (Paradigm IE). Author assumption of 15 hours (single complainant, 3-5 witnesses) to 30 hours (multi-witness) including the written report: low 15 hrs x $200; base 25 hrs x $240; high 30 hrs x $350 plus attorney review, rounded to $12,000.",
+   "status": "derived (hourly rates observed; hours per case are an author assumption)",
+   "sources": [
+    {
+     "url": "https://www.caseiq.com/resources/balancing-cost-and-risk-in-workplace-investigations",
+     "title": "Balancing Cost and Risk in Workplace Investigations",
+     "publisher": "Case IQ",
+     "date": "2026-06-23",
+     "retrieved": "2026-09-09",
+     "note": "tier 2 employee/vendor investigations $195-275/hr; tier 1 complex $450-750/hr; tier 3 fieldwork $75-175/hr"
+    },
+    {
+     "url": "https://zealousadvocate.com/resources/law/private-investigator-cost/",
+     "title": "How Much Does a Private Investigator Cost in 2026?",
+     "publisher": "Zealous Advocate",
+     "date": "2026-05-05",
+     "retrieved": "2026-09-09",
+     "note": "average $132/hr, range $25-250/hr; report preparation $125-550; retainers ~$1,500+"
+    },
+    {
+     "url": "https://www.paradigmie.com/post/hr-consulting-fees-rates-2026",
+     "title": "HR Consulting Fees & Rates 2026: A Practical Guide for SMBs",
+     "publisher": "Paradigm IE",
+     "date": "2026-08-18",
+     "retrieved": "2026-09-09",
+     "note": "senior HR specialists $200-350+/hr; specialized compliance and investigation work commands premium fees; compliance audits $8,000-30,000"
+    }
+   ],
+   "notes": "Attorney-led investigations bill at legal rates and can exceed this range several times over; the AI contribution is evidence synthesis and report drafting, not interviewing."
+  },
+  {
+   "task_id": "iep-draft",
+   "unit": "per student",
+   "price_low": 250,
+   "price_base": 500,
+   "price_high": 2000,
+   "human_minutes": 600,
+   "price_basis": "Derived: a Minnesota district proposal estimates state-excess IEP paperwork alone at 32-61 hours per student per year, so a full IEP draft is taken at 6-10 teacher hours. Special education teacher median $74,260 (BLS 2025), about $40/hr on a 1,850-hour year and ~$50 loaded: low 6 hrs x $40 ($250 rounded); base 10 hrs x $50 ($500). High: independent advocates and consultants charge $200-300/hr with 10-20 hours per comprehensive engagement (A Day in Our Shoes) and special education consultants average $70/hr (PayScale); 10 consultant hours at $200 = $2,000.",
+   "status": "derived (teacher and consultant wages observed; hours per IEP inferred from a district paperwork estimate)",
+   "sources": [
+    {
+     "url": "https://www.house.mn.gov/comm/docs/f73e24a4-230e-4291-80da-fe8dcde6db56.pdf",
+     "title": "Paperwork Reduction for Special Education Teachers: New Ulm Public Schools Proposal",
+     "publisher": "Minnesota House of Representatives committee document",
+     "date": "n.d.",
+     "retrieved": "2026-09-09",
+     "note": "meeting only federal requirements would save 32-61 hours per student; average caseload 15 students; FBA-only 2 people 2-3 hours vs full evaluation 5-8 people 20+ hours"
+    },
+    {
+     "url": "https://www.onetonline.org/link/localwages/25-2058.00",
+     "title": "Special Education Teachers, Secondary School: National Wages (BLS 2025)",
+     "publisher": "O*NET OnLine / BLS",
+     "date": "2025",
+     "retrieved": "2026-09-09",
+     "note": "median $74,260; 25th pct $60,180; 75th pct $93,730"
+    },
+    {
+     "url": "https://adayinourshoes.com/how-much-does-an-iep-special-education-advocate-cost/",
+     "title": "How Much Does An IEP Advocate Cost?",
+     "publisher": "A Day in Our Shoes",
+     "date": "2026-01-07",
+     "retrieved": "2026-09-09",
+     "note": "advocates $200-300/hr or more; comprehensive engagements 10-20 hours minimum; $500-1,000 cited as a range"
+    },
+    {
+     "url": "https://www.payscale.com/research/US/Job=Special_Education_Consultant/Hourly_Rate",
+     "title": "Average Special Education Consultant Hourly Pay",
+     "publisher": "PayScale",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "average $70.00/hr (small sample)"
+    }
+   ],
+   "notes": "No per-IEP market price exists; schools absorb the cost in teacher time, and the IEP team meeting plus parent consent are required before any draft takes effect."
+  },
+  {
+   "task_id": "lesson-plan-unit",
+   "unit": "per unit",
+   "price_low": 25,
+   "price_base": 600,
+   "price_high": 2000,
+   "human_minutes": 720,
+   "price_basis": "Low: marketplace unit bundles, e.g. a 10-resource, 127-page electricity unit bundle at $25 on Tes. Base and high: custom curriculum writing at freelance rates of $30-100/hr (Guru) and contractual curriculum development rates of $30-32.50/hr (Law Insider clause samples); a 2 to 3 week unit at 12 hours x $50 = $600 (base) and 20 hours x $100 = $2,000 (high).",
+   "status": "mixed (observed marketplace price for the low; custom development derived from hourly rates)",
+   "sources": [
+    {
+     "url": "https://www.tes.com/en-au/teaching-resource/electricity-big-unit-bundle-11297953",
+     "title": "Electricity: BIG UNIT BUNDLE!",
+     "publisher": "Tes",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$25.00 for a 10-product, 127-page unit bundle"
+    },
+    {
+     "url": "https://www.guru.com/m/hire/freelancers/curriculum-developers/",
+     "title": "Hire Curriculum Development Services Online",
+     "publisher": "Guru",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "freelance curriculum developers typically $30 to $100 per hour; fixed-rate pricing common for defined modules"
+    },
+    {
+     "url": "https://www.lawinsider.com/clause/curriculum-development-rate",
+     "title": "Curriculum Development Rate Clause Samples",
+     "publisher": "Law Insider",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "contract curriculum development rates $27.00, $30.00 and $32.50 per hour"
+    }
+   ],
+   "notes": "Marketplace supply has already compressed the price of generic units to tens of dollars; the custom-development price only holds for district-specific or proprietary curricula."
+  },
+  {
+   "task_id": "course-syllabus",
+   "unit": "per course",
+   "price_low": 150,
+   "price_base": 500,
+   "price_high": 1500,
+   "human_minutes": 360,
+   "price_basis": "Derived: instructional design contractors bill $30-125/hr (Momentive), learning-design consulting $75-150/hr at the low end and $250-500/hr at the high end (LearningSim). Syllabus alone taken at 4-10 hours: low 4 hrs x $37.50; base 6 hrs x $85; high 10 hrs x $150. Cross-check: university course development stipends of $1,000 per credit (UNI) cover a fully built online course, of which the syllabus and outcome map are a fraction.",
+   "status": "derived (hourly rates observed; syllabus hours author assumption; stipend as a ceiling cross-check)",
+   "sources": [
+    {
+     "url": "https://momentivesoftware.com/blog/instructional-design-costs-guide/",
+     "title": "Cost of Hiring an Instructional Designer Explained",
+     "publisher": "Momentive Software",
+     "date": "2023-03-13",
+     "retrieved": "2026-09-09",
+     "note": "instructional design contractors $30-125/hr; full-time ID $81,000-90,000/yr"
+    },
+    {
+     "url": "https://www.learningsim.com/2024-cost-estimates-for-learning-design/",
+     "title": "2024 Cost Estimates for Learning Design",
+     "publisher": "LearningSim",
+     "date": "2024",
+     "retrieved": "2026-09-09",
+     "note": "consulting $75-150/hr lower, $250-500/hr higher; ILT 30-40 development hours per finished hour"
+    },
+    {
+     "url": "https://online.uni.edu/faculty-staff-resources/online-course-development-stipend-guidelines-and-requirements",
+     "title": "Online Course Development Stipend Guidelines and Requirements",
+     "publisher": "University of Northern Iowa",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$1,000 per credit unit for a fully developed online course with a completed course objective mapping form"
+    }
+   ],
+   "notes": "Faculty write most syllabi unpaid as part of load; the price reflects the outsourced instructional-design alternative."
+  },
+  {
+   "task_id": "recommendation-letter",
+   "unit": "per letter",
+   "price_low": 35,
+   "price_base": 100,
+   "price_high": 200,
+   "human_minutes": 60,
+   "price_basis": "Observed: ghostwriting services price a basic letter at $35 and a premium letter at $50 with 48-hour delivery (RecommendationLetters.pro); a credentialed admissions writer charges $149 per letter (Dr. Robert Edinger); LORService advertises from $27.19 per page. Base $100 sits between the marketplace and credentialed tiers; high $200 covers a credentialed writer with rush turnaround.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://recommendationletters.pro/products/full-page-recommendation-letter",
+     "title": "Professional Recommendation/Reference Letter, 48 Hours Delivery Time",
+     "publisher": "RecommendationLetters.pro",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "basic $35.00, premium $50.00, emailed within 48 hours"
+    },
+    {
+     "url": "https://personal-statements-of-purpose.myshopify.com/products/professional-letter-of-recommendation-writing-and-editing-service-by-dr-robert-f-edinger",
+     "title": "Professional Letter of Recommendation Writing and Editing Service by Dr. Robert F. Edinger",
+     "publisher": "Dr. Robert F. Edinger",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$149.00 per letter, writing and editing"
+    },
+    {
+     "url": "https://www.lorservice.com/our-recommendation-letter-service/",
+     "title": "Recommendation Letter Writing Services from $27.19/Page",
+     "publisher": "LORService",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "from $27.19 per page (275 words); 14-day standard turnaround"
+    }
+   ],
+   "notes": "The paid market is ghostwriting for the applicant to hand a recommender; the recommender still attests and signs, and general-purpose AI has already compressed this price."
+  },
+  {
+   "task_id": "crisis-statement-draft",
+   "unit": "per statement",
+   "price_low": 600,
+   "price_base": 1500,
+   "price_high": 5000,
+   "human_minutes": 180,
+   "price_basis": "Derived: crisis advisory bills $200-600+/hr (AMW), senior practitioners $400-1,000/hr in regulated and litigation-adjacent work (Everything-PR), and crisis work typically carries a $20,000 minimum billed hourly (Avaans). A single holding or response statement is 2-5 senior hours including fact-checking and approvals: low 3 hrs x $200; base 3 hrs x $500; high 5 hrs x $1,000. Standalone statements are rarely sold; the price is the allocated share of an engagement.",
+   "status": "derived (hourly rates observed; hours per statement author assumption)",
+   "sources": [
+    {
+     "url": "https://amworldgroup.com/pricing/crisis-pr-cost",
+     "title": "How Much Does Crisis PR Cost? 2026 Pricing Guide",
+     "publisher": "AMW Group",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "hourly $200-600+; prevention retainer $5,000-15,000/month; active response $15,000-100,000+"
+    },
+    {
+     "url": "https://everything-pr.com/how-much-does-a-pr-firm-cost-in-2026",
+     "title": "How Much Does a PR Firm Cost in 2026? Retainers & Pricing",
+     "publisher": "Everything-PR",
+     "date": "2026-06-21",
+     "retrieved": "2026-09-09",
+     "note": "senior practitioners $400-1,000/hr; active crisis response $25,000-100,000+ per engagement"
+    },
+    {
+     "url": "https://avaansmedia.com/how-much-does-a-pr-agency-cost/",
+     "title": "How Much Does a PR Agency Cost?",
+     "publisher": "Avaans Media",
+     "date": "2025-04-12",
+     "retrieved": "2026-09-09",
+     "note": "crisis communications $20,000 minimum billed hourly; O'Dwyer rates CEO $439/hr, SAE $333/hr, account manager $257/hr"
+    }
+   ],
+   "notes": "The statement is the visible output of a larger engagement (monitoring, legal coordination, spokesperson prep); V for the draft alone understates what buyers pay for the process."
+  },
+  {
+   "task_id": "media-list-build",
+   "unit": "per campaign",
+   "price_low": 100,
+   "price_base": 400,
+   "price_high": 1500,
+   "human_minutes": 480,
+   "price_basis": "Mixed: Media List Pro bills $50/hr and finds 6-10 verified contacts per hour, with a $20 introductory 10-contact list. Targeted lists run 10-50 journalists, broader consumer pushes a few hundred (Muck Rack). Low: ~20 contacts, 2 hours ($100). Base: ~60 contacts, 8 hours ($400). High: ~150 contacts at agency rates of $100-150/hr ($1,500). Database subscriptions (Cision and Muck Rack ~$10,000/yr, Meltwater ~$6,000, Prowly from $258/month) are the substitute for firms building lists in-house.",
+   "status": "mixed (observed hourly rate and contacts per hour; list totals derived)",
+   "sources": [
+    {
+     "url": "https://www.medialistpro.com/",
+     "title": "Media List Pro: Targeted Journalist Research for PR Professionals",
+     "publisher": "Media List Pro",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "$50 per hour; 6-10 verified contacts per hour; $20 introductory 10-person list"
+    },
+    {
+     "url": "https://presscable.com/insights/4-best-media-databases-for-pr-in-2026-pricing-free-options/",
+     "title": "4 Best Media Databases for PR in 2026: Pricing & Free Options",
+     "publisher": "Presscable",
+     "date": "2025-09-27",
+     "retrieved": "2026-09-09",
+     "note": "Prowly from $258/month; Meltwater ~$6,000/yr; Muck Rack ~$10,000/yr; Cision ~$10,000/yr"
+    },
+    {
+     "url": "https://www.buzzstream.com/blog/media-list-building/",
+     "title": "How to Build A Media List (Without Paying For One)",
+     "publisher": "BuzzStream",
+     "date": "2024-08-28",
+     "retrieved": "2026-09-09",
+     "note": "about 80% of list building is manual; databases $258/month budget to $7,200-10,000 premium"
+    },
+    {
+     "url": "https://muckrack.com/blog/2022/03/10/media-list-building-pr",
+     "title": "Building a media list that works: Examples and best practices",
+     "publisher": "Muck Rack",
+     "date": "2026-04-01",
+     "retrieved": "2026-09-09",
+     "note": "targeted list 10-50 journalists; broad consumer announcement a few hundred; audit before every campaign"
+    }
+   ],
+   "notes": "Fiverr gigs advertise lists from $5, so the low end is already AI- and offshore-compressed; verified, current contacts are what the price buys."
+  },
+  {
+   "task_id": "executive-speech-draft",
+   "unit": "per speech",
+   "price_low": 1500,
+   "price_base": 4000,
+   "price_high": 12000,
+   "human_minutes": 1200,
+   "price_basis": "Observed: corporate keynotes (20-30 min) $1,500-5,000 and executive/C-suite speeches (15-45 min) $3,000-15,000+ (Author Central); corporate speeches priced at $200 per minute of speaking time, so a 20-minute address is $4,000 (Eddie Rice); UK keynote speechwriting GBP 5,000-8,000 per speech (The Speechwriter). Low is the corporate-keynote floor, base the 20-minute per-minute figure, high inside the C-suite range.",
+   "status": "observed",
+   "sources": [
+    {
+     "url": "https://theauthorcentral.com/blog/speech-writer-pricing-guide/",
+     "title": "Pricing Guide for Professional Speech Writers",
+     "publisher": "Author Central",
+     "date": "2026-04",
+     "retrieved": "2026-09-09",
+     "note": "corporate keynote 20-30 min $1,500-5,000; executive/C-suite 15-45 min $3,000-15,000+; hourly $75-100 newer, $250+ senior"
+    },
+    {
+     "url": "https://www.goodreads.com/author_blog_posts/22606918-how-much-does-it-cost-to-hire-a-speechwriter",
+     "title": "How much does it cost to hire a speechwriter?",
+     "publisher": "Eddie Rice (Goodreads author blog)",
+     "date": "2022-06-02",
+     "retrieved": "2026-09-09",
+     "note": "corporate/keynote $200 per minute of speaking time; ceremonial $75/min; per word $0.50-1.25"
+    },
+    {
+     "url": "https://thespeechwriter.co.uk/examples/",
+     "title": "Costs",
+     "publisher": "The Speechwriter (Brian Jenner, UK)",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "keynote speeches GBP 5,000-8,000 each; rewriting and consultancy GBP 150/hr"
+    }
+   ],
+   "notes": "Human minutes assume ~20 hours of interviews, research, drafting and two revision rounds; rush and confidentiality premiums add 30-50%."
+  },
+  {
+   "task_id": "internal-comms-announcement",
+   "unit": "per announcement",
+   "price_low": 75,
+   "price_base": 200,
+   "price_high": 500,
+   "human_minutes": 180,
+   "price_basis": "Derived: communications consultants earn a median $62/hr, range $52-72 (Salary.com); freelance writers average $30.28/hr (PayScale); North American mid-level copywriting runs about $75/hr (Clockify). An announcement package (email, intranet post, talking points, FAQ) is 2-4 hours: low 2.5 hrs x $30; base 3 hrs x $65; high 4 hrs x $125 for a senior internal-comms freelancer.",
+   "status": "derived (hourly rates observed; hours per announcement author assumption)",
+   "sources": [
+    {
+     "url": "https://www.salary.com/research/salary/posting/communications-consultant-hourly-wages",
+     "title": "Hourly wage for Communications Consultant",
+     "publisher": "Salary.com",
+     "date": "2026-09-01",
+     "retrieved": "2026-09-09",
+     "note": "median $62/hr; 10th-90th pct $52-72/hr"
+    },
+    {
+     "url": "https://www.payscale.com/research/US/Job=Freelance_Writer/Hourly_Rate",
+     "title": "Freelance Writer Hourly Pay in 2026",
+     "publisher": "PayScale",
+     "date": "2026-06-01",
+     "retrieved": "2026-09-09",
+     "note": "average $30.28/hr; 10th-90th pct $15.45-50.42/hr"
+    },
+    {
+     "url": "https://clockify.me/average-hourly-rates",
+     "title": "Average Hourly Rates for 2026",
+     "publisher": "Clockify",
+     "date": "2026",
+     "retrieved": "2026-09-09",
+     "note": "freelance writers $22-37/hr by experience; mid-level copywriting North America ~$75/hr"
+    }
+   ],
+   "notes": "Most announcements are written in-house by comms staff; the freelance rate is the outsourced alternative and the market is already heavily AI-assisted."
+  }
+ ]
+}

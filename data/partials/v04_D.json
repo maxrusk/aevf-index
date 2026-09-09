@@ -1,0 +1,528 @@
+{
+  "tasks": [
+    {
+      "task_id": "deposition-summary",
+      "unit": "per transcript",
+      "price_low": 300,
+      "price_base": 600,
+      "price_high": 1500,
+      "human_minutes": 420,
+      "price_basis": "Traditional outsourced summary services charge $3-10 per page ($300-2,000 per transcript, Dodonai); Ditto lists $3.00/page standard and $2.50/page slow turnaround; base is a 200-page transcript at $3/page, high is 200 pages at the top of the human range, low is the bottom of the per-transcript range. Human minutes from 6-8 paralegal hours per transcript.",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://www.dittotranscripts.com/deposition-summary-services/",
+          "title": "Deposition Summary Services",
+          "publisher": "Ditto Transcripts",
+          "date": "2024-11-21",
+          "retrieved": "2026-09-09",
+          "note": "$3.00/page (5-10 business days), $2.50/page (11+ days), $2.25/page bundled with transcription; about 20 pages summarized per hour"
+        },
+        {
+          "url": "https://www.dodon.ai/compare/best-deposition-summary-software/",
+          "title": "Best Deposition Summary Software (2026): AI vs. Manual Compared",
+          "publisher": "Dodonai",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "traditional services $3-10 per page, $300 to $2,000 per transcript; 6-8 paralegal hours per transcript"
+        },
+        {
+          "url": "https://www.lezdotechmed.com/medical-record-review-pricing/",
+          "title": "Medical Record Review Pricing",
+          "publisher": "LezDo TechMed",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "offshore deposition summary add-on $1.50/page falling to $1/page at volume"
+        }
+      ],
+      "notes": "AI vendors (SmartDepo, Dodonai) already sell at $1/page, so the human price overstates durable willingness to pay."
+    },
+    {
+      "task_id": "medical-records-chronology",
+      "unit": "per 500 pages",
+      "price_low": 375,
+      "price_base": 1000,
+      "price_high": 2000,
+      "human_minutes": 600,
+      "price_basis": "US outsourced chronology vendors advertise $1.50-4.00 per page (Chartely), so 500 pages runs $750-2,000; base taken at $2/page. Low is the offshore tier: LezDo $0.75/page for 101-500 pages ($375) and MedSum Legal $25/hour, quoting $250 for a 500-page chronology (10 hours). Human minutes use MedSum stated 10 hours per 500 pages.",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://www.chartely.com/blog/medical-chronology-services-cost",
+          "title": "What Medical Chronology Services Cost in 2026",
+          "publisher": "Chartely",
+          "date": "2026-07-10",
+          "retrieved": "2026-09-09",
+          "note": "outsourced standard chronology $1.50-4.00 per page; rush 50-100% more; 5-10 business day turnaround"
+        },
+        {
+          "url": "https://www.lezdotechmed.com/medical-record-review-pricing/",
+          "title": "Medical Record Review Pricing",
+          "publisher": "LezDo TechMed",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "one-time projects: $100 flat for 0-100 pages, $0.75/page for 101-500 pages, $0.40/page for 501-1,000"
+        },
+        {
+          "url": "https://medsumlegal.com/our-pricing/",
+          "title": "Our Pricing",
+          "publisher": "MedSum Legal LLC",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "medical chronology $25 per hour; sample estimate 500 pages = $250 (10 hours)"
+        }
+      ],
+      "notes": "Offshore nurse-reviewer vendors already compress the US price 3-4x; AI chronology software is at $0.05-0.10 per page."
+    },
+    {
+      "task_id": "privilege-log-entries",
+      "unit": "per 100 documents",
+      "price_low": 500,
+      "price_base": 1000,
+      "price_high": 1500,
+      "human_minutes": 860,
+      "price_basis": "Manual privilege log description drafting is quoted at $5-15 per logged entry with a $10/entry traditional vendor benchmark (Decover 2026 benchmark), giving $500-1,500 per 100 entries with base at $1,000; the same source prices the underlying privilege call at $4-8 per document, which is excluded here. Human minutes from eDiscovery AI throughput of roughly 7 documents logged per hour (14.3 hours per 100).",
+      "status": "observed",
+      "sources": [
+        {
+          "url": "https://www.decover.ai/blog/hidden-cost-document-review/",
+          "title": "The Real Cost of Document Review: A 2026 Pricing Benchmark",
+          "publisher": "DecoverAI",
+          "date": "2026-04-07",
+          "retrieved": "2026-09-09",
+          "note": "privilege log $5-15 per logged entry, vendor benchmark $10/entry; privilege review $4-8 per document; contract attorneys $35-60/hr"
+        },
+        {
+          "url": "https://www.decover.ai/blog/genai-privilege-logs/",
+          "title": "GenAI for Privilege Logs: Automating the Most Painful Task in Litigation",
+          "publisher": "DecoverAI",
+          "date": "2026-04-04",
+          "retrieved": "2026-09-09",
+          "note": "a 10,000-entry privilege log represents $50,000 to $150,000 of description-drafting labor"
+        },
+        {
+          "url": "https://ediscoveryai.com/privilege-logging-with-ediscovery-ai/",
+          "title": "A Smarter Way Forward: Privilege Logging with eDiscovery AI",
+          "publisher": "eDiscovery AI",
+          "date": "2025-10-13",
+          "retrieved": "2026-09-09",
+          "note": "traditional privilege logging roughly 7 documents per hour vs up to 35 with AI assistance"
+        }
+      ],
+      "notes": "eDiscovery platforms now bundle log generation into per-GB pricing, so the per-entry human price is eroding."
+    },
+    {
+      "task_id": "brief-cite-check-bluebook",
+      "unit": "per brief",
+      "price_low": 250,
+      "price_base": 500,
+      "price_high": 1200,
+      "human_minutes": 270,
+      "price_basis": "Derived. Time: a practitioner testimonial puts a manual cite check plus table of authorities at 3-6 hours per brief (Benchly), on an average brief of 67 citations (Wikipedia). Rate: litigation-support paralegal billing $85-140/hr (Regent) and $100-150+/hr (HireParalegals), BLS paralegal mean wage $33.51/hr. Low = 3h x $85, base = 4.5h x $110, high = 6h x $150 stretched to $1,200 for appellate briefs where an associate does the check.",
+      "status": "derived (time and billing rate both sourced; no published per-brief flat fee found)",
+      "sources": [
+        {
+          "url": "https://www.benchly.com/table-of-authorities-generator",
+          "title": "Table of Authorities Generator",
+          "publisher": "Benchly",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "user testimonial: 3-6 hours to check cites, confirm they were correct, and build a TOA"
+        },
+        {
+          "url": "https://en.wikipedia.org/wiki/Table_of_authorities",
+          "title": "Table of authorities",
+          "publisher": "Wikipedia",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "an average legal brief includes 67 citations to authority"
+        },
+        {
+          "url": "https://hireparalegals.com/paralegal-hourly-rates/",
+          "title": "What Are You Really Paying for a Paralegal?",
+          "publisher": "HireParalegals",
+          "date": "2025-10-14",
+          "retrieved": "2026-09-09",
+          "note": "billable rates: document preparation and review $70-110/hr, specialized and litigation support $100-150+/hr"
+        },
+        {
+          "url": "https://regentsrs.com/paralegal-services-price-list/",
+          "title": "Paralegal services price list. Chart Updated 2025",
+          "publisher": "Regent Support Services",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "litigation paralegal services $85-140/hr; legal research and memo drafting $75-125/hr"
+        },
+        {
+          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+          "title": "BLS OEWS May 2025, Paralegals and Legal Assistants (23-2011), series OEUN000000000000023201103",
+          "publisher": "US BLS",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "mean hourly wage $33.51, median $30.24"
+        }
+      ],
+      "notes": "Offshore proofreading starts near $10/hr but excludes citation verification; law-review style cite checks on long appellate briefs run well past the high."
+    },
+    {
+      "task_id": "contract-redline-round",
+      "unit": "per round",
+      "price_low": 250,
+      "price_base": 500,
+      "price_high": 1500,
+      "human_minutes": 90,
+      "price_basis": "Derived from attorney time per round at market rates. Terms.Law sells a $1,000 flat redline including up to 3 rounds (about $333/round) with extra negotiation at $300/hr; hourly rates run $150-250 solo, $250-400 mid-size, $400-800+ large firm (My Legal Pal) and $125-500+ (Legal Counsel PA); draft-and-negotiate packages $500-3,000 (Legal Counsel PA, BizCounsel). A round is 1-3 attorney hours: low 1h x $250, base 1.5h x $333, high 3h x $500.",
+      "status": "derived (flat-fee bundle and hourly rates observed; per-round time modeled)",
+      "sources": [
+        {
+          "url": "https://terms.law/services/contract-redlining/",
+          "title": "Contract Redlining Service",
+          "publisher": "Terms.Law",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$1,000 flat: clause-by-clause review, tracked-changes markup, up to 3 rounds of revisions; extended negotiation $300/hr"
+        },
+        {
+          "url": "https://mylegalpal.com/contract-review-cost-what-lawyers-actually-charge/",
+          "title": "Contract Review Cost: What Lawyers Actually Charge",
+          "publisher": "My Legal Pal",
+          "date": "2026-08-12",
+          "retrieved": "2026-09-09",
+          "note": "solo $150-250/hr, mid-size associate $250-400/hr, large firm partner $400-800+/hr; flat fees $300-1,500+"
+        },
+        {
+          "url": "https://legalcounselpa.com/blog/lawyer-contract-review-cost-guide/",
+          "title": "Lawyer Contract Review Cost: What to Expect",
+          "publisher": "Legal Counsel PA",
+          "date": "2026-01-22",
+          "retrieved": "2026-09-09",
+          "note": "$125 to over $500 per hour; drafting and negotiation flat fees $500-3,000 or more"
+        },
+        {
+          "url": "https://bizcounsel.com/How-Much-Does%20It-Cost-for-a-lawyer-to-review-a-contract",
+          "title": "How Much Does It Cost for a Lawyer to Review a Contract?",
+          "publisher": "BizCounsel",
+          "date": "2020-07-23",
+          "retrieved": "2026-09-09",
+          "note": "$100-750/hr; draft and negotiate $500-3,000; review plus edits above $3,000"
+        }
+      ],
+      "notes": "Priced as one negotiation turn on a mid-market commercial agreement, not the first full review."
+    },
+    {
+      "task_id": "subpoena-response-package",
+      "unit": "per subpoena",
+      "price_low": 500,
+      "price_base": 3000,
+      "price_high": 9000,
+      "human_minutes": 720,
+      "price_basis": "Estimated on observed anchors. Routine records responses handled by a subpoena service run about $95 preparation plus $75/hr retrieval (roughly 0.6h) and per-page fees (California Subpoena Company), and attorney-involved bank record subpoenas reach $1,000 or more (LegalClarity), setting the low. Courts treat $9,000 (two attorneys) and $20,000 as significant third-party compliance costs (Cades Schutte) and a law firm sought $44,000 for one response (Percipient); high set at the $9,000 anchor, base at a 10-15 hour attorney plus paralegal effort.",
+      "status": "estimated (anchors observed; base modeled from attorney and paralegal hours)",
+      "sources": [
+        {
+          "url": "https://www.cades.com/2022/07/11/third-party-subpoenas-whos-going-to-pay-for-that/",
+          "title": "Third-Party Subpoenas: Who is Going to Pay for That?",
+          "publisher": "Cades Schutte",
+          "date": "2022-07-11",
+          "retrieved": "2026-09-09",
+          "note": "$9,000 for two attorneys (Williams v. City of Dallas), $20,000 (Legal Voice v. Stormans), $200,000 (Linder) recognized as significant expense"
+        },
+        {
+          "url": "https://legalclarity.org/how-much-does-it-cost-to-subpoena-bank-records/",
+          "title": "How Much Does It Cost to Subpoena Bank Records?",
+          "publisher": "LegalClarity",
+          "date": "2026-04-07",
+          "retrieved": "2026-09-09",
+          "note": "self-handled $75-500, with attorney involvement $1,000 or more; institution processing fees $25-75; search and retrieval $15-30/hr"
+        },
+        {
+          "url": "https://www.calsubpoenas.com/pricing/subpoena-pricing",
+          "title": "Subpoena Pricing",
+          "publisher": "California Subpoena Company Inc.",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "$95 flat file open and subpoena completion; records processing $75/hr (typically 0.6 hours); $0.15/page PDF delivery"
+        },
+        {
+          "url": "https://percipient.co/you-subpoenaed-my-documents-shouldnt-you-pay-for-them-3/",
+          "title": "You Subpoenaed My Documents, Should Not You Pay for Them?",
+          "publisher": "Percipient",
+          "date": "2023-04-22",
+          "retrieved": "2026-09-09",
+          "note": "law firm sought reimbursement for over $44,000 spent complying with a subpoena (US v. Cardinal Growth)"
+        }
+      ],
+      "notes": "Responding party normally bears the cost (Rule 45), so this is a cost center rather than a fee the business chooses to pay."
+    },
+    {
+      "task_id": "aml-sar-narrative",
+      "unit": "per SAR",
+      "price_low": 150,
+      "price_base": 400,
+      "price_high": 700,
+      "human_minutes": 300,
+      "price_basis": "Mid-market cost per SAR filed is $350-700 including analyst time, supervisory review and rework, with 4-8 hours per SAR of which the narrative is 1-2.5 hours and QC 0.5-1.5 hours (FluxForce citing Deloitte and ACAMS 2025 benchmarks). Base $400 sits at the low-middle of that range because this card excludes the transaction monitoring alert stage. Low $150 is the narrative-and-form stage alone at about 2 hours of loaded compliance officer time (BLS mean $42.50/hr, about $70/hr loaded); the older Bank Director estimate of $78 per SAR for form preparation only sits below it.",
+      "status": "mixed (cost-per-SAR benchmark observed; low derived from wage x narrative time)",
+      "sources": [
+        {
+          "url": "https://www.fluxforce.ai/blog/sar-filing-for-compliance",
+          "title": "SAR Filing: The Hidden Bottleneck Killing Your Compliance Team",
+          "publisher": "FluxForce",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "cost per SAR filed $350-700; 4-8 hours per SAR; narrative 1-2.5 hours; QC 30-90 minutes; first-pass approval 65-75%; 4.6 million SARs in 2025"
+        },
+        {
+          "url": "https://www.bankdirector.com/article/the-high-cost-of-the-suspicious-activity-report/",
+          "title": "The High Cost of the Suspicious Activity Report",
+          "publisher": "Bank Director",
+          "date": "2020-12-04",
+          "retrieved": "2026-09-09",
+          "note": "about $180 million in analyst salaries for preparing 2.3 million SARs (2019), roughly $78 per SAR form; AML analyst salary $75,000"
+        },
+        {
+          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+          "title": "BLS OEWS May 2025, Compliance Officers (13-1041), series OEUN000000000000013104103",
+          "publisher": "US BLS",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "mean hourly wage $42.50, median $38.81, annual mean $88,400"
+        }
+      ],
+      "notes": "Priced as SAR preparation from an already escalated case; the BSA officer files and owns the regulatory exposure."
+    },
+    {
+      "task_id": "transaction-monitoring-alert-review",
+      "unit": "per 100 alerts",
+      "price_low": 1500,
+      "price_base": 4000,
+      "price_high": 7000,
+      "human_minutes": 2000,
+      "price_basis": "Manual L1 alert review costs $30-70 per alert (DataRobot AML accelerator), so 100 alerts is $3,000-7,000 with base at $40/alert; low $15/alert reflects offshore or managed L1 teams working 50-100 alerts per analyst-day (Tieto). Human minutes assume 20 minutes per alert: simple false positives take 30-60 minutes at smaller shops (Flagright) while high-volume L1 desks clear 50-100 a day.",
+      "status": "observed (per-alert cost range published; low derived from analyst throughput)",
+      "sources": [
+        {
+          "url": "https://docs.datarobot.com/en/docs/get-started/how-to/biz-accelerators/money-launder.html",
+          "title": "Anti-Money Laundering (AML) Alert Scoring",
+          "publisher": "DataRobot docs",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "cost of reviewing an alert ranges between $30 and $70; rules-engine false positive rate 90% on validation sample"
+        },
+        {
+          "url": "https://www.tieto.com/en/insights/2026/ai-driven-aml-monitoring-helps-banks-cut-costs/",
+          "title": "AI-driven AML monitoring helps banks cut costs",
+          "publisher": "Tieto Banktech",
+          "date": "2026-05-15",
+          "retrieved": "2026-09-09",
+          "note": "analysts review 50-100 alerts per day; false positive rates 85-95%; up to 80% of AML budgets spent on false alerts"
+        },
+        {
+          "url": "https://www.flagright.com/post/understanding-false-positives-in-transaction-monitoring",
+          "title": "Understanding False Positives in Transaction Monitoring",
+          "publisher": "Flagright",
+          "date": "2026-02-18",
+          "retrieved": "2026-09-09",
+          "note": "simple false positive investigations take 30-60 minutes, complex cases 4-8 hours; up to 95% of alerts are false positives"
+        },
+        {
+          "url": "https://www.workfusion.com/blog/overcoming-aml-transaction-monitoring-challenges-with-ai/",
+          "title": "Overcoming AML Transaction Monitoring Challenges with AI",
+          "publisher": "WorkFusion",
+          "date": "2023-10-05",
+          "retrieved": "2026-09-09",
+          "note": "90-95% of alerts are false positives; analysts spend 80-85% of time gathering information"
+        }
+      ],
+      "notes": "AI-assisted managed services already quote low single-digit dollars per alert, so the human price overstates durable willingness to pay."
+    },
+    {
+      "task_id": "sanctions-screening-hit-disposition",
+      "unit": "per 100 hits",
+      "price_low": 1000,
+      "price_base": 2500,
+      "price_high": 5000,
+      "human_minutes": 2500,
+      "price_basis": "Level 1 screening hit review takes 15-30 minutes at $15-25 per alert in cross-border payments (EPI via Yahoo Finance) and 30-45 minutes at $25-50 per alert per industry benchmarks (Sphinx), giving $1,500-5,000 per 100 hits; base $25/hit, low $10/hit for offshore L1 desks clearing straightforward name matches in 5-10 minutes. Human minutes at 25 per hit.",
+      "status": "observed (per-alert cost and time ranges published)",
+      "sources": [
+        {
+          "url": "https://finance.yahoo.com/technology/articles/why-99-sanctions-screening-alerts-213632547.html",
+          "title": "Why 99% of sanctions screening alerts are false positives",
+          "publisher": "Electronic Payments International via Yahoo Finance",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "each direct review costs approximately $15-25 per alert; 15-30 minutes of investigation; up to 99% false positives; $8-12bn annual industry cost"
+        },
+        {
+          "url": "https://sphinxhq.com/blog-posts/reduce-screening-alert-review-time",
+          "title": "How to Reduce Screening Alert Review Time",
+          "publisher": "Sphinx",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "industry benchmarks 30-45 minutes per Level 1 review, $25-50 in analyst time per alert; 85-90% false positives (Everest Group 2025)"
+        },
+        {
+          "url": "https://www.workfusion.com/blog/measuring-sanctions-alert-review-program-success/",
+          "title": "Measuring Sanctions Alert Review Program Success",
+          "publisher": "WorkFusion",
+          "date": "2024-10-11",
+          "retrieved": "2026-09-09",
+          "note": "over 99% of sanctions alerts are false positives; 26 candidate program metrics"
+        }
+      ],
+      "notes": "Overwhelmingly false-positive clearing; the priced unit is L1 disposition, not L2 escalation or OFAC reporting."
+    },
+    {
+      "task_id": "fraud-case-investigation-report",
+      "unit": "per case",
+      "price_low": 800,
+      "price_base": 2500,
+      "price_high": 6000,
+      "human_minutes": 900,
+      "price_basis": "Average cost per manual SIU investigation is about $2,500 including investigator time, vendor fees and database pulls, with 4-8 hours to write the report and 40-80 investigator hours on complex cases (Hesper AI). External insurance fraud investigations bill $100-150/hr for 20-40 hours, $2,000-6,000 for standard cases (Fraud and Order), and a full contested-claim investigation runs from a few thousand dollars to mid five figures (NBI). Low $800 is an in-house desk investigation of about 15 hours at the BLS claims investigator mean wage of $38.69/hr loaded to about $55/hr.",
+      "status": "observed (per-case averages published; low derived from wage x time)",
+      "sources": [
+        {
+          "url": "https://gethesperai.com/blog/how-insurance-companies-investigate-fraud/",
+          "title": "How insurance companies investigate fraud: inside the SIU process",
+          "publisher": "Hesper AI",
+          "date": "2026-04-09",
+          "retrieved": "2026-09-09",
+          "note": "$2,500 average cost per manual investigation; report writing 4-8 hours; 40-80 investigator hours on a complex case; 14+ days per manual investigation"
+        },
+        {
+          "url": "https://fraudorder.co/how-much-does-a-fraud-investigation-cost-2026-pricing-guide/",
+          "title": "How Much Does a Fraud Investigation Cost? 2026 Pricing Guide",
+          "publisher": "Fraud and Order",
+          "date": "2026-02-09",
+          "retrieved": "2026-09-09",
+          "note": "insurance fraud investigations $100-150/hr, 20-40 hours, $2,000-6,000 for standard cases; general investigators $100-150/hr, forensic specialists $150-250/hr"
+        },
+        {
+          "url": "https://investigations-nbi.com/insurance-fraud-investigations-claims-defense",
+          "title": "Insurance Fraud Investigations: How Carriers and Defense Counsel Build Evidence That Holds Up in Court",
+          "publisher": "National Business Investigations",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "full investigation on a contested workers comp or BI claim runs from a few thousand dollars up to mid-five-figures; 4-6 weeks intake to report"
+        },
+        {
+          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+          "title": "BLS OEWS May 2025, Claims Adjusters, Examiners, and Investigators (13-1031), series OEUN000000000000013103103",
+          "publisher": "US BLS",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "mean hourly wage $38.69, median $37.50, annual mean $80,470"
+        }
+      ],
+      "notes": "Priced as the desk investigation and written report; field surveillance days are excluded and would multiply the high."
+    },
+    {
+      "task_id": "subrogation-demand-package",
+      "unit": "per claim",
+      "price_low": 250,
+      "price_base": 600,
+      "price_high": 2500,
+      "human_minutes": 300,
+      "price_basis": "Mixed. In-house cost: a small subrogation file needs about four hours of adjuster time, two rounds of document gathering and a demand letter review (InsuranceIndustry.ai), at the BLS claims adjuster mean of $38.69/hr loaded to roughly $60-75/hr, giving $250-600 for 4-8 hours. Vendor alternative: third-party subrogation vendors charge 15-30% of recovery (InsuranceIndustry.ai), with cut-rate offers at 15-20% and litigated files at one-third (Claims Journal, MWL); on a $5,000-15,000 auto or property claim that is $750-4,500 for full pursuit, so the high is set at $2,500 as the vendor-fee equivalent for package-plus-pursuit on a mid-size claim. Package contents per Derrevere Stevens Black & Cozad.",
+      "status": "mixed (adjuster time x wage derived; vendor contingency percentages observed)",
+      "sources": [
+        {
+          "url": "https://insuranceindustry.ai/billions-left-behind-how-ai-rewrites-the-economics-of-subrogation/",
+          "title": "Billions Left Behind: How AI Rewrites the Economics of Subrogation",
+          "publisher": "InsuranceIndustry.ai",
+          "date": "2026-05-13",
+          "retrieved": "2026-09-09",
+          "note": "vendor contingency fees typically 15-30% of recovery; a $2,500 recovery needing four hours of adjuster time, two rounds of document gathering and demand letter review does not pencil out manually; 91% of insurers pursue under 30% of identified cases"
+        },
+        {
+          "url": "https://www.claimsjournal.com/columns/road-to-recovery/2022/05/23/310582.htm",
+          "title": "The Only Way to Increase Your Net Subrogation Recoveries",
+          "publisher": "Claims Journal",
+          "date": "2022-05-23",
+          "retrieved": "2026-09-09",
+          "note": "subrogation files most frequently handled on contingency; $75,000 recovery at 1/3 contingency vs $30,000 recovery at 15% contingency"
+        },
+        {
+          "url": "https://www.mwl-law.com/if-it-seems-too-good-to-be-true-the-problem-with-cut-rate-subrogation-vendors/",
+          "title": "If It Seems too Good to Be True: The Problem With Cut-Rate Subrogation Vendors",
+          "publisher": "Matthiesen, Wickert & Lehrer",
+          "date": "2020-04-30",
+          "retrieved": "2026-09-09",
+          "note": "cut-rate vendors sell 15%, 18% or 20% contingent fees; managers find it easier to sell an 18% fee than to assess recovery potential"
+        },
+        {
+          "url": "https://derreverelaw.com/a-guide-to-subrogation-pre-suit-demand-packages/",
+          "title": "A Guide to Subrogation Pre-Suit Demand Packages",
+          "publisher": "Derrevere Stevens Black & Cozad",
+          "date": "2023-10-23",
+          "retrieved": "2026-09-09",
+          "note": "package = demand letter (loss facts, liability basis, damages, interest, 30-day deadline) plus damage package with proof of payment and supporting evidence"
+        },
+        {
+          "url": "https://api.bls.gov/publicAPI/v2/timeseries/data/",
+          "title": "BLS OEWS May 2025, Claims Adjusters, Examiners, and Investigators (13-1031), series OEUN000000000000013103103",
+          "publisher": "US BLS",
+          "date": "2025",
+          "retrieved": "2026-09-09",
+          "note": "mean hourly wage $38.69"
+        }
+      ],
+      "notes": "Vendor contingency pays for pursuit through recovery, not just the package, so the high is an upper bound on what the package alone is worth."
+    },
+    {
+      "task_id": "loss-run-analysis-report",
+      "unit": "per account",
+      "price_low": 200,
+      "price_base": 750,
+      "price_high": 2000,
+      "human_minutes": 240,
+      "price_basis": "Derived. Time: manual loss run review takes 15 minutes for a simple package and several hours for multi-carrier renewals (Kolena) and underwriters spend 1-3 hours preparing data per submission (Decisions); a written trend analysis for an account is modeled at 2-6 hours. Rate: in-house broker or carrier analyst at the risk management consultant wage of $51/hr (Salary.com) loaded to about $100/hr sets the low ($200 for 2 hours); fee-only P&C consultants bill $250-350/hr (Bill Wilson, CPCU) so base is 3 hours at $250 and high is 6 hours at $333. Independent consultancies quote program reviews as custom flat fees (Blueprint Risk Consulting) without published amounts.",
+      "status": "derived (time and hourly rates sourced; no published per-account fee found)",
+      "sources": [
+        {
+          "url": "https://www.kolena.com/blog/automated-loss-run-analysis-auditable-ai-underwriting/",
+          "title": "Auditable AI Loss Run for Faster, Scalable Underwriting",
+          "publisher": "Kolena",
+          "date": "2026-04-01",
+          "retrieved": "2026-09-09",
+          "note": "manual loss run analysis takes 15 minutes for a simple package and several hours for multi-carrier renewals"
+        },
+        {
+          "url": "https://decisions.com/blog/automate-loss-run-analysis-to-accelerate-smarter-underwriting-decisions",
+          "title": "Automate Loss Run Analysis for Smarter Underwriting",
+          "publisher": "Decisions",
+          "date": "2026-07-29",
+          "retrieved": "2026-09-09",
+          "note": "underwriters spend one to three hours preparing data for a single submission"
+        },
+        {
+          "url": "https://insurancecommentary.com/consulting/",
+          "title": "Consulting Fees",
+          "publisher": "Insurance Commentary (Bill Wilson, CPCU, ARM)",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "coverage consulting $250/hr (ISO forms) to $350/hr (non-ISO); other consulting $350/hr, $250/hr for IIABA members; litigation support $450/hr"
+        },
+        {
+          "url": "https://www.salary.com/research/salary/posting/risk-management-consultant-hourly-wages",
+          "title": "Hourly wage for Risk Management Consultant",
+          "publisher": "Salary.com",
+          "date": "2026-09-01",
+          "retrieved": "2026-09-09",
+          "note": "average $51/hr, typical range $47-56, 10th to 90th percentile $44-59"
+        },
+        {
+          "url": "https://www.blueprintriskconsulting.com/",
+          "title": "Blueprint Risk Consulting",
+          "publisher": "Blueprint Risk Consulting",
+          "date": "2026",
+          "retrieved": "2026-09-09",
+          "note": "insurance program review sold as a flat fee custom quote; deliverables include written coverage analysis, EMR audit, cost driver breakdown, renewal positioning summary"
+        }
+      ],
+      "notes": "Brokers usually bundle this into commission, so the standalone price is what a fee-only consultant or MGA analyst would charge."
+    }
+  ]
+}
